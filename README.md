@@ -1,0 +1,1 @@
+Mestint, Haladóprog és Szoftvertech beadandó
