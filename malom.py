@@ -1,1 +1,0 @@
-print("Itt egyszer malom fog épülni!")
