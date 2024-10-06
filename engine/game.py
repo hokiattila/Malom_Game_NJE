@@ -194,12 +194,18 @@ class Game:
     # Eloszor ellenorzi, hogy a jatek lerakasi fazisban van-e (9-nel kevesebb a lerakott korongok szama),
     # vagy a mozgatasi fazisban. Ez alapjan hivja meg a megfelelo lepeseket, majd visszaadja a kort Player 2-nek.
     def player1_move(self):
+        if self.debug:
+            print("Player1's turn") # Debug log
         if self.pieces_placed_player1 < 9:  # Ha Player1 9nel kevesebb korongot rakott le, akkor lerakasi fazisban vagyunk
             move = self.player1.make_move(self.generate_valid_moves())  # Meghivjuk a Player1 lepesert felelos metodusat, es atadjuk neki a valid lepeseket
             self.register_move(move)    # A Player1 altal visszadott lepest regisztraljuk a tablan
+            if self.debug:
+                print("Player1 moves:", move) # Debug log
         else:   # Egyebkent ha lerakasi fazisban vagyunk
             move, target = self.player1.make_move(self.generate_valid_moves()) # Meghivjuk a Player1 lepesert felelos metodusat, viszont tuple-t fogunk visszakapni, ezt ki kell csomagolnunk
             self.register_move(move, target)    # Regisztraljuk a lepest a tablan
+            if  self.debug:
+             print("Player2 moves:", move, target)  # Debug log
         self.switch_turns() # Atadjuk a kort a Player2-nek
 
 
@@ -207,12 +213,18 @@ class Game:
     # Eloszor ellenorzi, hogy a jatek lerakasi fazisban van-e (9-nel kevesebb a lerakott korongok szama),
     # vagy a mozgatasi fazisban. Ez alapjan hivja meg a megfelelo lepeseket, majd visszaadja a kort Player 1-nek.
     def player2_move(self):
+        if self.debug:
+            print("Player2's turn") # Debug log
         if self.pieces_placed_player2 < 9:  # Ha Player2 9nel kevesebb korongot rakott le, akkor lerakasi fazisban vagyunk
             move = self.player2.make_move(self.generate_valid_moves())  # Meghivjuk a Player2 lepesert felelos metodusat, es atadjuk neki a valid lepeseket
             self.register_move(move)    # A Player2 altal visszadott lepest regisztraljuk a tablan
+            if self.debug:
+                print("Player2 moves:",move)   # Debug log
         else:    # Egyebkent ha lerakasi fazisban vagyunk
             move, target = self.player2.make_move(self.generate_valid_moves())  # Meghivjuk a Player2 lepesert felelos metodusat, viszont tuple-t fogunk visszakapni, ezt ki kell csomagolnunk
-            self.register_move(move, target)     # Regisztraljuk a lepest a tablan
+            self.register_move(move, target)    # Regisztraljuk a lepest a tablan
+            if  self.debug:
+                print("Player2 moves:", move, target)   # Debug log
         self.switch_turns() # Atadjuk a kort a Player1-nek
 
 

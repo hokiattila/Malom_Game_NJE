@@ -24,6 +24,7 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     if args.log:
         new_game.log_game() # Ha kaptunk log kapcsolot akkor letrehozzuk a log fajlt
 
+    print_brd()
     while True: # Vegtelen ciklus
         if new_game.game_over(): # Ha a jatek veget er
             print_res() # Kiirjuk az eredmenyt
