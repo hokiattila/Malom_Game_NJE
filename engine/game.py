@@ -133,7 +133,6 @@ class Game:
             print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
         self.board[piece_to_remove] = str(piece_to_remove) # A valasztott korongot levesszuk a tablarol
 
-
     # Azt vizsgalja, hogy veget ert-e a jatek
     # Ha minden korongot leraktak es nincs elegendo korong valamelyik jatekosnal,
     # vagy ha nincs tobb ervenyes lepes.
@@ -145,7 +144,7 @@ class Game:
         player2_pieces = self.board.count('B')  # Osszesitjuk a fekete korongokat (mar biztosan a mozgasi fazisban vagyunk)
         if player1_pieces < 3 or player2_pieces < 3:   # Ha barmely jatekosnak 3-nal kevesebb korongja van,
             return True # akkor a jatek veget ert
-        if not self.generate_valid_moves(): # Ha egy jatekos sem tud lepni (None a lehetséges lepesek listaja),
+        if not self.generate_valid_moves(noprint=True): # Ha egy jatekos sem tud lepni (None a lehetséges lepesek listaja),
             return True # akkor is vege a jateknak
         return False # Minden egyeb esetben meg nincs vege
 
@@ -158,16 +157,16 @@ class Game:
     # 2. Mozgatasi fazis: ha mar minden korong le lett rakva, akkor csak a jatekos
     #    korongjai melletti ures helyekre lehet lepni.
     # TODO ugras implementalasa (Armand)
-    def generate_valid_moves(self):
+    def generate_valid_moves(self, noprint=False):
         current_player_pieces = 'W' if self.current_player() == self.player1 else 'B'   # Meghatarozzuk az aktualis jatekos szinet
 
         if self.pieces_placed_player1 < 9 or self.pieces_placed_player2 < 9:    # Ellenorizzuk, hogy lerakasi fazisban vagyunk-e
             valid_moves = [i for i in range(24) if self.board[i] not in ['W', 'B']] # Ha igen, osszegyujtjuk azokat a poziciokat amik meg uresek
-            if self.debug:
+            if not noprint and self.debug:
                 print(f"Valid placement spots: {valid_moves}")  # Debug log
             return valid_moves  # Visszaadjuk a lepesek listajat
 
-        if self.debug:
+        if not noprint and self.debug:
             print(f"\nPlayer is in the movement phase.")    # Debug log - Ha ideaig elerunk akkor mozgasi fazisban van a jatek
 
         player_pieces_on_board = [i for i, x in enumerate(self.board) if x == current_player_pieces]    # Meghatarozzuk az aktualis jatekos korongjainak poziciojat
@@ -185,7 +184,7 @@ class Game:
                 if self.board[neighbor] not in ['W', 'B']:  # Ha koronggal szomszedos mezo ures,
                     valid_moves.append((piece, neighbor))   # akkor hozzaadjuk a listahoz egy tuple adatszerkezetben (honnan hova lehet lepni)
 
-        if self.debug:
+        if not noprint and self.debug:
             print(f"Valid moves for {self.current_player().color}: {valid_moves}") # Debug log
 
         return valid_moves  # Visszaadjuk a lehetseges lepesek listajat
