@@ -5,6 +5,7 @@ from engine.player.random_player import RandomPlayer
 
 class Game:
     def __init__(self, mode="cvc", debug=False, log=False):
+        # TODO Dinamikus player peldanyositas (Armand)
         self.player1 = RandomPlayer("W")    # Jatekos 1 (feher korong)
         self.player2 = RandomPlayer("B")    # Jatekos 2 (fekete korong)
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
@@ -27,8 +28,7 @@ class Game:
 
     # Milestone 1 TODO (Armand)
     # Lepesek logolasa az elozetesen letrehozott {game_id}.txt fajlba - Csak --log kapcsolo eseten
-    def log_move(self, move):
-        pass
+
 
     # Ket karakteres mezok kiiratasat korrigaljuk
     @staticmethod

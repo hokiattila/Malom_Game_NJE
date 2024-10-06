@@ -4,6 +4,8 @@ from .player import Player
 # Player osztaly leszarmazottja
 # Debug modban stdout-on keresztul kapja meg a userinputot,
 # alapmodban GUI feluleten
+
+# Milestone 1 - TODO (Armand)
 class HumanPlayer(Player):
 
     def __init__(self, color):
