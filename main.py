@@ -10,9 +10,13 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     parser.add_argument('--mode', type=str, default='cvc', choices=['pvp','pvc','cvc'], help='Set the game mode (pvp = Player vs Player, pvc = Player vs Computer, cvc = Computer vs Computer')
     args = parser.parse_args() # Taroljuk az argumentumokat
 
+
     if not args.debug:  # Jelenleg csak debug modot tamogatunk
         sys.exit('At the moment only debug mode is supported')  # igy ha mas modban indul a program, leallitjuk
-
+    '''
+    if args.mode == "pvc":
+        sys.exit('At the moment only cvc mode is supported')
+        '''
     new_game = Game(mode=args.mode,debug=args.debug, log=args.log) # Letrehozunk egy uj Game peldanyt
     new_game.print_initials()   # Kiirjuk az alapadatokat konzolra (Debug mod)
     if args.debug:  # A megjelenito fuggvenyek a mode kapcsolotol fuggnek
@@ -24,12 +28,15 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     if args.log:
         new_game.log_game() # Ha kaptunk log kapcsolot akkor letrehozzuk a log fajlt
 
+
     print_brd()
     while True: # Vegtelen ciklus
         if new_game.game_over(): # Ha a jatek veget er
             print_res() # Kiirjuk az eredmenyt
             break   # Kitorunk a ciklusbol
-        new_game.player1_move() # Egyebkent player 1 lep
+        new_game.player_move(new_game.player1, 1) # Egyebkent player 1 lep
         print_brd() # Megjelenitjuk a tablat
-        new_game.player2_move() # Player 2 lep
+        new_game.player_move(new_game.player2, 2) # Player 2 lep
         print_brd() # Megjelenitjuk a tablat
+        if args.log:
+            new_game.log_game()

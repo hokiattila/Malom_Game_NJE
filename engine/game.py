@@ -2,12 +2,20 @@ import os.path
 from datetime import datetime
 from random import getrandbits
 from engine.player.random_player import RandomPlayer
+from engine.player.human_player import HumanPlayer
 
 class Game:
     def __init__(self, mode="cvc", debug=False, log=False):
         # TODO Dinamikus player peldanyositas (Armand)
-        self.player1 = RandomPlayer("W")    # Jatekos 1 (feher korong)
-        self.player2 = RandomPlayer("B")    # Jatekos 2 (fekete korong)
+        if mode=="cvc":
+            self.player1 = RandomPlayer("W")    # Jatekos 1 (feher korong)
+            self.player2 = RandomPlayer("B")    # Jatekos 2 (fekete korong)
+        elif mode=="pvc":
+            self.player1 = HumanPlayer("W")    # Jatekos 1 (feher korong)
+            self.player2 = RandomPlayer("B")    # Jatekos 2 (fekete korong)
+        elif mode=="pvp":
+            self.player1 = HumanPlayer("W")    # Jatekos 1 (feher korong)
+            self.player2 = HumanPlayer("B")    # Jatekos 2 (fekete korong)
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
         self.pieces_placed_player1 = 0      # Jatekos 1 lerakott korongjai szama
         self.pieces_placed_player2 = 0      # Jatekos 2 lerakott korongjainak szama
@@ -37,26 +45,76 @@ class Game:
             return char + ' '
         return char
 
+    class Colors:
+        HEADER = '\033[95m'     # Magas szintű kiemelés
+        OKBLUE = '\033[94m'     # Kék szín
+        OKCYAN = '\033[96m'     # Világoskék szín
+        OKGREEN = '\033[92m'    # Zöld szín
+        WARNING = '\033[93m'    # Figyelmeztetés (sárga)
+        FAIL = '\033[91m'       # Hibajelzés (piros)
+        ENDC = '\033[0m'        # Visszaállítja az alapértelmezett színt
+        BOLD = '\033[1m'        # Félkövér
+        UNDERLINE = '\033[4m'   # Aláhúzott
+
+        # Kiegészített színek
+        GREY = '\033[38;5;248m' # Szürke
+        DARK_ORANGE = '\033[38;5;166m'  # Sötét narancs
+        BLACK = '\033[30m'      # Fekete
+        RED = '\033[31m'        # Piros
+        GREEN = '\033[32m'      # Zöld
+        YELLOW = '\033[33m'     # Sárga
+        BLUE = '\033[34m'       # Kék
+        MAGENTA = '\033[35m'    # Bíbor
+        CYAN = '\033[36m'       # Világoskék
+        WHITE = '\033[37m'      # Fehér
+
+        # Háttérszínek
+        BACK_GREY = '\033[48;5;237m'  # Szürke
+        BACK_BLACK = '\033[40m'     # Fekete háttér
+        BACK_RED = '\033[41m'       # Piros háttér
+        BACK_GREEN = '\033[42m'     # Zöld háttér
+        BACK_YELLOW = '\033[43m'    # Sárga háttér
+        BACK_BLUE = '\033[44m'      # Kék háttér
+        BACK_MAGENTA = '\033[45m'   # Bíbor háttér
+        BACK_CYAN = '\033[46m'      # Világoskék háttér
+        BACK_WHITE = '\033[47m'     # Fehér háttér
 
     # A tabla aktualis allapotanak kirajzolasa konzolra - Csak debug mod
     def print_board_debug(self):
-        print(
-            '                                   Tábla\n'
-            '                     {}--------------{}---------------{}\n'
-            '                     |               |                |\n'
-            '                     |    {}---------{}----------{}   |\n'
-            '                     |    |          |           |    |\n'
-            '                     |    |    {}----{}-----{}   |    |\n'
-            '                     |    |    |            |    |    |\n'
-            '                     {}---{}---{}           {}---{}---{}\n'
-            '                     |    |    |            |    |    |\n'
-            '                     |    |    {}----{}-----{}   |    |\n'
-            '                     |    |          |           |    |\n'
-            '                     |    {}---------{}----------{}   |\n'
-            '                     |               |                |\n'
-            '                     {}--------------{}---------------{}\n'.format(self.adjust(self.board[0]), self.adjust(self.board[1]), self.adjust(self.board[2]), self.adjust(self.board[3]), self.adjust(self.board[4]), self.adjust(self.board[5]), self.adjust(self.board[6]),
-                self.adjust(self.board[7]),self.adjust(self.board[8]), self.adjust(self.board[9]), self.adjust(self.board[10]), self.adjust(self.board[11]), self.adjust(self.board[12]), self.adjust(self.board[13]), self.adjust(self.board[14]),self.adjust(self.board[15]),self.adjust(self.board[16]), self.adjust(self.board[17]), self.adjust(self.board[18]), self.adjust(self.board[19]), self.adjust(self.board[20]), self.adjust(self.board[21]), self.adjust(self.board[22]),
-                self.adjust(self.board[23])))
+        # Színes board létrehozása
+        self.colored_board = []
+
+        for index, piece in enumerate(self.board):  # 'enumerate' kell, hogy az indexet is kapjuk
+            if piece == 'W':
+                self.colored_board.append(
+                    f"{self.Colors.BACK_WHITE}{self.Colors.BLACK}W {self.Colors.ENDC}{self.Colors.GREEN}")  # Fehér korong + space
+            elif piece == 'B':
+                self.colored_board.append(
+                    f"{self.Colors.BACK_GREY}{self.Colors.WHITE}B {self.Colors.ENDC}{self.Colors.GREEN}")  # Fekete korong + space
+            else:
+                # Egyjegyű számok esetén is space-t rakunk mögé
+                if len(piece) == 1:
+                    self.colored_board.append(f"{self.Colors.OKBLUE}{piece} {self.Colors.ENDC}{self.Colors.GREEN}")  # Kék szám + space
+                else:
+                    self.colored_board.append(f"{self.Colors.OKBLUE}{piece}{self.Colors.ENDC}{self.Colors.GREEN}")  # Kétjegyű szám (pl. 10, 11, stb.)
+
+        print(f"""
+                                           Tábla
+                             {self.Colors.GREEN}{self.colored_board[0]}--------------{self.colored_board[1]}---------------{self.colored_board[2]}{self.Colors.ENDC}
+                             {self.Colors.GREEN}|               |                |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    {self.colored_board[3]}---------{self.colored_board[4]}----------{self.colored_board[5]}   |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    |          |           |    |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    |    {self.colored_board[6]}----{self.colored_board[7]}-----{self.colored_board[8]}   |    |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    |    |            |    |    |{self.Colors.ENDC}
+                             {self.Colors.GREEN}{self.colored_board[9]}---{self.colored_board[10]}---{self.colored_board[11]}           {self.colored_board[12]}---{self.colored_board[13]}---{self.colored_board[14]}{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    |    |            |    |    |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    |    {self.colored_board[15]}----{self.colored_board[16]}-----{self.colored_board[17]}   |    |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    |          |           |    |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|    {self.colored_board[18]}---------{self.colored_board[19]}----------{self.colored_board[20]}   |{self.Colors.ENDC}
+                             {self.Colors.GREEN}|               |                |{self.Colors.ENDC}
+                             {self.Colors.GREEN}{self.colored_board[21]}--------------{self.colored_board[22]}---------------{self.colored_board[23]}{self.Colors.ENDC}
+        """)
+
         print()
 
     # Az aktualis jatekos meghatarozasa
@@ -77,12 +135,16 @@ class Game:
             if self.debug:
                 print("Invalid move. No move was made.") # Hiba log (Debug modban)
             return
+
+        # Elmentjük az utolsó lépés pozícióját
+        self.last_move = move if target is None else target
         if target is not None: # Ha kapunk target parametert akkor a mozgatasi fazisban vagyunk
             if self.board[move] == self.current_player().color and self.board[target] not in ['W', 'B']: # Ellenorizzuk, hogy a sajat korongunkat akarjuk e mozgatni es hogy a cel pozicio ures-e
                 self.board[move] = str(move) # Eredeti poziciot visszaallitjuk
                 self.board[target] = self.current_player().color # Uj poziciora beirjuk a korongot
                 if self.mill_is_made(): # Ha malom keletkezik
                     if self.debug:
+                        self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
                     self.remove_opponent_piece() # Meghivjuk a koronglevetelert felelos metodust
             else: # Ervenytelen lepest kaptunk
@@ -97,6 +159,7 @@ class Game:
                     self.pieces_placed_player2 += 1     # Ha a player2 kore volt akkor a hozzatartozo korong szamlalot noveljuk
                 if self.mill_is_made(): # Ha malom keletkezik
                     if self.debug:
+                        self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
                     self.remove_opponent_piece() # Meghivjuk a koronglevetelert felelos metodust
             else: # Foglalt a megadott pozicio (es Lerakasi fazisban vagyunk)
@@ -178,18 +241,27 @@ class Game:
             20: [13, 19], 21: [9, 22], 22: [19, 21, 23], 23: [14, 22]
         }
 
-        valid_moves = [] # Ures lista - ebben gyujtuk majd a lehetseges lepeseket
-        for piece in player_pieces_on_board: # Vegignezzuk a jatekos letett korongjait
-            for neighbor in adjacency_list[piece]:  # Vegigmegyunk a szomszedsagi konyvtarunkon
-                if self.board[neighbor] not in ['W', 'B']:  # Ha koronggal szomszedos mezo ures,
-                    valid_moves.append((piece, neighbor))   # akkor hozzaadjuk a listahoz egy tuple adatszerkezetben (honnan hova lehet lepni)
+        if len(player_pieces_on_board) == 3: # Ha 3 babu van akkor ugras.
+            valid_moves = []  # Ures lista - ebben gyujtuk majd a lehetseges lepeseket
+            for piece in player_pieces_on_board:  # Vegignezzuk a jatekos letett korongjait
+                for i in range(0,23):
+                 if self.board[i] not in ['W', 'B']:
+                     valid_moves.append((piece, i))
+
+        else:
+            valid_moves = [] # Ures lista - ebben gyujtuk majd a lehetseges lepeseket
+            for piece in player_pieces_on_board: # Vegignezzuk a jatekos letett korongjait
+                for neighbor in adjacency_list[piece]:  # Vegigmegyunk a szomszedsagi konyvtarunkon
+                    if self.board[neighbor] not in ['W', 'B']:  # Ha koronggal szomszedos mezo ures,
+                        valid_moves.append((piece, neighbor))   # akkor hozzaadjuk a listahoz egy tuple adatszerkezetben (honnan hova lehet lepni)
 
         if not noprint and self.debug:
-            print(f"Valid moves for {self.current_player().color}: {valid_moves}") # Debug log
+             print(f"Valid moves for {self.current_player().color}: {valid_moves}") # Debug log
 
         return valid_moves  # Visszaadjuk a lehetseges lepesek listajat
 
 
+    '''
     # Player 1 soron levo lepeset kezeli.
     # Eloszor ellenorzi, hogy a jatek lerakasi fazisban van-e (9-nel kevesebb a lerakott korongok szama),
     # vagy a mozgatasi fazisban. Ez alapjan hivja meg a megfelelo lepeseket, majd visszaadja a kort Player 2-nek.
@@ -205,7 +277,8 @@ class Game:
             move, target = self.player1.make_move(self.generate_valid_moves()) # Meghivjuk a Player1 lepesert felelos metodusat, viszont tuple-t fogunk visszakapni, ezt ki kell csomagolnunk
             self.register_move(move, target)    # Regisztraljuk a lepest a tablan
             if  self.debug:
-             print("Player2 moves:", move, target)  # Debug log
+             print("Player1 moves:", move, target)  # Debug log
+             self.log_game(f"Player1 moves: {move} to {target}\n")
         self.switch_turns() # Atadjuk a kort a Player2-nek
 
 
@@ -224,9 +297,30 @@ class Game:
             move, target = self.player2.make_move(self.generate_valid_moves())  # Meghivjuk a Player2 lepesert felelos metodusat, viszont tuple-t fogunk visszakapni, ezt ki kell csomagolnunk
             self.register_move(move, target)    # Regisztraljuk a lepest a tablan
             if  self.debug:
-                print("Player2 moves:", move, target)   # Debug log
+                print("Player2 moves:", move, target)  # Debug log
+                self.log_game(f"Player2 moves: {move} to {target}\n")
         self.switch_turns() # Atadjuk a kort a Player1-nek
+    '''
 
+    def player_move(self, player, player_number):
+        if self.debug:
+            print(f"Player{player_number}'s turn")  # Debug log
+
+        pieces_placed = self.pieces_placed_player1 if player_number == 1 else self.pieces_placed_player2
+
+        if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
+            move = player.make_move(self.generate_valid_moves())  # Meghívjuk a játékos lépését
+            self.register_move(move)  # A visszaadott lépést regisztráljuk
+            if self.debug:
+                print(f"Player{player_number} moves:", move)  # Debug log
+        else:  # Egyébként mozgatási fázisban vagyunk
+            move, target = player.make_move(self.generate_valid_moves())  # Tuple-t fogunk visszakapni
+            self.register_move(move, target)  # Regisztráljuk a lépést
+            if self.debug:
+                print(f"Player{player_number} moves:", move, target)  # Debug log
+                self.log_game(f"Player{player_number} moves: {move} to {target}\n")
+
+        self.switch_turns()  # Átadjuk a kört a másik játékosnak
 
     # A jatek vegeredmenyet jeleniti meg debug modban konzolon.
     # Ha barmelyik jatekosnak 3-nal kevesebb korongja maradt, az a jatekos vesztett.
@@ -247,17 +341,19 @@ class Game:
     # Egy malom akkor keletkezik, ha a jatekosnak 3 azonos szinu korongja van egy vonalban
     # (a tabla elore definialt helyzetein).
     def mill_is_made(self):
-        for mill in self.mills: # Vegig megyunk az osszes malom kombinacion
-            if self.board[mill[0]] == self.board[mill[1]] == self.board[mill[2]] == self.current_player().color:    # Ellenorizzuk, hogy mindharom pozicion megegyezo szin talalhato-e
-                return True # Ha igen akkor keletkezett malom,
-        return False    # egyebkent nem
+        # Az utolsó lépés pozíciójához kapcsolódó malmokat vizsgáljuk
+        for mill in self.mills:
+            if self.last_move in mill:  # Csak azokat a malmokat nézzük, amelyek tartalmazzák az utolsó lépést
+                if self.board[mill[0]] == self.board[mill[1]] == self.board[mill[2]] == self.current_player().color:
+                    return True
+        return False
 
 
 
     # A jatek alapadatait logolja egy txt fajlba (/log mappa).
     # Minden jatekhoz egy egyedi azonosito alapjan kulon log fajl keszul.
     # A log a jatek ID-jat, kezdeti idejet es jatekmodjat fogja tartalmazni a fuggveny futtatasa utan.
-    def log_game(self):
+    def log_game(self, logtext=""):
         project_root = os.path.dirname(os.path.abspath(__file__)) # Taroljuk a projekt gyokerkonyvtarat
         log_dir = os.path.join(project_root, "log") # Beallitjuk az eleresi utvonalat
         if not os.path.exists(log_dir): # Ha nincs ilyen konyvtar,
@@ -268,8 +364,10 @@ class Game:
                 f.write(f"Game ID: {self.game_id}\n")   # game_id log
                 f.write(f"Time: {self.time}\n")         # current time log
                 f.write(f"Mode: {self.mode}\n")         # mode log
-        else:   # ha a log fajl mar letezik nem irjuk felul
-            return
+        elif logtext != "":   # ha a log fajl mar letezik nem irjuk felul
+            with open(log_file_path, mode="a") as f: #append a log fájl végére
+                f.write(logtext)
+        return
 
 if __name__ == '__main__':
     print("This script cannot be run directly.")
