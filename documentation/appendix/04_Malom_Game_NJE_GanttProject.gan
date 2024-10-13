@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Malom_Game_NJE" company="" webLink="http://" view-date="2024-11-12" view-index="0" gantt-divider-location="453" resource-divider-location="368" version="3.3.3311" locale="en_GB">
+    <description/>
+    <view zooming-state="default:1" id="gantt-chart">
+        <field id="tpd3" name="Name" width="249" order="0"/>
+        <field id="tpd4" name="Begin date" width="94" order="1"/>
+        <field id="tpd5" name="End date" width="94" order="2"/>
+        <field id="tpd15" name="Notes" width="20" order="3"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+        <option id="color.recent"><![CDATA[#33cc00 #9966ff #f4f4f4 #00ccff #ff0033 #ff9933]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="139" order="0"/>
+        <field id="1" name="Default role" width="225" order="1"/>
+    </view>
+    <!-- -->
+    <calendars base-id="Hungary">
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="" month="1" date="1" type="HOLIDAY"/>
+        <date year="" month="3" date="15" type="HOLIDAY"/>
+        <date year="" month="5" date="1" type="HOLIDAY"/>
+        <date year="" month="8" date="20" type="HOLIDAY"/>
+        <date year="" month="10" date="23" type="HOLIDAY"/>
+        <date year="" month="11" date="1" type="HOLIDAY"/>
+        <date year="" month="12" date="25" type="HOLIDAY"/>
+        <date year="" month="12" date="26" type="HOLIDAY"/>
+        <date year="2011" month="4" date="24" type="HOLIDAY"/>
+        <date year="2011" month="4" date="25" type="HOLIDAY"/>
+        <date year="2011" month="6" date="12" type="HOLIDAY"/>
+        <date year="2011" month="6" date="13" type="HOLIDAY"/>
+        <date year="2012" month="4" date="8" type="HOLIDAY"/>
+        <date year="2012" month="4" date="9" type="HOLIDAY"/>
+        <date year="2012" month="5" date="27" type="HOLIDAY"/>
+        <date year="2012" month="5" date="28" type="HOLIDAY"/>
+        <date year="2013" month="3" date="31" type="HOLIDAY"/>
+        <date year="2013" month="4" date="1" type="HOLIDAY"/>
+        <date year="2013" month="5" date="19" type="HOLIDAY"/>
+        <date year="2013" month="5" date="20" type="HOLIDAY"/>
+        <date year="2014" month="4" date="20" type="HOLIDAY"/>
+        <date year="2014" month="4" date="21" type="HOLIDAY"/>
+        <date year="2014" month="6" date="8" type="HOLIDAY"/>
+        <date year="2014" month="6" date="9" type="HOLIDAY"/>
+        <date year="2015" month="4" date="5" type="HOLIDAY"/>
+        <date year="2015" month="4" date="6" type="HOLIDAY"/>
+        <date year="2015" month="5" date="24" type="HOLIDAY"/>
+        <date year="2015" month="5" date="25" type="HOLIDAY"/>
+        <date year="2016" month="3" date="27" type="HOLIDAY"/>
+        <date year="2016" month="3" date="28" type="HOLIDAY"/>
+        <date year="2016" month="5" date="15" type="HOLIDAY"/>
+        <date year="2016" month="5" date="16" type="HOLIDAY"/>
+        <date year="2017" month="4" date="16" type="HOLIDAY"/>
+        <date year="2017" month="4" date="17" type="HOLIDAY"/>
+        <date year="2017" month="6" date="4" type="HOLIDAY"/>
+        <date year="2017" month="6" date="5" type="HOLIDAY"/>
+        <date year="2018" month="4" date="1" type="HOLIDAY"/>
+        <date year="2018" month="4" date="2" type="HOLIDAY"/>
+        <date year="2018" month="5" date="20" type="HOLIDAY"/>
+        <date year="2018" month="5" date="21" type="HOLIDAY"/>
+        <date year="2019" month="4" date="21" type="HOLIDAY"/>
+        <date year="2019" month="4" date="22" type="HOLIDAY"/>
+        <date year="2019" month="6" date="9" type="HOLIDAY"/>
+        <date year="2019" month="6" date="10" type="HOLIDAY"/>
+        <date year="2020" month="4" date="12" type="HOLIDAY"/>
+        <date year="2020" month="4" date="13" type="HOLIDAY"/>
+        <date year="2020" month="6" date="5" type="HOLIDAY"/>
+        <date year="2020" month="6" date="6" type="HOLIDAY"/>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="8115fb5198964bf790bacbf0dd9d07ff" name="Base Game Engine" color="#33cc00" meeting="false" start="2024-09-29" duration="14" complete="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" uid="f81f1494bb9d4c199a841af36fd2fe17" name="Documentation I." color="#9966ff" meeting="false" start="2024-09-29" duration="14" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <notes><![CDATA[Documentation framewrok,
+what, why, how, when, who
+]]></notes>
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="2" uid="4748bb18042e4e6a869d975c18c92a37" name="GUI Mockup" color="#9966ff" meeting="false" start="2024-09-29" duration="14" complete="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" uid="5a78d79cdb764f3dbd8285488aa1990c" name="Srpint Review I. - Alpha build" color="#ff9933" meeting="true" start="2024-10-13" duration="0" complete="0" expand="true">
+            <depend id="3" type="2" difference="0" hardness="Strong"/>
+            <depend id="4" type="2" difference="0" hardness="Strong"/>
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" uid="79b3cdec863841c9ae8a9a36826320e3" name="Hillclimber player Implementation" color="#33cc00" meeting="false" start="2024-10-13" duration="14" complete="0" expand="true"/>
+        <task id="4" uid="3bc5f3e32b884518bfd8c08a7ff21366" name="Test I." color="#00ccff" meeting="false" start="2024-10-13" duration="4" complete="0" expand="true">
+            <notes><![CDATA[engine unittest
+test report
+]]></notes>
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="19" uid="68d325a4c85f4ed9892b9cde01eba8da" name="Test I. Review" color="#00ccff" meeting="false" start="2024-10-17" duration="3" complete="0" thirdDate="2024-10-01" thirdDate-constraint="1" expand="true">
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+            <depend id="21" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="21" uid="13f878a619184a048b3b7ba118c83bd0" name="Test I. Bugfixes" color="#00ccff" meeting="false" start="2024-10-20" duration="7" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" uid="0731769516514793bb2e7266dfce454e" name="Saving game data" color="#33cc00" meeting="false" start="2024-10-20" duration="7" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="3" uid="10f86b3b51fa428e8b96acc4083a3ab7" name="GUI development" color="#33cc00" meeting="false" start="2024-10-13" duration="14" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" uid="b811605ad9114b47bd298a09c3789dbb" name="Srpint Review II. - Beta build" color="#ff9933" meeting="true" start="2024-10-28" duration="0" complete="0" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" uid="6c669928b00b4574bd80517c6afad644" name="A* Player implementation" color="#33cc00" meeting="false" start="2024-10-28" duration="14" complete="0" expand="true"/>
+        <task id="10" uid="510b329605804382b1e12e929bd3b2a8" name="ML PLayer Implementation" color="#33cc00" meeting="false" start="2024-10-28" duration="14" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" uid="386732473d0440a693a6b435d68c7248" name="Test II." color="#00ccff" meeting="false" start="2024-10-28" duration="5" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <notes><![CDATA[gui unittest
+test report
+]]></notes>
+            <depend id="20" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="20" uid="88266691809f4a728e7b5605bcc5f003" name="Test II. Review" color="#00ccff" meeting="false" start="2024-11-03" duration="2" complete="0" expand="true">
+            <depend id="14" type="2" difference="0" hardness="Strong"/>
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="22" uid="8566841cc475487796de01fbe3710127" name="Test II. Bugfixes" color="#00ccff" meeting="false" start="2024-11-05" duration="7" complete="0" expand="true">
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="14" uid="2d1b82e18981408b86cdb4785e4a4bfa" name="Game statistics and exports" color="#9966ff" meeting="false" start="2024-11-05" duration="7" complete="0" thirdDate="2024-10-28" thirdDate-constraint="1" expand="true"/>
+        <task id="13" uid="88dba96074ab4bdf81d85e2e72dee93f" name="Srpint Review III. - publish ready build" color="#ff9933" meeting="true" start="2024-11-12" duration="0" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+            <depend id="16" type="2" difference="0" hardness="Strong"/>
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="15" uid="da21acb343634486be830c08516e916e" name="Game Installer" color="#33cc00" meeting="false" start="2024-11-12" duration="7" complete="0" thirdDate="2024-09-29" thirdDate-constraint="1" expand="true">
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="17" uid="44ecaca6dbf34ace9af69553e65775be" name="Create the presentation and demo" color="#9966ff" meeting="false" start="2024-11-19" duration="7" complete="0" expand="true">
+            <depend id="18" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="16" uid="306878e9e0d44c7ca32625f09cb92662" name="Documentation II." color="#9966ff" meeting="false" start="2024-11-12" duration="14" complete="0" expand="true">
+            <notes><![CDATA[conclusions, including statistics, final thoughts
+]]></notes>
+            <depend id="18" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="18" uid="626a2808e64640fbaf8a28ddb990290d" name="Srpint Review IV. - Fixes and touchups" color="#ff9933" meeting="true" start="2024-11-26" duration="0" complete="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Hoki Attila" function="Default:1" contacts="" phone=""/>
+        <resource id="1" name="Koltai Armand" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="2" name="Kovács Márk" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="7" name="Orsós János" function="SoftwareDevelopment:4" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="5" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="0" function="Default:1" responsible="true" load="25.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="0" function="Default:1" responsible="true" load="10.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="0" function="Default:1" responsible="true" load="50.0"/>
+        <allocation task-id="16" resource-id="0" function="Default:1" responsible="true" load="50.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="8" resource-id="0" function="Default:1" responsible="false" load="50.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:1" responsible="true" load="75.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:1" responsible="true" load="25.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:1" responsible="false" load="50.0"/>
+        <allocation task-id="0" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="5" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="19" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
+        <allocation task-id="21" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="25.0"/>
+        <allocation task-id="12" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="13" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="3" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="75.0"/>
+        <allocation task-id="20" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
+        <allocation task-id="22" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="75.0"/>
+        <allocation task-id="9" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
+        <allocation task-id="16" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="5" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="8" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="75.0"/>
+        <allocation task-id="12" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="10" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="90.0"/>
+        <allocation task-id="13" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="11" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
+        <allocation task-id="17" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="50.0"/>
+        <allocation task-id="16" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="50.0"/>
+        <allocation task-id="1" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="10.0"/>
+        <allocation task-id="5" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="4" resource-id="7" function="SoftwareDevelopment:4" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="12" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="7" function="SoftwareDevelopment:4" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="13" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="2" resource-id="7" function="SoftwareDevelopment:4" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="7" function="SoftwareDevelopment:4" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="7" function="SoftwareDevelopment:4" responsible="true" load="50.0"/>
+        <allocation task-id="14" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="100.0"/>
+        <allocation task-id="16" resource-id="7" function="SoftwareDevelopment:4" responsible="false" load="50.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="data analyst"/>
+        <role id="2" name="frontend developer"/>
+    </roles>
+</project>
