@@ -1,21 +1,24 @@
 import os.path
 from datetime import datetime
 from random import getrandbits
+
+from engine.colors import Colors
+from engine.player.astar_player import AStarPlayer
+from engine.player.greedy_player import GreedyPlayer
+from engine.player.ml_player import MLPlayer
+
+from engine.player.player import Player
 from engine.player.random_player import RandomPlayer
 from engine.player.human_player import HumanPlayer
 
+from typing import Union
+from typing import List
+from typing import Tuple
+
 class Game:
-    def __init__(self, mode="cvc", debug=False, log=False):
-        # TODO Dinamikus player peldanyositas (Armand)
-        if mode=="cvc":
-            self.player1 = RandomPlayer("W")    # Jatekos 1 (feher korong)
-            self.player2 = RandomPlayer("B")    # Jatekos 2 (fekete korong)
-        elif mode=="pvc":
-            self.player1 = HumanPlayer("W")    # Jatekos 1 (feher korong)
-            self.player2 = RandomPlayer("B")    # Jatekos 2 (fekete korong)
-        elif mode=="pvp":
-            self.player1 = HumanPlayer("W")    # Jatekos 1 (feher korong)
-            self.player2 = HumanPlayer("B")    # Jatekos 2 (fekete korong)
+    def __init__(self: "Game", mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
+        if debug:
+            self.player1, self.player2 = self.initiate_players_debug(mode, difficulty, p1_flag, p2_flag)
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
         self.pieces_placed_player1 = 0      # Jatekos 1 lerakott korongjai szama
         self.pieces_placed_player2 = 0      # Jatekos 2 lerakott korongjainak szama
@@ -26,103 +29,105 @@ class Game:
         self.time = datetime.now()          # Az aktualis ido
         self.board = [str(x) for x in range(0,24)] # A tabla reprezentacioja
         self.mills = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17), (18, 19, 20), (21, 22, 23),(0, 9, 21), (3, 10, 18), (6, 11, 15), (1, 4, 7), (16, 19, 22), (8, 12, 17), (5, 13, 20), (2, 14, 23)) # A lehetseges malom poziciok
+        self.last_move = None
+
+    @staticmethod
+    def initiate_players_debug(mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
+        if mode == "pvp":
+            p1 = HumanPlayer("W")
+            p2 = HumanPlayer("B")
+            return p1, p2
+        if mode == "pvc":
+            if difficulty is None:
+                raise ValueError("Difficulty cannot be None in a Player vs Computer gamemode")
+            p1 = HumanPlayer("W")
+            if difficulty == "easy":
+                p2 = RandomPlayer("B")
+            elif difficulty == "medium":
+                p2 = MLPlayer("B")
+            else:
+                p2 = AStarPlayer("B")
+            return p1, p2
+        if mode == "cvc":
+            if p1_flag is None or p2_flag is None:
+                raise ValueError("Computer vs Computer gamemode needs to have both player flags")
+            match p1_flag:
+                case "greedy":
+                    p1 = GreedyPlayer("W")
+                case "ml":
+                    p1 = MLPlayer("W")
+                case "astar":
+                    p1 = AStarPlayer("W")
+                case "random":
+                    p1 = RandomPlayer("W")
+                case _:
+                    raise ValueError("Non Valid Value provided for p1_flag")
+
+            match p2_flag:
+                case "greedy":
+                    p2 = GreedyPlayer("B")
+                case "ml":
+                    p2 = MLPlayer("B")
+                case "astar":
+                    p2 = AStarPlayer("B")
+                case "random":
+                    p2 = RandomPlayer("B")
+                case _:
+                    raise ValueError("None Valid Value provided for p2_flag")
+            return p1,p2
 
     # Jatekadatok kezdeti kiirasa konzolra - Csak debug modban
-    def print_initials(self):
+    def print_initials(self: "Game") -> None:
         if self.debug:
             print("Game id:", self.game_id)
             print("Game mode:", self.mode)
+            print(f"{self.player1.name} vs. {self.player2.name}\n")
             print("Time:", self.time)
 
-    # Milestone 1 TODO (Armand)
-    # Lepesek logolasa az elozetesen letrehozott {game_id}.txt fajlba - Csak --log kapcsolo eseten
-
-
-    # Ket karakteres mezok kiiratasat korrigaljuk
-    @staticmethod
-    def adjust(char):
-        if len(char) == 1:
-            return char + ' '
-        return char
-
-    class Colors:
-        HEADER = '\033[95m'     # Magas szintű kiemelés
-        OKBLUE = '\033[94m'     # Kék szín
-        OKCYAN = '\033[96m'     # Világoskék szín
-        OKGREEN = '\033[92m'    # Zöld szín
-        WARNING = '\033[93m'    # Figyelmeztetés (sárga)
-        FAIL = '\033[91m'       # Hibajelzés (piros)
-        ENDC = '\033[0m'        # Visszaállítja az alapértelmezett színt
-        BOLD = '\033[1m'        # Félkövér
-        UNDERLINE = '\033[4m'   # Aláhúzott
-
-        # Kiegészített színek
-        GREY = '\033[38;5;248m' # Szürke
-        DARK_ORANGE = '\033[38;5;166m'  # Sötét narancs
-        BLACK = '\033[30m'      # Fekete
-        RED = '\033[31m'        # Piros
-        GREEN = '\033[32m'      # Zöld
-        YELLOW = '\033[33m'     # Sárga
-        BLUE = '\033[34m'       # Kék
-        MAGENTA = '\033[35m'    # Bíbor
-        CYAN = '\033[36m'       # Világoskék
-        WHITE = '\033[37m'      # Fehér
-
-        # Háttérszínek
-        BACK_GREY = '\033[48;5;237m'  # Szürke
-        BACK_BLACK = '\033[40m'     # Fekete háttér
-        BACK_RED = '\033[41m'       # Piros háttér
-        BACK_GREEN = '\033[42m'     # Zöld háttér
-        BACK_YELLOW = '\033[43m'    # Sárga háttér
-        BACK_BLUE = '\033[44m'      # Kék háttér
-        BACK_MAGENTA = '\033[45m'   # Bíbor háttér
-        BACK_CYAN = '\033[46m'      # Világoskék háttér
-        BACK_WHITE = '\033[47m'     # Fehér háttér
 
     # A tabla aktualis allapotanak kirajzolasa konzolra - Csak debug mod
-    def print_board_debug(self):
+    def print_board_debug(self: "Game") -> None:
         # Színes board létrehozása
-        self.colored_board = []
-
+        colored_board = []
         for index, piece in enumerate(self.board):  # 'enumerate' kell, hogy az indexet is kapjuk
             if piece == 'W':
-                self.colored_board.append(
-                    f"{self.Colors.BACK_WHITE}{self.Colors.BLACK}W {self.Colors.ENDC}{self.Colors.GREEN}")  # Fehér korong + space
+                colored_board.append(
+                    f"{Colors.BACK_WHITE}{Colors.BLACK}W {Colors.ENDC}{Colors.GREEN}")  # Fehér korong + space
             elif piece == 'B':
-                self.colored_board.append(
-                    f"{self.Colors.BACK_GREY}{self.Colors.WHITE}B {self.Colors.ENDC}{self.Colors.GREEN}")  # Fekete korong + space
+                colored_board.append(
+                    f"{Colors.BACK_GREY}{Colors.WHITE}B {Colors.ENDC}{Colors.GREEN}")  # Fekete korong + space
             else:
                 # Egyjegyű számok esetén is space-t rakunk mögé
                 if len(piece) == 1:
-                    self.colored_board.append(f"{self.Colors.OKBLUE}{piece} {self.Colors.ENDC}{self.Colors.GREEN}")  # Kék szám + space
+                    colored_board.append(f"{Colors.OKBLUE}{piece} {Colors.ENDC}{Colors.GREEN}")  # Kék szám + space
                 else:
-                    self.colored_board.append(f"{self.Colors.OKBLUE}{piece}{self.Colors.ENDC}{self.Colors.GREEN}")  # Kétjegyű szám (pl. 10, 11, stb.)
+                    colored_board.append(f"{Colors.OKBLUE}{piece}{Colors.ENDC}{Colors.GREEN}")  # Kétjegyű szám (pl. 10, 11, stb.)
 
         print(f"""
-                                           Tábla
-                             {self.Colors.GREEN}{self.colored_board[0]}--------------{self.colored_board[1]}---------------{self.colored_board[2]}{self.Colors.ENDC}
-                             {self.Colors.GREEN}|               |                |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    {self.colored_board[3]}---------{self.colored_board[4]}----------{self.colored_board[5]}   |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    |          |           |    |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    |    {self.colored_board[6]}----{self.colored_board[7]}-----{self.colored_board[8]}   |    |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    |    |            |    |    |{self.Colors.ENDC}
-                             {self.Colors.GREEN}{self.colored_board[9]}---{self.colored_board[10]}---{self.colored_board[11]}           {self.colored_board[12]}---{self.colored_board[13]}---{self.colored_board[14]}{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    |    |            |    |    |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    |    {self.colored_board[15]}----{self.colored_board[16]}-----{self.colored_board[17]}   |    |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    |          |           |    |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|    {self.colored_board[18]}---------{self.colored_board[19]}----------{self.colored_board[20]}   |{self.Colors.ENDC}
-                             {self.Colors.GREEN}|               |                |{self.Colors.ENDC}
-                             {self.Colors.GREEN}{self.colored_board[21]}--------------{self.colored_board[22]}---------------{self.colored_board[23]}{self.Colors.ENDC}
+                                           Table
+                             {Colors.GREEN}{colored_board[0]}--------------{colored_board[1]}---------------{colored_board[2]}{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 15}|{" " * 16}|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }{colored_board[3]}---------{colored_board[4]}----------{colored_board[5]}{" " * 3}|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }|{" " * 10}|{" " * 11}|{" " * 4 }|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }|{" " * 4 }{colored_board[6]}----{colored_board[7]}-----{colored_board[8]}{" " * 3}|{" " * 4}|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }|{" " * 4 }|{" " * 12}|{" " * 4 }|{" " * 4 }|{Colors.ENDC}
+                             {Colors.GREEN}{colored_board[9]}---{colored_board[10]}---{colored_board[11]}{" " * 11}{colored_board[12]}---{colored_board[13]}---{colored_board[14]}{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }|{" " * 4 }|{" " * 12}|{" " * 4 }|{" " * 4 }|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }|{" " * 4 }{colored_board[15]}----{colored_board[16]}-----{colored_board[17]}{" " * 3 }|{" " * 4 }|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }|{" " * 10}|{" " * 11}|{" " * 4 }|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 4 }{colored_board[18]}---------{colored_board[19]}----------{colored_board[20]}{" " * 3 }|{Colors.ENDC}
+                             {Colors.GREEN}|{" " * 15}|{" " * 16}|{Colors.ENDC}
+                             {Colors.GREEN}{colored_board[21]}--------------{colored_board[22]}---------------{colored_board[23]}{Colors.ENDC}
         """)
 
         print()
 
     # Az aktualis jatekos meghatarozasa
-    def current_player(self):
+    def current_player(self: "Game") -> "Player":
         return self.player1 if self.turn_player1 else self.player2
 
     # Kor atadasa masik jatekosnak
-    def switch_turns(self):
+    def switch_turns(self: "Game") -> None:
         self.turn_player1 = not self.turn_player1
 
 
@@ -130,12 +135,11 @@ class Game:
     # Ha a celpozicio (target) adott, akkor a mozgatasi fazisban vagyunk, ha nincs megadva, akkor a lerakasi fazisban.
     # Ha a lepes ervenytelen, es a debug mod aktiv, akkor figyelmezteto uzenetet ad vissza.
     # Malom eseten korong levetelre kerul sor.
-    def register_move(self, move, target=None):
+    def register_move(self: "Game", move: int, target: Union[None, int] = None) -> None:
         if move is None:    # Ellenorizzuk, hogy a lepes ervenyes-e (nem None)
             if self.debug:
                 print("Invalid move. No move was made.") # Hiba log (Debug modban)
             return
-
         # Elmentjük az utolsó lépés pozícióját
         self.last_move = move if target is None else target
         if target is not None: # Ha kapunk target parametert akkor a mozgatasi fazisban vagyunk
@@ -170,7 +174,7 @@ class Game:
     # Ellenorzi, hogy egy adott pozicio egy malom resze-e.
     # Ha a megadott pozicio (position) a jatekos szinevel megegyezo
     # es egy malomban van, akkor True ertekkel ter vissza, egyebkent False.
-    def part_of_mill(self, position, player_color):
+    def part_of_mill(self: "Game", position: int, player_color: str) -> bool:
         for mill in self.mills: # Vegigmegyunk az osszes malom kombinacion
             if position in mill and all(self.board[i] == player_color for i in mill): # Ellenorizzuk, hogy a megadott pozicio benne van-e a malomban,
                 return True # es hogy a malom poziciojan ugyanaz a jatekos szine van-e
@@ -181,7 +185,7 @@ class Game:
     # Malom eseten a jatekos elvehet egy korongot az ellenfeltol, ezt a logikat valositja meg.
     # Eloszor azokat a korongokat keresi meg,amelyek nincsenek malomban, ha van ilyen.
     # Ha az osszes korong malomban van, akkor barmelyik korong elveheto.
-    def remove_opponent_piece(self):
+    def remove_opponent_piece(self: "Game") -> None:
         current_player = self.current_player()  # Meghatarozzuk az aktualis jatekost
         opponent_color = 'B' if current_player.color == 'W' else 'W' # Meghatarozzuk az ellenfel szinet
 
@@ -199,7 +203,7 @@ class Game:
     # Azt vizsgalja, hogy veget ert-e a jatek
     # Ha minden korongot leraktak es nincs elegendo korong valamelyik jatekosnal,
     # vagy ha nincs tobb ervenyes lepes.
-    def game_over(self):
+    def game_over(self: "Game") -> bool:
         total_pieces_placed = self.pieces_placed_player1 + self.pieces_placed_player2 # Osszesitjuk az osszes lerakott korongot
         if total_pieces_placed < 18: # Ha meg nem raktuk le az osszes korongot akkor a jatek meg biztosan tart
             return False
@@ -219,8 +223,7 @@ class Game:
     #    akkor a tabla ures helyeit adja vissza.
     # 2. Mozgatasi fazis: ha mar minden korong le lett rakva, akkor csak a jatekos
     #    korongjai melletti ures helyekre lehet lepni.
-    # TODO ugras implementalasa (Armand)
-    def generate_valid_moves(self, noprint=False):
+    def generate_valid_moves(self: "Game", noprint: bool = False) -> Union[List[int], List[Tuple[int, int]]]:
         current_player_pieces = 'W' if self.current_player() == self.player1 else 'B'   # Meghatarozzuk az aktualis jatekos szinet
 
         if self.pieces_placed_player1 < 9 or self.pieces_placed_player2 < 9:    # Ellenorizzuk, hogy lerakasi fazisban vagyunk-e
@@ -257,52 +260,10 @@ class Game:
 
         if not noprint and self.debug:
              print(f"Valid moves for {self.current_player().color}: {valid_moves}") # Debug log
-
         return valid_moves  # Visszaadjuk a lehetseges lepesek listajat
 
 
-    '''
-    # Player 1 soron levo lepeset kezeli.
-    # Eloszor ellenorzi, hogy a jatek lerakasi fazisban van-e (9-nel kevesebb a lerakott korongok szama),
-    # vagy a mozgatasi fazisban. Ez alapjan hivja meg a megfelelo lepeseket, majd visszaadja a kort Player 2-nek.
-    def player1_move(self):
-        if self.debug:
-            print("Player1's turn") # Debug log
-        if self.pieces_placed_player1 < 9:  # Ha Player1 9nel kevesebb korongot rakott le, akkor lerakasi fazisban vagyunk
-            move = self.player1.make_move(self.generate_valid_moves())  # Meghivjuk a Player1 lepesert felelos metodusat, es atadjuk neki a valid lepeseket
-            self.register_move(move)    # A Player1 altal visszadott lepest regisztraljuk a tablan
-            if self.debug:
-                print("Player1 moves:", move) # Debug log
-        else:   # Egyebkent ha lerakasi fazisban vagyunk
-            move, target = self.player1.make_move(self.generate_valid_moves()) # Meghivjuk a Player1 lepesert felelos metodusat, viszont tuple-t fogunk visszakapni, ezt ki kell csomagolnunk
-            self.register_move(move, target)    # Regisztraljuk a lepest a tablan
-            if  self.debug:
-             print("Player1 moves:", move, target)  # Debug log
-             self.log_game(f"Player1 moves: {move} to {target}\n")
-        self.switch_turns() # Atadjuk a kort a Player2-nek
-
-
-    # Player 2 soron levo lepeset kezeli.
-    # Eloszor ellenorzi, hogy a jatek lerakasi fazisban van-e (9-nel kevesebb a lerakott korongok szama),
-    # vagy a mozgatasi fazisban. Ez alapjan hivja meg a megfelelo lepeseket, majd visszaadja a kort Player 1-nek.
-    def player2_move(self):
-        if self.debug:
-            print("Player2's turn") # Debug log
-        if self.pieces_placed_player2 < 9:  # Ha Player2 9nel kevesebb korongot rakott le, akkor lerakasi fazisban vagyunk
-            move = self.player2.make_move(self.generate_valid_moves())  # Meghivjuk a Player2 lepesert felelos metodusat, es atadjuk neki a valid lepeseket
-            self.register_move(move)    # A Player2 altal visszadott lepest regisztraljuk a tablan
-            if self.debug:
-                print("Player2 moves:",move)   # Debug log
-        else:    # Egyebkent ha lerakasi fazisban vagyunk
-            move, target = self.player2.make_move(self.generate_valid_moves())  # Meghivjuk a Player2 lepesert felelos metodusat, viszont tuple-t fogunk visszakapni, ezt ki kell csomagolnunk
-            self.register_move(move, target)    # Regisztraljuk a lepest a tablan
-            if  self.debug:
-                print("Player2 moves:", move, target)  # Debug log
-                self.log_game(f"Player2 moves: {move} to {target}\n")
-        self.switch_turns() # Atadjuk a kort a Player1-nek
-    '''
-
-    def player_move(self, player, player_number):
+    def player_move(self: "Game", player, player_number: int) -> None:
         if self.debug:
             print(f"Player{player_number}'s turn")  # Debug log
 
@@ -325,13 +286,13 @@ class Game:
     # A jatek vegeredmenyet jeleniti meg debug modban konzolon.
     # Ha barmelyik jatekosnak 3-nal kevesebb korongja maradt, az a jatekos vesztett.
     # Ha mindket jatekosnak legalabb 3 korongja van, akkor dontetlen.
-    def print_result_debug(self):
+    def print_result_debug(self: "Game") -> None:
         if self.board.count('W') < 3:   # Ha Player1-nek kevesebb mint 3 korongja maradt, Player2 nyert
             if self.debug:
-                print("Player 2 (Black) wins!") # Game log (Debug mod)
+                print(f"Player 2 {self.player2} wins!") # Game log (Debug mod)
         elif self.board.count('B') < 3: # Ha Player2-nek kevesebb mint 3 korongja maradt, Player1 nyert
             if self.debug:
-                print("Player 1 (White) wins!") # Game log (Debug mod)
+                print(f"Player 1 {self.player1} wins!") # Game log (Debug mod)
         else:   # Ha egyik jatekosnak sincs 3nal kevesebb (ide mar csak akkor juthatunk el ha nincs tobb valid lepes)
             if self.debug:
                 print("It's a draw.")   # Game log (Debug mod) - Dontetlen
@@ -340,7 +301,7 @@ class Game:
     # A mill_is_made fuggveny ellenorzi, hogy keletkezett-e malom.
     # Egy malom akkor keletkezik, ha a jatekosnak 3 azonos szinu korongja van egy vonalban
     # (a tabla elore definialt helyzetein).
-    def mill_is_made(self):
+    def mill_is_made(self: "Game") -> bool:
         # Az utolsó lépés pozíciójához kapcsolódó malmokat vizsgáljuk
         for mill in self.mills:
             if self.last_move in mill:  # Csak azokat a malmokat nézzük, amelyek tartalmazzák az utolsó lépést
@@ -353,7 +314,7 @@ class Game:
     # A jatek alapadatait logolja egy txt fajlba (/log mappa).
     # Minden jatekhoz egy egyedi azonosito alapjan kulon log fajl keszul.
     # A log a jatek ID-jat, kezdeti idejet es jatekmodjat fogja tartalmazni a fuggveny futtatasa utan.
-    def log_game(self, logtext=""):
+    def log_game(self: "Game", logtext: str = "") -> None:
         project_root = os.path.dirname(os.path.abspath(__file__)) # Taroljuk a projekt gyokerkonyvtarat
         log_dir = os.path.join(project_root, "log") # Beallitjuk az eleresi utvonalat
         if not os.path.exists(log_dir): # Ha nincs ilyen konyvtar,
@@ -364,6 +325,7 @@ class Game:
                 f.write(f"Game ID: {self.game_id}\n")   # game_id log
                 f.write(f"Time: {self.time}\n")         # current time log
                 f.write(f"Mode: {self.mode}\n")         # mode log
+                f.write(f"{self.player1.name} vs. {self.player2.name}\n")
         elif logtext != "":   # ha a log fajl mar letezik nem irjuk felul
             with open(log_file_path, mode="a") as f: #append a log fájl végére
                 f.write(logtext)
