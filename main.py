@@ -8,16 +8,28 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     parser.add_argument('--log', action='store_true', default=False, help='log gameplay')   # Regisztraljuk a log kapcsolot -> boolean, alapesetben false, log fajlok letrehozasat kezeli
     # Regisztraljuk a mode parametert, ami string tipus es pvp/pvc/cvc ertekeket vehet fel
     parser.add_argument('--mode', type=str, default='cvc', choices=['pvp','pvc','cvc'], help='Set the game mode (pvp = Player vs Player, pvc = Player vs Computer, cvc = Computer vs Computer')
-    args = parser.parse_args() # Taroljuk az argumentumokat
+
+    args, remaining_args = parser.parse_known_args()
+
+    # Ha a --mode tartalmaz 'c'-t, akkor hozzáadjuk a --diff kapcsolót
+    if args.mode == "pvc":
+        parser.add_argument('--diff', type=str, default='easy', choices=['easy', 'medium', 'hard'], help='Set the difficulty level (easy, medium, hard)')
+    elif args.mode == "cvc":
+        parser.add_argument('--p1', type=str, default='random', choices=['greedy', 'ml', 'astar', 'random'], help='Set the computer player1')
+        parser.add_argument('--p2', type=str, default='random', choices=['greedy', 'ml', 'astar', 'random'], help='Set the computer player2')
+
+
+    # Az új parserrel feldolgozzuk a fennmaradó argumentumokat, és egyesítjük a kettőt
+    args = parser.parse_args(remaining_args, namespace=args)
 
 
     if not args.debug:  # Jelenleg csak debug modot tamogatunk
         sys.exit('At the moment only debug mode is supported')  # igy ha mas modban indul a program, leallitjuk
-    '''
-    if args.mode == "pvc":
-        sys.exit('At the moment only cvc mode is supported')
-        '''
-    new_game = Game(mode=args.mode,debug=args.debug, log=args.log) # Letrehozunk egy uj Game peldanyt
+
+    difficulty = getattr(args, 'diff', None)
+    p1 = getattr(args, 'p1', None)
+    p2 = getattr(args, 'p2', None)
+    new_game = Game(mode=args.mode,debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1, p2_flag=p2) # Letrehozunk egy uj Game peldanyt
     new_game.print_initials()   # Kiirjuk az alapadatokat konzolra (Debug mod)
     if args.debug:  # A megjelenito fuggvenyek a mode kapcsolotol fuggnek
         print_brd = new_game.print_board_debug  # Debug esetben
