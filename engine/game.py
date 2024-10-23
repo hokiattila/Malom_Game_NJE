@@ -17,8 +17,6 @@ from typing import Tuple
 
 class Game:
     def __init__(self: "Game", mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
-        if debug:
-            self.player1, self.player2 = self.initiate_players_debug(mode, difficulty, p1_flag, p2_flag)
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
         self.pieces_placed_player1 = 0      # Jatekos 1 lerakott korongjai szama
         self.pieces_placed_player2 = 0      # Jatekos 2 lerakott korongjainak szama
@@ -30,6 +28,8 @@ class Game:
         self.board = [str(x) for x in range(0,24)] # A tabla reprezentacioja
         self.mills = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17), (18, 19, 20), (21, 22, 23),(0, 9, 21), (3, 10, 18), (6, 11, 15), (1, 4, 7), (16, 19, 22), (8, 12, 17), (5, 13, 20), (2, 14, 23)) # A lehetseges malom poziciok
         self.last_move = None
+        if debug:
+            self.player1, self.player2 = self.initiate_players_debug(mode, difficulty, p1_flag, p2_flag)
 
     @staticmethod
     def initiate_players_debug(mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
@@ -42,7 +42,7 @@ class Game:
                 raise ValueError("Difficulty cannot be None in a Player vs Computer gamemode")
             p1 = HumanPlayer("W")
             if difficulty == "easy":
-                p2 = RandomPlayer("B")
+                p2 = GreedyPlayer("B")
             elif difficulty == "medium":
                 p2 = MLPlayer("B")
             else:
@@ -195,7 +195,7 @@ class Game:
         if not removable_pieces: # Ha az ellenfel osszes korongja malomban van,
             removable_pieces = opponent_pieces_on_board # akkor tetszoleges elveheto
 
-        piece_to_remove = current_player.choose_opponent_piece_to_remove(removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
+        piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
         if self.debug:
             print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
         self.board[piece_to_remove] = str(piece_to_remove) # A valasztott korongot levesszuk a tablarol
@@ -270,16 +270,17 @@ class Game:
         pieces_placed = self.pieces_placed_player1 if player_number == 1 else self.pieces_placed_player2
 
         if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
-            move = player.make_move(self.generate_valid_moves())  # Meghívjuk a játékos lépését
+            move = player.make_move(self.board ,self.generate_valid_moves())  # Meghívjuk a játékos lépését
             self.register_move(move)  # A visszaadott lépést regisztráljuk
             if self.debug:
                 print(f"Player{player_number} moves:", move)  # Debug log
         else:  # Egyébként mozgatási fázisban vagyunk
-            move, target = player.make_move(self.generate_valid_moves())  # Tuple-t fogunk visszakapni
+            move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
             self.register_move(move, target)  # Regisztráljuk a lépést
             if self.debug:
                 print(f"Player{player_number} moves:", move, target)  # Debug log
-                self.log_game(f"Player{player_number} moves: {move} to {target}\n")
+                if self.log:
+                    self.log_game(f"Player{player_number} moves: {move} to {target}\n")
 
         self.switch_turns()  # Átadjuk a kört a másik játékosnak
 

@@ -16,7 +16,7 @@ class RandomPlayer(Player):
 
     # Veletlenszeruen valaszt egy ervenyes lepest a Game osztaly altal biztositott lepesek kozul
     # Kezeli a lerakasi es mozgatasi fazist is
-    def make_move(self: "RandomPlayer", valid_moves: Union[List[int], List[Tuple[int, int]]]) -> Union[int, Tuple[int, int], None]:
+    def make_move(self: "RandomPlayer",board: List[str], valid_moves: Union[List[int], List[Tuple[int, int]]]) -> Union[int, Tuple[int, int], None]:
         if not valid_moves: # Ha nincsenek ervenyes lepesek
             print("No valid moves available!")  # Game log
             return None # None-t adunk vissza
@@ -26,7 +26,7 @@ class RandomPlayer(Player):
     # Veletlenszeruen valaszt egy eltavolitando korongot az ellenfel korongjai kozul
     # A korongok listajat a Game osztaly biztositja
     @staticmethod
-    def choose_opponent_piece_to_remove(removable_pieces: List[int]) -> int:
+    def choose_opponent_piece_to_remove(board: List[str], removable_pieces: List[int]) -> int:
             return random.choice(removable_pieces)
 
 if __name__ == '__main__':

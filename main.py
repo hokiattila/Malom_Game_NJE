@@ -15,8 +15,8 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     if args.mode == "pvc":
         parser.add_argument('--diff', type=str, default='easy', choices=['easy', 'medium', 'hard'], help='Set the difficulty level (easy, medium, hard)')
     elif args.mode == "cvc":
-        parser.add_argument('--p1', type=str, default='random', choices=['greedy', 'ml', 'astar', 'random'], help='Set the computer player1')
-        parser.add_argument('--p2', type=str, default='random', choices=['greedy', 'ml', 'astar', 'random'], help='Set the computer player2')
+        parser.add_argument('--p1', type=str, default='greedy', choices=['greedy', 'ml', 'astar', 'random'], help='Set the computer player1')
+        parser.add_argument('--p2', type=str, default='greedy', choices=['greedy', 'ml', 'astar', 'random'], help='Set the computer player2')
 
 
     # Az új parserrel feldolgozzuk a fennmaradó argumentumokat, és egyesítjük a kettőt

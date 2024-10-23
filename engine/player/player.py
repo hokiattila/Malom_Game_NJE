@@ -12,12 +12,12 @@ class Player(ABC):
         self.name = "Player"
 
     @abstractmethod
-    def make_move(self: "Player", board: Union[List[str], List[Tuple[int, int]]]) -> None:
+    def make_move(self: "Player",board: List[str], valid_moves: Union[List[int], List[Tuple[int, int]]]) -> Union[int, Tuple[int, int], None]:
         pass
 
 
     @staticmethod
-    def choose_opponent_piece_to_remove(removable_pieces):
+    def choose_opponent_piece_to_remove(board: List[str], removable_pieces: List[int]):
         pass
 
     def __str__(self: "Player") -> str:

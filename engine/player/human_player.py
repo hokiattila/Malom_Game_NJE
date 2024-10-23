@@ -9,7 +9,6 @@ from typing import Union
 # Debug modban stdout-on keresztul kapja meg a userinputot,
 # alapmodban GUI feluleten
 
-
 class HumanPlayer(Player):
 
     def __init__(self: "HumanPlayer", color: str) -> None:
@@ -46,8 +45,7 @@ class HumanPlayer(Player):
                 print("Invalid input! Please provide a number.")
 
 
-
-    def make_move(self: "HumanPlayer", valid_moves: Union[List[int], List[Tuple[int, int]]]) -> Union[int, Tuple[int, int], None]:
+    def make_move(self: "HumanPlayer", board: List[str], valid_moves: Union[List[int], List[Tuple[int, int]]]) -> Union[int, Tuple[int, int], None]:
             # Ellenőrizzük, hogy vannak-e érvényes lépések
             if not valid_moves:
                 print("There are no valid moves!")
@@ -70,7 +68,7 @@ class HumanPlayer(Player):
 
 
     @staticmethod
-    def choose_opponent_piece_to_remove(removable_pieces: List[int]) -> int:
+    def choose_opponent_piece_to_remove(board: List[str], removable_pieces: List[int]) -> int:
             while True:  # Addig ismételjük, amíg nem kapunk érvényes bemenetet
                 try:
                     # Bekérjük a játékos lépését
