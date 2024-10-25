@@ -15,6 +15,11 @@ from typing import Union
 from typing import List
 from typing import Tuple
 
+from engine.GUI import window
+
+import tkinter as tk
+import customtkinter
+
 class Game:
     def __init__(self: "Game", mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
@@ -28,11 +33,18 @@ class Game:
         self.board = [str(x) for x in range(0,24)] # A tabla reprezentacioja
         self.mills = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17), (18, 19, 20), (21, 22, 23),(0, 9, 21), (3, 10, 18), (6, 11, 15), (1, 4, 7), (16, 19, 22), (8, 12, 17), (5, 13, 20), (2, 14, 23)) # A lehetseges malom poziciok
         self.last_move = None
-        if debug:
-            self.player1, self.player2 = self.initiate_players_debug(mode, difficulty, p1_flag, p2_flag)
+
+        self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
+        if not debug:
+            window.start_gui(self)
+
+
+
+
+
 
     @staticmethod
-    def initiate_players_debug(mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
+    def initiate_players(mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
         if mode == "pvp":
             p1 = HumanPlayer("W")
             p2 = HumanPlayer("B")

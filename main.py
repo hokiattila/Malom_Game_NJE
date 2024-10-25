@@ -1,6 +1,9 @@
 from engine.game import Game
 import argparse
 import sys
+import customtkinter
+
+
 
 if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     parser = argparse.ArgumentParser(description='Malom Game NJE')  # Beallitjuk a kapcsolokat
@@ -23,8 +26,8 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     args = parser.parse_args(remaining_args, namespace=args)
 
 
-    if not args.debug:  # Jelenleg csak debug modot tamogatunk
-        sys.exit('At the moment only debug mode is supported')  # igy ha mas modban indul a program, leallitjuk
+    #if not args.debug:  # Jelenleg csak debug modot tamogatunk
+    #    sys.exit('At the moment only debug mode is supported')  # igy ha mas modban indul a program, leallitjuk
 
     difficulty = getattr(args, 'diff', None)
     p1 = getattr(args, 'p1', None)
