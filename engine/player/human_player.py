@@ -11,9 +11,10 @@ from typing import Union
 
 class HumanPlayer(Player):
 
-    def __init__(self: "HumanPlayer", color: str) -> None:
+    def __init__(self: "HumanPlayer", color: str, game_instance) -> None:
         super().__init__(color)
         self.name = "HumanPlayer"
+        self.game_instance = game_instance
 
     def get_valid_move(self: "HumanPlayer", valid_moves) -> Tuple[int, int]:
         pieces = {move[0] for move in valid_moves}  # Kiválasztott korongok egyedi készlete
@@ -22,11 +23,15 @@ class HumanPlayer(Player):
         piece_to_move = None
         while True:
             try:
-                piece_to_move = int(input(f"Pick one of the available moves: {pieces}: "))
-                if piece_to_move in pieces:
-                    break  # Ha a választott korong érvényes, kilépünk a ciklusból
+                if self.game_instance.debug:
+                    piece_to_move = int(input(f"Pick one of the available moves: {pieces}: "))
+                    if piece_to_move in pieces:
+                        break  # Ha a választott korong érvényes, kilépünk a ciklusból
+                    else:
+                        print("Invalid move, please try again.")
                 else:
-                    print("Invalid move, please try again.")
+                    print("Nem vagyunk debug modban")
+                    move = int(input("Make a move (number between 0 and 23) "))
             except ValueError:
                 print("Invalid input, please provide a valid move.")
         # Kiírjuk a kiválasztott koronghoz tartozó szomszédokat
@@ -56,12 +61,16 @@ class HumanPlayer(Player):
                 else:
                     try:
                         # Bekérjük a játékos lépését
-                        move = int(input("Make a move (number between 0 and 23) "))
-                        # Ellenőrizzük, hogy a megadott lépés érvényes-e
-                        if move in valid_moves:
-                            return move  # Ha érvényes, visszatérünk vele
+                        if self.game_instance.debug:
+                            move = int(input("Make a move (number between 0 and 23) "))
+                            # Ellenőrizzük, hogy a megadott lépés érvényes-e
+                            if move in valid_moves:
+                                return move  # Ha érvényes, visszatérünk vele
+                            else:
+                                print(f"The move {move} is not valid! Try again.")
                         else:
-                            print(f"The move {move} is not valid! Try again.")
+                            print("Nem vagyunk debug modban")
+                            move = int(input("Make a move (number between 0 and 23) "))
                     except ValueError:
                         # Ha nem sikerül a bemenetet számra konvertálni, hibát dobunk
                         print("Invalid input! Please provide a number between 0 and 23.")

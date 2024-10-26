@@ -1,9 +1,27 @@
+import time
+import threading
+import queue
+
+from engine.GUI.window import GUI
 from engine.game import Game
 import argparse
 import sys
 import customtkinter
+from engine.GUI import window
+import tkinter as tk
 
+def gui_thread(event_queue):
+    # Inicializáljuk a GUI-t
 
+    window = GUI(new_game, event_queue)
+    # A GUI futtatása
+    #root.mainloop()
+
+def listen_for_events(event_queue):
+    while True:
+        # Várakozás az eseményekre (pl. gombnyomások)
+        event = event_queue.get()
+        return event
 
 if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     parser = argparse.ArgumentParser(description='Malom Game NJE')  # Beallitjuk a kapcsolokat
@@ -26,32 +44,46 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     args = parser.parse_args(remaining_args, namespace=args)
 
 
-    #if not args.debug:  # Jelenleg csak debug modot tamogatunk
-    #    sys.exit('At the moment only debug mode is supported')  # igy ha mas modban indul a program, leallitjuk
-
     difficulty = getattr(args, 'diff', None)
     p1 = getattr(args, 'p1', None)
     p2 = getattr(args, 'p2', None)
-    new_game = Game(mode=args.mode,debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1, p2_flag=p2) # Letrehozunk egy uj Game peldanyt
-    new_game.print_initials()   # Kiirjuk az alapadatokat konzolra (Debug mod)
+
     if args.debug:  # A megjelenito fuggvenyek a mode kapcsolotol fuggnek
         print_brd = new_game.print_board_debug  # Debug esetben
         print_res = new_game.print_result_debug # Debug esetben
+        new_game = Game(mode=args.mode, debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1,  p2_flag=p2)  # Letrehozunk egy uj Game peldanyt
+        new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
     else:
+        event_queue = queue.Queue()
         print_brd = lambda: print("Debug mode disabled")
         print_res = lambda: print("Debug mode disabled")
+        new_game = Game(event_queue, mode=args.mode, debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1,p2_flag=p2)  # Letrehozunk egy uj Game peldanyt
+        new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
+        #new_game.game_GUI = window.GUI(new_game, event_queue)
+        # Elindítjuk a GUI szálat
+        threading.Thread(target=gui_thread, args=(event_queue,), daemon=True).start()
+
     if args.log:
         new_game.log_game() # Ha kaptunk log kapcsolot akkor letrehozzuk a log fajlt
 
 
-    print_brd()
+
+
+    print("Eljutunk idaig?")
+    #print_brd()
     while True: # Vegtelen ciklus
         if new_game.game_over(): # Ha a jatek veget er
             print_res() # Kiirjuk az eredmenyt
             break   # Kitorunk a ciklusbol
-        new_game.player_move(new_game.player1, 1) # Egyebkent player 1 lep
-        print_brd() # Megjelenitjuk a tablat
-        new_game.player_move(new_game.player2, 2) # Player 2 lep
-        print_brd() # Megjelenitjuk a tablat
+        if args.debug:
+            new_game.player_move(new_game.player1, 1) # Egyebkent player 1 lep
+            print_brd() # Megjelenitjuk a tablat
+            new_game.player_move(new_game.player2, 2) # Player 2 lep
+            print_brd() # Megjelenitjuk a tablat
+        if not args.debug:
+            lepes = listen_for_events(event_queue)
+            new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
+            lepes = listen_for_events(event_queue)
+            new_game.player_move(new_game.player2, 2, lepes)  # Player 2 lep
         if args.log:
             new_game.log_game()

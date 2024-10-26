@@ -21,7 +21,7 @@ import tkinter as tk
 import customtkinter
 
 class Game:
-    def __init__(self: "Game", mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
+    def __init__(self: "Game", event_queue, mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
         self.pieces_placed_player1 = 0      # Jatekos 1 lerakott korongjai szama
         self.pieces_placed_player2 = 0      # Jatekos 2 lerakott korongjainak szama
@@ -31,28 +31,31 @@ class Game:
         self.log = log                      # Logolas be- illetve kikapcsolasa
         self.time = datetime.now()          # Az aktualis ido
         self.board = [str(x) for x in range(0,24)] # A tabla reprezentacioja
+        self.event_queue = event_queue
         self.mills = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17), (18, 19, 20), (21, 22, 23),(0, 9, 21), (3, 10, 18), (6, 11, 15), (1, 4, 7), (16, 19, 22), (8, 12, 17), (5, 13, 20), (2, 14, 23)) # A lehetseges malom poziciok
         self.last_move = None
+        self.p1_flag = p1_flag
+        self.p2_flag = p2_flag
 
-        self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
-        if not debug:
-            window.start_gui(self)
+        if debug:
+            self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
+        #if not debug:
+        #    self.game_GUI = window.GUI(self)
 
 
+    def start_game_gui(self, mode, difficulty):
+        self.player1, self.player2 = self.initiate_players(mode, difficulty, self.p1_flag, self.p2_flag)
 
 
-
-
-    @staticmethod
-    def initiate_players(mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
+    def initiate_players(self, mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
         if mode == "pvp":
-            p1 = HumanPlayer("W")
-            p2 = HumanPlayer("B")
+            p1 = HumanPlayer("W", self)
+            p2 = HumanPlayer("B", self)
             return p1, p2
         if mode == "pvc":
             if difficulty is None:
                 raise ValueError("Difficulty cannot be None in a Player vs Computer gamemode")
-            p1 = HumanPlayer("W")
+            p1 = HumanPlayer("W", self)
             if difficulty == "easy":
                 p2 = GreedyPlayer("B")
             elif difficulty == "medium":
@@ -275,26 +278,38 @@ class Game:
         return valid_moves  # Visszaadjuk a lehetseges lepesek listajat
 
 
-    def player_move(self: "Game", player, player_number: int) -> None:
+    def player_move(self: "Game", player, player_number: int, lepes = None) -> None:
         if self.debug:
             print(f"Player{player_number}'s turn")  # Debug log
 
+
         pieces_placed = self.pieces_placed_player1 if player_number == 1 else self.pieces_placed_player2
 
-        if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
-            move = player.make_move(self.board ,self.generate_valid_moves())  # Meghívjuk a játékos lépését
-            self.register_move(move)  # A visszaadott lépést regisztráljuk
-            if self.debug:
-                print(f"Player{player_number} moves:", move)  # Debug log
-        else:  # Egyébként mozgatási fázisban vagyunk
-            move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
-            self.register_move(move, target)  # Regisztráljuk a lépést
-            if self.debug:
-                print(f"Player{player_number} moves:", move, target)  # Debug log
-                if self.log:
-                    self.log_game(f"Player{player_number} moves: {move} to {target}\n")
+        if self.debug or player.name is not "HumanPlayer":
+            if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
+                move = player.make_move(self.board ,self.generate_valid_moves())  # Meghívjuk a játékos lépését
+                self.register_move(move)  # A visszaadott lépést regisztráljuk
+                if self.debug:
+                    print(f"Player{player_number} moves:", move)  # Debug log
 
+            else:  # Egyébként mozgatási fázisban vagyunk
+                move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
+                self.register_move(move, target)  # Regisztráljuk a lépést
+                if self.debug:
+                    print(f"Player{player_number} moves:", move, target)  # Debug log
+                    if self.log:
+                        self.log_game(f"Player{player_number} moves: {move} to {target}\n")
+
+        else:
+            if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
+                move = lepes  # Meghívjuk a játékos lépését
+                self.register_move(move)  # A visszaadott lépést regisztráljuk
+                if not(self.player1.name == "HumanPlayer" and self.player2.name == "HumanPlayer"): # Csak akkor csusztatunk ha az egyik player AI
+                    self.event_queue.put(-1)
+
+        print(f"Player{player_number} moves:", move)  # Debug log
         self.switch_turns()  # Átadjuk a kört a másik játékosnak
+
 
     # A jatek vegeredmenyet jeleniti meg debug modban konzolon.
     # Ha barmelyik jatekosnak 3-nal kevesebb korongja maradt, az a jatekos vesztett.
