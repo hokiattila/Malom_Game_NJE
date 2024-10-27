@@ -21,7 +21,7 @@ import tkinter as tk
 import customtkinter
 
 class Game:
-    def __init__(self: "Game", event_queue, mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
+    def __init__(self: "Game", event_queue = "None", mode: str = "cvc", debug: bool = False, log: bool = False, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> None:
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
         self.pieces_placed_player1 = 0      # Jatekos 1 lerakott korongjai szama
         self.pieces_placed_player2 = 0      # Jatekos 2 lerakott korongjainak szama
@@ -36,12 +36,27 @@ class Game:
         self.last_move = None
         self.p1_flag = p1_flag
         self.p2_flag = p2_flag
-
+        self.event_list = [""]
         if debug:
             self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
         #if not debug:
         #    self.game_GUI = window.GUI(self)
 
+    def reset_game_gui(self):
+        self.turn_player1 = True  # Soron kovetkezo jatekos (feher kezd)
+        self.pieces_placed_player1 = 0  # Jatekos 1 lerakott korongjai szama
+        self.pieces_placed_player2 = 0  # Jatekos 2 lerakott korongjainak szama
+        self.game_id = getrandbits(128)  # Egyedi jatekazonosito
+        self.time = datetime.now()  # Az aktualis ido
+        self.board = [str(x) for x in range(0, 24)]  # A tabla reprezentacioja
+        self.last_move = None
+        self.event_list = [""]
+        self.kijelolt_babu = None
+        self.footer_text = ""
+        self.GUIRemovePhase = False
+
+    def gui_log_steps(self, log_text):
+        self.event_list.append(log_text)
 
     def start_game_gui(self, mode, difficulty):
         self.player1, self.player2 = self.initiate_players(mode, difficulty, self.p1_flag, self.p2_flag)
@@ -146,6 +161,8 @@ class Game:
         self.turn_player1 = not self.turn_player1
 
 
+
+
     # Egy lepest regisztral a tablan
     # Ha a celpozicio (target) adott, akkor a mozgatasi fazisban vagyunk, ha nincs megadva, akkor a lerakasi fazisban.
     # Ha a lepes ervenytelen, es a debug mod aktiv, akkor figyelmezteto uzenetet ad vissza.
@@ -165,7 +182,20 @@ class Game:
                     if self.debug:
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
-                    self.remove_opponent_piece() # Meghivjuk a koronglevetelert felelos metodust
+                    if (self.debug and self.current_player().name == "HumanPlayer"):
+                        self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
+                    elif self.current_player().name != "HumanPlayer":
+                        event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
+                        self.event_list.append(event_text)
+                        self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
+                    else:
+                        self.GUIRemovePhase = True
+                        print("GUI Remove Phase")
+                        event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
+                        self.event_list.append(event_text)
+
+                elif self.debug == False and self.current_player().name == "HumanPlayer":
+                    self.switch_turns()
             else: # Ervenytelen lepest kaptunk
                 if self.debug:
                     print("Invalid move.") # Hiba log (Debug modban)
@@ -180,11 +210,27 @@ class Game:
                     if self.debug:
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
-                    self.remove_opponent_piece() # Meghivjuk a koronglevetelert felelos metodust
+                    if (self.debug and self.current_player().name == "HumanPlayer"):
+                        self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
+                    elif self.current_player().name != "HumanPlayer":
+                        event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
+                        self.event_list.append(event_text)
+                        self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
+                    else:
+                        self.GUIRemovePhase = True
+                        print("GUI Remove Phase")
+                        event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
+                        self.event_list.append(event_text)
+
+
+
+                elif self.debug == False and self.current_player().name == "HumanPlayer":
+                    self.switch_turns()
             else: # Foglalt a megadott pozicio (es Lerakasi fazisban vagyunk)
                 if self.debug:
                     print("Invalid move, position already taken.") # Hiba log (Debug mod)
-
+        if not self.debug:
+            self.footer_text = ""
 
     # Ellenorzi, hogy egy adott pozicio egy malom resze-e.
     # Ha a megadott pozicio (position) a jatekos szinevel megegyezo
@@ -200,7 +246,7 @@ class Game:
     # Malom eseten a jatekos elvehet egy korongot az ellenfeltol, ezt a logikat valositja meg.
     # Eloszor azokat a korongokat keresi meg,amelyek nincsenek malomban, ha van ilyen.
     # Ha az osszes korong malomban van, akkor barmelyik korong elveheto.
-    def remove_opponent_piece(self: "Game") -> None:
+    def remove_opponent_piece(self: "Game", piece_to_remove_GUI = None) -> None:
         current_player = self.current_player()  # Meghatarozzuk az aktualis jatekost
         opponent_color = 'B' if current_player.color == 'W' else 'W' # Meghatarozzuk az ellenfel szinet
 
@@ -210,10 +256,22 @@ class Game:
         if not removable_pieces: # Ha az ellenfel osszes korongja malomban van,
             removable_pieces = opponent_pieces_on_board # akkor tetszoleges elveheto
 
-        piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
-        if self.debug:
-            print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
-        self.board[piece_to_remove] = str(piece_to_remove) # A valasztott korongot levesszuk a tablarol
+        if piece_to_remove_GUI == None:
+            piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
+            if self.debug:
+                print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
+            self.board[piece_to_remove] = str(piece_to_remove) # A valasztott korongot levesszuk a tablarol
+            self.event_list.append(f"White removes piece {piece_to_remove}" if self.turn_player1 else f"Black removes piece {piece_to_remove}")
+
+        else:
+            if piece_to_remove_GUI in removable_pieces:
+                self.board[piece_to_remove_GUI] = str(piece_to_remove_GUI)
+                self.GUIRemovePhase = False
+                self.event_list.append(f"White removes piece {piece_to_remove_GUI}" if self.turn_player1 else f"Black removes piece {piece_to_remove_GUI}")
+                self.switch_turns()
+            else:
+                self.footer_text = "Nem levehető korong!"
+
 
     # Azt vizsgalja, hogy veget ert-e a jatek
     # Ha minden korongot leraktak es nincs elegendo korong valamelyik jatekosnal,
@@ -279,36 +337,64 @@ class Game:
 
 
     def player_move(self: "Game", player, player_number: int, lepes = None) -> None:
-        if self.debug:
-            print(f"Player{player_number}'s turn")  # Debug log
-
-
-        pieces_placed = self.pieces_placed_player1 if player_number == 1 else self.pieces_placed_player2
-
-        if self.debug or player.name is not "HumanPlayer":
-            if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
-                move = player.make_move(self.board ,self.generate_valid_moves())  # Meghívjuk a játékos lépését
-                self.register_move(move)  # A visszaadott lépést regisztráljuk
-                if self.debug:
-                    print(f"Player{player_number} moves:", move)  # Debug log
-
-            else:  # Egyébként mozgatási fázisban vagyunk
-                move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
-                self.register_move(move, target)  # Regisztráljuk a lépést
-                if self.debug:
-                    print(f"Player{player_number} moves:", move, target)  # Debug log
-                    if self.log:
-                        self.log_game(f"Player{player_number} moves: {move} to {target}\n")
+        self.footer_text = ""
+        if self.GUIRemovePhase:
+            self.remove_opponent_piece(lepes)
 
         else:
-            if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
-                move = lepes  # Meghívjuk a játékos lépését
-                self.register_move(move)  # A visszaadott lépést regisztráljuk
-                if not(self.player1.name == "HumanPlayer" and self.player2.name == "HumanPlayer"): # Csak akkor csusztatunk ha az egyik player AI
-                    self.event_queue.put(-1)
+            if self.debug:
+                print(f"Player{player_number}'s turn")  # Debug log
 
-        print(f"Player{player_number} moves:", move)  # Debug log
-        self.switch_turns()  # Átadjuk a kört a másik játékosnak
+
+            pieces_placed = self.pieces_placed_player1 if player_number == 1 else self.pieces_placed_player2
+
+            if self.debug or player.name != "HumanPlayer":
+                if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
+                    move = player.make_move(self.board ,self.generate_valid_moves())  # Meghívjuk a játékos lépését
+                    esemeny = f"{'White' if player_number == 1 else 'Black'} moves to: {move}"
+                    self.gui_log_steps(esemeny)
+                    self.register_move(move)  # A visszaadott lépést regisztráljuk
+                    if self.debug:
+                        print(f"Player{player_number} moves:", move)  # Debug log
+
+                else:  # Egyébként mozgatási fázisban vagyunk
+                    move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
+                    esemeny = f"{'White' if player_number == 1 else 'Black'} moves from: {move} to: {target}"
+                    self.gui_log_steps(esemeny)
+                    self.register_move(move, target)  # Regisztráljuk a lépést
+                    if self.debug:
+                        print(f"Player{player_number} moves:", move, target)  # Debug log
+                        if self.log:
+                            self.log_game(f"Player{player_number} moves: {move} to {target}\n")
+
+                self.switch_turns()  # Átadjuk a kört a másik játékosnak
+
+            else:
+                if pieces_placed < 9:  # Ha kevesebb mint 9 korongot rakott le, akkor lerakási fázisban vagyunk
+                    if lepes in self.generate_valid_moves():
+                        move = lepes  # Meghívjuk a játékos lépését
+                        self.register_move(move)  # A visszaadott lépést regisztráljuk
+                        if not(self.player1.name == "HumanPlayer" and self.player2.name == "HumanPlayer"): # Csak akkor csusztatunk ha az egyik player AI
+                            self.event_queue.put(-1)
+                        esemeny = f"{'White' if player_number == 1 else 'Black'} moves to: {lepes}"
+                        self.gui_log_steps(esemeny)
+                        #self.switch_turns()  # Átadjuk a kört a másik játékosnak
+                    else:
+                        self.footer_text = "Helytelen lépés"
+                else:  # Egyébként mozgatási fázisban vagyunk
+                    if self.kijelolt_babu == None:
+                        self.kijelolt_babu = lepes #Nem mozgatunk, csak megjegyezzuk
+                    else:
+                        self.register_move(self.kijelolt_babu, lepes)  # Regisztráljuk a lépést
+                        esemeny = f"{'White' if player_number == 1 else 'Black'} moves from: {self.kijelolt_babu} to: {lepes}"
+                        self.kijelolt_babu = None
+                        self.gui_log_steps(esemeny)
+                        self.switch_turns()  # Átadjuk a kört a másik játékosnak, de csak ha már a cél is megvan.
+
+
+            if self.debug:
+                print(f"Player{player_number} moves: {lepes}")  # Debug log
+
 
 
     # A jatek vegeredmenyet jeleniti meg debug modban konzolon.

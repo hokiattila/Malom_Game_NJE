@@ -188,6 +188,7 @@ class GUI:
         start_button.pack(pady=20)
 
     def start_game(self):
+        self.game_instance.reset_game_gui()
         self.game_instance.start_game_gui(self.game_mode.get(), self.difficulty.get())
         self.print_board_gui()
 
@@ -208,6 +209,10 @@ class GUI:
         self.step_list = tk.Frame(self.app, bg="#3C3C3C")  # Keret háttere szürke
         self.step_list.grid(row=0, column=2, padx=(20, 0), pady=10, sticky="ns")
         self.update_step_list()
+
+        self.footer = tk.Frame(self.app, bg="#3C3C3C")  # Keret háttere szürke
+        self.footer.grid(row=1, column=0, padx=(20, 0), pady=10, sticky="ns")
+        self.update_footer()
         # Játéktábla nagyobb méretben és középre igazítva
         canvas_size = 1300  # Növeljük a vászon méretét
         canvas = tk.Canvas(self.app, width=canvas_size, height=canvas_size, bg="#2B2B2B", highlightthickness=0)
@@ -260,9 +265,21 @@ class GUI:
 
             self.buttons.append(button)
 
+
         # Gomb a főmenübe való visszatéréshez, középre igazítva
         back_button = customtkinter.CTkButton(self.app, text="Játék befejezése", command=self.back_to_menu, width=250,  corner_radius=20, fg_color=self.primary_color, hover_color=self.secondary_color)
         back_button.grid(row=2, column=1, pady=30, sticky="n")
+
+    def update_footer(self):
+        for widget in self.footer.winfo_children():
+            widget.destroy()
+        self.footer = tk.Frame(self.app, bg="#3C3C3C")  # Keret háttere szürke
+        self.footer.grid(row=1, column=1, padx=(20, 0), pady=20, sticky="ns")
+
+        label = tk.Label(self.footer,
+                         text=self.game_instance.footer_text,
+                         font=("Helvetica", 30), bg="#2B2B2B", fg=self.PlayerNameColor1)
+        label.pack(pady=5, anchor='w')  # Balra igazítás
 
     def update_button(self, index):
         piece_char = self.game_instance.board[index]
@@ -276,10 +293,23 @@ class GUI:
         self.step_list = tk.Frame(self.app, bg="#3C3C3C")  # Keret háttere szürke
         self.step_list.grid(row=0, column=2, padx=(20, 0), pady=10, sticky="ns")
 
-        white_label = tk.Label(self.step_list,
-                               text="teszt szöveg",
-                               font=("Helvetica", 30), bg="#3C3C3C", fg=self.PlayerNameColor1)
-        white_label.pack(pady=5, anchor='c')  # Jobbra igazítás
+        label = tk.Label(self.step_list,
+                         text="Legutóbbi lépések",
+                         font=("Helvetica", 35),
+                         bg=self.primary_color,
+                         fg="white")
+        label.pack(pady=5, anchor='w')  # Balra igazítás
+        # Kiválasztjuk a step_list utolsó 10 elemét
+        last_steps = self.game_instance.event_list[-15:]
+
+        # Iterálunk a kiválasztott elemek felett, és minden elemet kiírunk egy új Label widgetre
+        for step in last_steps:
+            label = tk.Label(self.step_list,
+                             text=step,
+                             font=("Helvetica", 30),
+                             bg=self.negyedleges_color,
+                             fg="white")
+            label.pack(pady=5, anchor='w')  # Balra igazítás
 
     def update_piece_count(self):
         for widget in self.piece_frame.winfo_children():
@@ -349,6 +379,8 @@ class GUI:
         self.update_piece_count()
         for i in range(len(self.game_instance.board)):
             self.update_button(i)
+        self.update_step_list()
+        self.update_footer()
 
     def sendEvent(self, event):
         self.event_queue.put(event)

@@ -62,10 +62,13 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
     p2 = getattr(args, 'p2', None)
 
     if args.debug:  # A megjelenito fuggvenyek a mode kapcsolotol fuggnek
+        new_game = Game(mode=args.mode, debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1, p2_flag=p2)  # Letrehozunk egy uj Game peldanyt
+        new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
         print_brd = new_game.print_board_debug  # Debug esetben
         print_res = new_game.print_result_debug # Debug esetben
         new_game = Game(mode=args.mode, debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1,  p2_flag=p2)  # Letrehozunk egy uj Game peldanyt
         new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
+        print_brd()  # Megjelenitjuk a tablat
     else:
         event_queue = queue.Queue()
         print_brd = lambda: print("Debug mode disabled")
@@ -95,8 +98,9 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
             print_brd() # Megjelenitjuk a tablat
         if not args.debug:
             lepes = listen_for_events(event_queue)
-            new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
-            lepes = listen_for_events(event_queue)
-            new_game.player_move(new_game.player2, 2, lepes)  # Player 2 lep
+            if new_game.turn_player1:
+                new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
+            else:
+                new_game.player_move(new_game.player2, 2, lepes)  # Egyebkent player 1 lep
         if args.log:
             new_game.log_game()
