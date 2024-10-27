@@ -88,17 +88,17 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
 
 
 
-    print("Eljutunk idaig?")
     #print_brd()
     while True: # Vegtelen ciklus
         if new_game.game_over(): # Ha a jatek veget er
-            print_res() # Kiirjuk az eredmenyt
-            break   # Kitorunk a ciklusbol
+            if args.debug:
+                print_res() # Kiirjuk az eredmenyt
+                break   # Kitorunk a ciklusbol
         if args.debug:
-            new_game.player_move(new_game.player1, 1) # Egyebkent player 1 lep
-            print_brd() # Megjelenitjuk a tablat
-            new_game.player_move(new_game.player2, 2) # Player 2 lep
-            print_brd() # Megjelenitjuk a tablat
+            if new_game.turn_player1:
+                new_game.player_move(new_game.player1, 1)  # Egyebkent player 1 lep
+            else:
+                new_game.player_move(new_game.player2, 2)  # Egyebkent player 1 lep
         if not args.debug:
             lepes = listen_for_events(event_queue)
             if lepes == "closeApp":
@@ -106,6 +106,6 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
             if new_game.turn_player1:
                 new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
             else:
-                new_game.player_move(new_game.player2, 2, lepes)  # Egyebkent player 1 lep
+                new_game.player_move(new_game.player2, 2, lepes)  # Egyebkent player 2 lep
         if args.log:
             new_game.log_game()

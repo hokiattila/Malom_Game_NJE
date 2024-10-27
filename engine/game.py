@@ -181,7 +181,7 @@ class Game:
                 self.board[move] = str(move) # Eredeti poziciot visszaallitjuk
                 self.board[target] = self.current_player().color # Uj poziciora beirjuk a korongot
                 if self.mill_is_made(): # Ha malom keletkezik
-                    if self.debug:
+                    if self.debug and not self.game_over():
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
                     if (self.debug and self.current_player().name == "HumanPlayer"):
@@ -341,8 +341,9 @@ class Game:
         if lepes == "exitApp":
             sys.exit()  # Az alkalmazás kilép
         self.footer_text = ""
-        if self.GUIRemovePhase:
-            self.remove_opponent_piece(lepes)
+        if not self.debug:
+            if self.GUIRemovePhase:
+                self.remove_opponent_piece(lepes)
 
         else:
             if self.debug:
@@ -408,6 +409,7 @@ class Game:
 
             if self.debug:
                 print(f"Player{player_number} moves: {lepes}")  # Debug log
+                self.print_board_debug()
 
 
 
