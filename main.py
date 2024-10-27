@@ -34,6 +34,9 @@ def listen_for_events(event_queue):
             close_all_threads()
             print("Az alkalmazás leáll.")
             sys.exit()  # Az alkalmazás kilép
+        if (event == "nextPlayer"):
+            if new_game.turn_player1:
+                new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
         return event
 
 if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
@@ -98,6 +101,8 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
             print_brd() # Megjelenitjuk a tablat
         if not args.debug:
             lepes = listen_for_events(event_queue)
+            if lepes == "closeApp":
+                break
             if new_game.turn_player1:
                 new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
             else:

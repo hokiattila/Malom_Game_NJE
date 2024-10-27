@@ -1,5 +1,7 @@
 import os.path
+import sys
 from datetime import datetime
+from ftplib import print_line
 from random import getrandbits
 
 from engine.colors import Colors
@@ -221,9 +223,6 @@ class Game:
                         print("GUI Remove Phase")
                         event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
                         self.event_list.append(event_text)
-
-
-
                 elif self.debug == False and self.current_player().name == "HumanPlayer":
                     self.switch_turns()
             else: # Foglalt a megadott pozicio (es Lerakasi fazisban vagyunk)
@@ -338,6 +337,10 @@ class Game:
 
     def player_move(self: "Game", player, player_number: int, lepes = None) -> None:
         self.footer_text = ""
+        print_line(player_number)
+        if lepes == "exitApp":
+            sys.exit()  # Az alkalmazás kilép
+        self.footer_text = ""
         if self.GUIRemovePhase:
             self.remove_opponent_piece(lepes)
 
@@ -383,13 +386,24 @@ class Game:
                         self.footer_text = "Helytelen lépés"
                 else:  # Egyébként mozgatási fázisban vagyunk
                     if self.kijelolt_babu == None:
-                        self.kijelolt_babu = lepes #Nem mozgatunk, csak megjegyezzuk
+                        valid_moves = self.generate_valid_moves()
+                        if any(piece == lepes for piece, _ in valid_moves):
+                            self.kijelolt_babu = lepes #Nem mozgatunk, csak megjegyezzuk
+                        else:
+                            self.footer_text = "Helytelen bábu!(2)"
+                            pieces = {move[0] for move in self.generate_valid_moves()}  # Kiválasztott korongok egyedi készlete
+                            print(f"Available moves: {pieces}")
+                            self.kijelolt_babu = None
                     else:
-                        self.register_move(self.kijelolt_babu, lepes)  # Regisztráljuk a lépést
-                        esemeny = f"{'White' if player_number == 1 else 'Black'} moves from: {self.kijelolt_babu} to: {lepes}"
-                        self.kijelolt_babu = None
-                        self.gui_log_steps(esemeny)
-                        self.switch_turns()  # Átadjuk a kört a másik játékosnak, de csak ha már a cél is megvan.
+                        if (self.kijelolt_babu, lepes) in self.generate_valid_moves():
+                            self.register_move(self.kijelolt_babu, lepes)  # Regisztráljuk a lépést
+                            esemeny = f"{'White' if player_number == 1 else 'Black'} moves from: {self.kijelolt_babu} to: {lepes}"
+                            self.kijelolt_babu = None
+                            self.gui_log_steps(esemeny)
+                            self.event_queue.put("nextPlayer")
+                        else:
+                            self.footer_text = "Helytelen lépés!"
+                            self.kijelolt_babu = None
 
 
             if self.debug:

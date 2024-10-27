@@ -2,6 +2,7 @@ import sys
 import tkinter as tk
 import customtkinter
 from PIL import Image, ImageTk  # Szükséges a képek kezeléséhez
+from customtkinter import CTkImage
 
 
 class GUI:
@@ -41,7 +42,7 @@ class GUI:
         self.black_circle_img = ImageTk.PhotoImage(Image.open("img/black_circle.png").resize((60, 60)))
         self.empty_circle_img = ImageTk.PhotoImage(Image.open("img/empty_circle.png").resize((60, 60)))
         self.transparent_bg_img = ImageTk.PhotoImage(Image.open("img/transparent_bg.png"))  # Betöltjük a háttérképet
-        self.logo_img = ImageTk.PhotoImage(Image.open("img/malom.png").resize((300, 300)))
+        self.logo_img = CTkImage(light_image=Image.open("img/malom.png"), size=(200, 200))
 
     def start_gui(self):
         customtkinter.set_appearance_mode("dark")
