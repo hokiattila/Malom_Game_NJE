@@ -39,15 +39,15 @@ class GUI:
         title_label = customtkinter.CTkLabel(self.app, text="Malom - Továbbfejlesztett", font=("Helvetica", 26, "bold"))
         title_label.pack(pady=30)
 
-        start_button = customtkinter.CTkButton(self.app, text="Játék indítása", command=self.start_game, width=200,
+        start_button = customtkinter.CTkButton(self.app, text="Játék indítása", command=self.show_settings_menu, width=200,
                                                height=40)
         start_button.pack(pady=20)
 
-        settings_button = customtkinter.CTkButton(self.app, text="Beállítások", command=self.show_settings_menu,
-                                                  width=200, height=40)
-        settings_button.pack(pady=20)
+        #settings_button = customtkinter.CTkButton(self.app, text="Beállítások", command=self.show_settings_menu,
+        #                                          width=200, height=40)
+        #settings_button.pack(pady=20)
 
-        exit_button = customtkinter.CTkButton(self.app, text="Kilépés", command=self.exit_app, width=200, height=40)
+        exit_button = customtkinter.CTkButton(self.app, text="Kilépés", command=lambda: self.sendEvent("exitApp"), width=200, height=40)
         exit_button.pack(pady=20)
 
     def show_settings_menu(self):
@@ -74,6 +74,10 @@ class GUI:
 
         back_button = customtkinter.CTkButton(self.app, text="Vissza", command=self.show_main_menu, width=200)
         back_button.pack(pady=(30, 10))
+
+        start_button = customtkinter.CTkButton(self.app, text="Játék indítása", command=self.start_game, width=200,
+                                               height=40)
+        start_button.pack(pady=20)
 
     def start_game(self):
         self.game_instance.start_game_gui(self.game_mode.get(), self.difficulty.get())
@@ -187,3 +191,5 @@ class GUI:
         for i in range(len(self.game_instance.board)):
             self.update_button(i)
 
+    def sendEvent(self, event):
+        self.event_queue.put(event)

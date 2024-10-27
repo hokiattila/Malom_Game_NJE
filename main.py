@@ -10,6 +10,15 @@ import customtkinter
 from engine.GUI import window
 import tkinter as tk
 
+def close_all_threads():
+    # Kilistázzuk az összes futó szálat
+    for thread in threading.enumerate():
+        # Megvizsgáljuk, hogy a szál nem a fő szál-e és még aktív
+        if thread is not threading.main_thread() and thread.is_alive():
+            print(f"Leállítás: {thread.name}")
+            thread.join(timeout=1)  # Kísérlet a szál leállítására
+
+    print("Minden nem fő szál leállt.")
 def gui_thread(event_queue):
     # Inicializáljuk a GUI-t
 
@@ -21,6 +30,10 @@ def listen_for_events(event_queue):
     while True:
         # Várakozás az eseményekre (pl. gombnyomások)
         event = event_queue.get()
+        if(event == "closeApp"):
+            close_all_threads()
+            print("Az alkalmazás leáll.")
+            sys.exit()  # Az alkalmazás kilép
         return event
 
 if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
