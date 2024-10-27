@@ -38,6 +38,7 @@ class Game:
         self.last_move = None
         self.p1_flag = p1_flag
         self.p2_flag = p2_flag
+        self.GUIRemovePhase = None
         self.event_list = [""]
         if debug:
             self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
@@ -340,6 +341,7 @@ class Game:
         print_line(player_number)
         if lepes == "exitApp":
             sys.exit()  # Az alkalmazás kilép
+
         if self.GUIRemovePhase:
             self.remove_opponent_piece(lepes)
         else:
