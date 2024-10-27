@@ -37,6 +37,8 @@ def listen_for_events(event_queue):
         if (event == "nextPlayer"):
             if new_game.turn_player1:
                 new_game.player_move(new_game.player1, 1, lepes)  # Egyebkent player 1 lep
+            else:
+                new_game.player_move(new_game.player2, 2, lepes)  # Egyebkent player 2 lep
         return event
 
 if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt

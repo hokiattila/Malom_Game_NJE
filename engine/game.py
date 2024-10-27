@@ -181,7 +181,7 @@ class Game:
                 self.board[move] = str(move) # Eredeti poziciot visszaallitjuk
                 self.board[target] = self.current_player().color # Uj poziciora beirjuk a korongot
                 if self.mill_is_made(): # Ha malom keletkezik
-                    if self.debug and not self.game_over():
+                    if self.debug:
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
                     if (self.debug and self.current_player().name == "HumanPlayer"):
@@ -340,11 +340,8 @@ class Game:
         print_line(player_number)
         if lepes == "exitApp":
             sys.exit()  # Az alkalmazás kilép
-        self.footer_text = ""
-        if not self.debug:
-            if self.GUIRemovePhase:
-                self.remove_opponent_piece(lepes)
-
+        if self.GUIRemovePhase:
+            self.remove_opponent_piece(lepes)
         else:
             if self.debug:
                 print(f"Player{player_number}'s turn")  # Debug log
@@ -391,7 +388,8 @@ class Game:
                         if any(piece == lepes for piece, _ in valid_moves):
                             self.kijelolt_babu = lepes #Nem mozgatunk, csak megjegyezzuk
                         else:
-                            self.footer_text = "Helytelen bábu!(2)"
+                            if self.kijelolt_babu is not None:
+                                self.footer_text = "Helytelen bábu!(2)"
                             pieces = {move[0] for move in self.generate_valid_moves()}  # Kiválasztott korongok egyedi készlete
                             print(f"Available moves: {pieces}")
                             self.kijelolt_babu = None
