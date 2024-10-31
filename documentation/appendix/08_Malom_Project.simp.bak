@@ -29,10 +29,6 @@
       </counter>
       <counter>
         <item-type type-id="state" type="State" />
-        <value>4</value>
-      </counter>
-      <counter>
-        <item-type type-id="final-state" type="Final State" />
         <value>2</value>
       </counter>
     </entity-names>
@@ -51,7 +47,7 @@
       </counter>
       <counter>
         <item-type type-id="universal-connector" type="Universal Connector" />
-        <value>45</value>
+        <value>37</value>
       </counter>
       <counter>
         <item-type type-id="reception" type="Reception" />
@@ -91,27 +87,23 @@
       </counter>
       <counter>
         <item-type type-id="comment-connector" type="Comment Connector" />
-        <value>42</value>
+        <value>35</value>
       </counter>
       <counter>
         <item-type type-id="comment" type="Comment" />
-        <value>43</value>
+        <value>37</value>
       </counter>
       <counter>
         <item-type type-id="general-transition" type="Transition" />
-        <value>45</value>
+        <value>30</value>
       </counter>
       <counter>
         <item-type type-id="state" type="State" />
-        <value>20</value>
+        <value>18</value>
       </counter>
       <counter>
         <item-type type-id="initial-state" type="Initial State" />
         <value>2</value>
-      </counter>
-      <counter>
-        <item-type type-id="final-state" type="Final State" />
-        <value>3</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -207,16 +199,6 @@
         <phone-number />
         <description />
         <color>#00000000</color>
-        <working-schedule uid="ws-32227df68f5746b3b80b462f9e15486b" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
-      </person>
-      <person id="">
-        <first-name>Mark</first-name>
-        <last-name>Kovacs</last-name>
-        <role />
-        <e-mail />
-        <phone-number />
-        <description />
-        <color>#00000000</color>
       </person>
     </persons>
     <teams />
@@ -273,8 +255,8 @@
         <type id="Set" name="Set" />
         <type id="Tuple" name="Tuple" />
         <type id="Uml.|NULL" name="Uml.|NULL" />
-        <type id="Playedr" name="Playedr" />
         <type id="int|NU" name="int|NU" />
+        <type id="Playedr" name="Playedr" />
         <type id="List[Uml.Integer] | Tuple[Uml.Integer, Uml.Integer] (List[int] | Tuple[Uml.Integer, Uml.Integer])" name="List[Uml.Integer] | Tuple[Uml.Integer, Uml.Integer] (List[int] | Tuple[Uml.Integer, Uml.Integer])" />
         <type id="int|NUL" name="int|NUL" />
         <type id="Class:5b35881d4fe5491faed32da3a6d99552" name="Color" class-ref="5b35881d4fe5491faed32da3a6d99552" />
@@ -904,15 +886,7 @@
       <property default-value="&quot;MiniMaxPlayer&quot;" />
     </item>
     <item id="dd936ef670794495b18353072ca0378a" cid="AC005" type="actor" name="UI Designer" creation-date="10/27/2024 11:08:02" visibility="undefined" />
-    <item id="3721d98c298f44db80799d1ea108abe3" cid="CMT038" type="comment" name="Comment" creator="" creation-date="10/31/2024 11:24:52">
-      <comment>
-Plyer_X won
-If player_y has 2 pieces left</comment>
-    </item>
     <item id="06a550b70cfb49a2ad9d461f33290e9d" cid="PROP076" type="property" owner="155fa9e13d8549f98e159facb4a88700" creator="" creation-date="10/27/2024 11:13:26" visibility="private" />
-    <item id="8779315a4fe24419b7c8177d815174fd" cid="CMT037" type="comment" name="Comment" creator="" creation-date="10/31/2024 11:23:05">
-      <comment>Until the Game is over</comment>
-    </item>
     <item id="622e9dc747694bbc85200dca27ed0c20" cid="PROP083" type="property" owner="49eaa5e83c214e1d835029066d2929a8" creator="" creation-date="10/27/2024 11:29:59" visibility="private" />
     <item id="6f8fbe41f4574eb79557f3c79f3cf25a" veid="68d9dd7e94f6427293042dc443ef7f4d" cid="ST004" type="state" name="Valid placement" creation-date="10/24/2024 09:04:28" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
@@ -924,7 +898,6 @@ If player_y has 2 pieces left</comment>
     <item id="1d29d80a7c2f4185b2c9cd9a32d08973" cid="PROP027" type="property" owner="00ec82cb9c84459f8514e2d79de4cb90" creator="" creation-date="10/27/2024 09:14:02" visibility="private">
       <structural-feature type="Color" type-id="Class:5b35881d4fe5491faed32da3a6d99552" />
     </item>
-    <item id="di362281becaa54f7ea28c6f0f6b99354d7588" veid="7b7adde4b6824e2bbf5e3c9eeec70364" cid="CN040" type="comment-connector" creator="" creation-date="10/31/2024 11:25:53" from="8fd9441cd4a14bdb9c36fece3ddb2bc2" to="2f319319819044c288c5cc88af1dbead" />
     <item id="b93358e22c0c4fdfa303f32289ef6ca7" veid="f81610e0d6e04b1798c47b51daa9be34" cid="ELEM011" type="general-transition" creation-date="10/24/2024 09:07:49" from="1d799cbd3b354b5d96fd18820baac59b" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
       <transition kind="internal" />
     </item>
@@ -1417,10 +1390,6 @@ If player_y has 2 pieces left</comment>
     <item id="ac809883a5024d1e87da347c764e82d0" veid="caf0c56979df42328ca632262a5a9359" cid="CMT020" type="comment" name="Comment" creator="" creation-date="10/24/2024 08:37:01">
       <comment>Installer downloaded</comment>
     </item>
-    <item id="8fd9441cd4a14bdb9c36fece3ddb2bc2" cid="CMT041" type="comment" name="Comment" creator="" creation-date="10/31/2024 11:25:53">
-      <comment>Player_X has 
-&gt;3 pieces</comment>
-    </item>
     <item id="297b5636ad854b9a86f3bb66f4ca0079" veid="f5a331df74094f168953ba6bab4b01b4" cid="CN022" type="comment-connector" creator="" creation-date="10/24/2024 08:47:05" from="c2aafa6f295947d2a86bb11c868b5045" to="23a9c441a77046f1ac193075d1fd6aaa" />
     <item id="68492850fd344d8ab875b6edd285b051" veid="4c939f5234d5472e86de9d7e73315729" cid="ELEM027" type="general-transition" creation-date="10/24/2024 09:48:45" from="6f8fbe41f4574eb79557f3c79f3cf25a" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
       <transition kind="internal" />
@@ -1733,7 +1702,6 @@ hasn't placed all pieces</comment>
       </style>
       <structural-feature type="String" type-id="Uml.String" />
     </item>
-    <item id="di3d6430e0419947dfa5e6fa0c2d4cd28f6439" veid="4e01935f2cc84fcebcfff6767ed7e86d" cid="CN039" type="comment-connector" creator="" creation-date="10/31/2024 11:25:09" from="a8742617b66c48c7b32825f49a3df41c" to="ef1fa51929ea44b089588a42cb6ff26b" />
     <item id="0cf6fdee76164162b9f9040d6bbf43cc" veid="a46cb44e57c44db89c7852ba82bd6c82" cid="ST003" type="state" name="PVC" creation-date="10/24/2024 08:44:33" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
@@ -1823,7 +1791,6 @@ hasn't placed all pieces</comment>
     <item id="29d4949a183a4cc3ae2d5aa2709bfde4" veid="112b2c4c622f4c83b1964c6fa8cd0f11" cid="CMT021" type="comment" name="Comment" creator="" creation-date="10/24/2024 08:38:40">
       <comment>Canceled installation</comment>
     </item>
-    <item id="di90e89732c10f45b993d9a2cde500761a1651" veid="59683ce288a6456d86201d42f8779e04" cid="CN036" type="comment-connector" creator="" creation-date="10/31/2024 11:23:05" from="8779315a4fe24419b7c8177d815174fd" to="7af9a34c745e475084b04cfc52cf24ba" />
     <item id="549954219b6e4a4f8d2afb28b415ba97" veid="e3e466151d604763aa2990c398448970" cid="CN025" type="comment-connector" creator="" creation-date="10/24/2024 08:54:16" from="5141a09614264a2491d066dc7724929b" to="ead0731614c04f1bb3b47fdb13de68af" />
     <item id="89a5a640bd4c479480f7469430a3a3bd" cid="PROP038" type="property" name="DARK_ORANGE" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:16:53" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
@@ -1877,10 +1844,6 @@ hasn't placed all pieces</comment>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[91m'" />
     </item>
-    <item id="4274e06ae1344ac2b4a281fd7a1a46cf" cid="CMT042" type="comment" name="Comment" creator="" creation-date="10/31/2024 11:27:51">
-      <comment>Player_X and Player_Y
-has no valid moves, and nooe won</comment>
-    </item>
     <item id="b5e03ff626c0485c8285cd1132bdeea8" cid="PROP079" type="property" owner="99ca9c09b11a42e98ac58393b42fa499" creator="" creation-date="10/27/2024 11:15:14" visibility="private" />
     <item id="2def4ebe8e6d4e13b17d479eae7cb457" veid="0c1a4ab37ee347f385997055f7fca151" cid="ST015" type="state" name="CVC" creation-date="10/24/2024 08:44:52" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
@@ -1891,7 +1854,6 @@ has no valid moves, and nooe won</comment>
     <item id="3bd5b1f13c4746868286031c1127c56a" veid="a5bc082af64049b6b2b203e7e9c1bc6f" cid="CMT034" type="comment" name="Comment" creator="" creation-date="10/24/2024 09:44:03">
       <comment>Player_X must place a piece</comment>
     </item>
-    <item id="dia3d33c6c3b72438bac6adea1b35ebc993180" veid="d7189dd7c3dd4e0f8ea2021ee2a3466d" cid="CN041" type="comment-connector" creator="" creation-date="10/31/2024 11:27:51" from="4274e06ae1344ac2b4a281fd7a1a46cf" to="579da5e905874f199b168c6e5d92bc1b" />
     <item id="92501d8b7f1046b0aca632b845c71163" veid="b7ae3e69b947432cbf2070f344180f8f" cid="ST005" type="state" name="A* Player" creation-date="10/24/2024 08:53:22" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
@@ -1962,9 +1924,6 @@ Main screen is visible</comment>
       </state>
     </item>
     <item id="81161993d3c64943a6e323dfc394cb7e" veid="88ba62d767b24084adb5d6917ca106eb" cid="CN019" type="comment-connector" creator="" creation-date="10/24/2024 08:38:40" from="29d4949a183a4cc3ae2d5aa2709bfde4" to="685bff3d317c4a03a4a7d54d9576a23a" />
-    <item id="7af9a34c745e475084b04cfc52cf24ba" cid="ELEM005" type="general-transition" creation-date="10/24/2024 09:40:10" from="4d32880821cf4aa18621ece3774595d6" to="4d32880821cf4aa18621ece3774595d6" visibility="package">
-      <transition kind="internal" />
-    </item>
     <item id="065f6a8d67e34fd9bdeeabfc0109f052" veid="b2babacce31240a78c48ec9cb80cbddf" cid="PROP004" type="property" name="name" owner="68ae3b91126f488a9ae220586b5eb567" creation-date="10/26/2024 22:37:47" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -2103,9 +2062,6 @@ Main screen is visible</comment>
       </style>
       <structural-feature type="Uml.Integer | Tuple[Uml.Integer, Uml.Integer]" type-id="Uml.Integer | Tuple[Uml.Integer, Uml.Integer]" />
     </item>
-    <item id="a8742617b66c48c7b32825f49a3df41c" cid="CMT040" type="comment" name="Comment" creator="" creation-date="10/31/2024 11:25:09">
-      <comment>PLayer_X has &lt;4 pieces</comment>
-    </item>
     <item id="8174c30e5f5047a4917d173cb7c343c9" cid="PROP055" type="property" name="BACK_WHITE" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:18:28" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -2168,7 +2124,6 @@ Main screen is visible</comment>
     <item id="27b70c8211674081b11b18acd38f0cf3" veid="56fdcd35a8a540bdb342c222374641cd" cid="ELEM024" type="general-transition" creation-date="10/24/2024 08:48:11" from="0cf6fdee76164162b9f9040d6bbf43cc" to="60a25b689b404fdb9413dd9587e6d314" visibility="package">
       <transition kind="internal" />
     </item>
-    <item id="di6c88f938a2394d6292461fc4b227472c1781" veid="3dc506091a7b450b803c254bb7af7a97" cid="CN037" type="comment-connector" creator="" creation-date="10/31/2024 11:24:52" from="3721d98c298f44db80799d1ea108abe3" to="af475e050d734403873b0998db3bcb53" />
     <item id="bd6b447ae23c4e97b1f6c424443a6839" cid="PROP048" type="property" name="BACK_BLACK" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:17:37" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -2407,16 +2362,16 @@ Main screen is visible</comment>
           <item id="00ec82cb9c84459f8514e2d79de4cb90" cid="REL002" type="relationship" creator="" creation-date="10/27/2024 09:14:02" from="1762393b4da04717a9c008929c5cf885" to="5b35881d4fe5491faed32da3a6d99552" visibility="package">
             <owned-items />
             <relation from="1762393b4da04717a9c008929c5cf885" to="5b35881d4fe5491faed32da3a6d99552" derived="false">
-              <start-role id="umlar-c8e0f220-a501-4d56-9377-55ad821b0e0e" name="" navigability="" association-type="association" visibility="private" property-ref="2fa98b687692446eb3960d0c48ceb0c4" />
-              <end-role id="umlar-90638abc-304d-4c0f-98d9-1ae6dc357c46" name="" navigability="" association-type="association" visibility="private" property-ref="1d29d80a7c2f4185b2c9cd9a32d08973" />
+              <start-role id="umlar-d697e65e-dbe1-41bf-9e37-c7e925effc52" name="" navigability="" association-type="association" visibility="private" property-ref="2fa98b687692446eb3960d0c48ceb0c4" />
+              <end-role id="umlar-fb9f206d-c933-4816-a54d-f906851bf677" name="" navigability="" association-type="association" visibility="private" property-ref="1d29d80a7c2f4185b2c9cd9a32d08973" />
             </relation>
           </item>
           <item id="f68f2c2a7ee64a77ac7e4ffe83b9a13f" cid="GNR002" type="generalization" creator="" creation-date="10/26/2024 22:36:25" from="e17a355a85d0484ebbf9f9979de93d80" to="2af31bfe49b54e79bb7ca5e6722e5ac8" visibility="package" />
           <item id="fc3a5b3b82504edfa4fb3b5a0e6f9923" cid="REL001" type="relationship" creator="" creation-date="10/27/2024 08:30:44" from="1762393b4da04717a9c008929c5cf885" to="2af31bfe49b54e79bb7ca5e6722e5ac8" visibility="package">
             <owned-items />
             <relation from="1762393b4da04717a9c008929c5cf885" to="2af31bfe49b54e79bb7ca5e6722e5ac8" derived="false">
-              <start-role id="umlar-4d5b2202-4f87-4755-91ea-0ae8a6b90320" name="" navigability="" association-type="association" visibility="private" property-ref="d71f1198b8f14f0c9cffbb62a85d1ac1" />
-              <end-role id="umlar-375462ba-035d-4259-a884-0def63a6555e" name="" navigability="" association-type="association" visibility="private" property-ref="20dc331a96d3457f9842ef99fd47eac6" />
+              <start-role id="umlar-ea1ffe79-5ab3-4fdd-a410-48ca1118137d" name="" navigability="" association-type="association" visibility="private" property-ref="d71f1198b8f14f0c9cffbb62a85d1ac1" />
+              <end-role id="umlar-471b628a-9236-48ee-bcb4-31c975336713" name="" navigability="" association-type="association" visibility="private" property-ref="20dc331a96d3457f9842ef99fd47eac6" />
             </relation>
           </item>
           <item id="c830e4225c4f4701a358028a80cc38c9" cid="GNR008" type="generalization" creator="" creation-date="10/27/2024 00:03:06" from="eb28f378b81e43768c60e821898cc180" to="2af31bfe49b54e79bb7ca5e6722e5ac8" visibility="package" />
@@ -2855,8 +2810,8 @@ Main screen is visible</comment>
           <item id="a8cfd15be1db4d2da034461ce6d856ec" cid="REL005" type="relationship" creator="" creation-date="10/27/2024 10:52:54" from="2687212100a1491397753e60ba9b7a78" to="1e6260c513cb4451bc7909a62c7255de" visibility="package">
             <owned-items />
             <relation from="2687212100a1491397753e60ba9b7a78" to="1e6260c513cb4451bc7909a62c7255de" derived="false">
-              <start-role id="umlar-9b06f942-14f1-43eb-b927-c0591b895312" name="" navigability="" association-type="association" visibility="private" property-ref="af2482f101014cb59a15bff3fd9dc128" />
-              <end-role id="umlar-43cc9152-f507-439d-b999-5866b449e73a" name="" navigability="" association-type="association" visibility="private" property-ref="815ef4b835954938a2bbf021624ee7dc" />
+              <start-role id="umlar-3f32f278-33b3-4252-8692-582250d3b561" name="" navigability="" association-type="association" visibility="private" property-ref="af2482f101014cb59a15bff3fd9dc128" />
+              <end-role id="umlar-41755876-ae61-4c96-ba7d-05e0ee5337e3" name="" navigability="" association-type="association" visibility="private" property-ref="815ef4b835954938a2bbf021624ee7dc" />
             </relation>
           </item>
           <item id="0c295c356e214adab61c81d2caec0488" cid="INC001" type="include" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:26:32" from="8aafe428ea7149419ae84507ac49c56d" to="03385e3a3bcd4276bd77f0aadb1822f8" visibility="package">
@@ -2870,8 +2825,8 @@ Main screen is visible</comment>
           <item id="4d400730d3554cb0b4b6352908a8e01e" cid="REL011" type="relationship" creator="" creation-date="10/27/2024 11:01:19" from="3144dbc554144ab0825bb77ed5254e6c" to="f54c5680769841ff8a377bf973f7b1ad" visibility="package">
             <owned-items />
             <relation from="3144dbc554144ab0825bb77ed5254e6c" to="f54c5680769841ff8a377bf973f7b1ad" derived="false">
-              <start-role id="umlar-f2b16087-a047-4761-a1e3-0aece1f0b07d" name="" navigability="" association-type="association" visibility="private" property-ref="4d8e1f282dd54ca4925c37da43a42777" />
-              <end-role id="umlar-471c8c3e-dcdc-49de-bd6c-7bb4426b174a" name="" navigability="" association-type="association" visibility="private" property-ref="d804f550fcce4ee68eea691f439ba094" />
+              <start-role id="umlar-e410d440-edd3-45ef-92c5-e73a4c9c2dd4" name="" navigability="" association-type="association" visibility="private" property-ref="4d8e1f282dd54ca4925c37da43a42777" />
+              <end-role id="umlar-42476c51-11c1-4fcd-bd5a-b6cccceda85f" name="" navigability="" association-type="association" visibility="private" property-ref="d804f550fcce4ee68eea691f439ba094" />
             </relation>
           </item>
           <item id="0b02b9c9c88f458cb2c6a5e7e23afb14" cid="EX004" type="extend" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:59:36" from="724edaca5cbd4dddb62c1ff134b340d3" to="c511da7dc5a24fe7b75e8bd3c0053ddc" visibility="package">
@@ -2974,8 +2929,8 @@ Main screen is visible</comment>
           <item id="d0a523e9213042089069d0fadf96d706" cid="REL017" type="relationship" creator="" creation-date="10/27/2024 11:30:05" from="dd936ef670794495b18353072ca0378a" to="d36d2ebc4a7646aab15a2a69b3aee377" visibility="package">
             <owned-items />
             <relation from="dd936ef670794495b18353072ca0378a" to="d36d2ebc4a7646aab15a2a69b3aee377" derived="false">
-              <start-role id="umlar-143dd762-6b10-4c22-9065-de17d7dc1e79" name="" navigability="" association-type="association" visibility="private" property-ref="66564516d9df4c4dbc4333ea64d9a4ac" />
-              <end-role id="umlar-ef45c94d-1210-473a-bbd7-d0251dea1016" name="" navigability="" association-type="association" visibility="private" property-ref="d002a524ef7e4f7088b7a0f0c4e86354" />
+              <start-role id="umlar-984bee1f-62fb-4ffc-86a6-4d5d5b78fb42" name="" navigability="" association-type="association" visibility="private" property-ref="66564516d9df4c4dbc4333ea64d9a4ac" />
+              <end-role id="umlar-2a3615e6-409e-45e1-afb1-b7d0c01e6fa0" name="" navigability="" association-type="association" visibility="private" property-ref="d002a524ef7e4f7088b7a0f0c4e86354" />
             </relation>
           </item>
           <item id="15229f07d14a4de3a28ebd06a40d5672" cid="UC019" type="use-case" name="Design Interface" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:20:19" visibility="undefined">
@@ -2988,8 +2943,8 @@ Main screen is visible</comment>
           <item id="d67ec32c6159432881ad3995840ab0c3" cid="REL015" type="relationship" creator="" creation-date="10/27/2024 11:29:53" from="dd936ef670794495b18353072ca0378a" to="15229f07d14a4de3a28ebd06a40d5672" visibility="package">
             <owned-items />
             <relation from="dd936ef670794495b18353072ca0378a" to="15229f07d14a4de3a28ebd06a40d5672" derived="false">
-              <start-role id="umlar-d7868ed0-afe7-4baa-8358-dc130dddca3a" name="" navigability="" association-type="association" visibility="private" property-ref="0b93c2619eb548c29cfc09384feaa6d0" />
-              <end-role id="umlar-41a254ce-d710-4744-9e6f-671dc04fc981" name="" navigability="" association-type="association" visibility="private" property-ref="fe5fb857174e4390b151ac19f8b5588f" />
+              <start-role id="umlar-97eac764-4df1-4c61-aef5-cbd9aa339e4a" name="" navigability="" association-type="association" visibility="private" property-ref="0b93c2619eb548c29cfc09384feaa6d0" />
+              <end-role id="umlar-62b44438-8799-4951-b750-34451417903f" name="" navigability="" association-type="association" visibility="private" property-ref="fe5fb857174e4390b151ac19f8b5588f" />
             </relation>
           </item>
           <item id="9c9f767506694c548aca4a13cd30bc51" cid="UC017" type="use-case" name="Improve AI Profiles" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:14:53" visibility="undefined">
@@ -3030,9 +2985,6 @@ Main screen is visible</comment>
               <issues />
             </use-case>
           </item>
-          <item id="c58f3b12374447d68dbc3db7d91f2457" cid="SYS001" type="system-boundary" name="Nine Men's Morris Game" creator="" creation-date="10/27/2024 10:23:01">
-            <owned-items />
-          </item>
           <item id="c4cddc6cad9e4cbfa875fd447b6caf4b" cid="INC010" type="include" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:33:39" from="4f3fea86b07f45729f0f809f933a1964" to="c6cd872c3e6244e5abc44ec302fd8dc6" visibility="package">
             <stereotypes>
               <stereotype name="include" />
@@ -3041,11 +2993,14 @@ Main screen is visible</comment>
               <stereotype id="c4cddc6cad9e4cbfa875fd447b6caf4b_include_c" type="include" creation-date="10/27/2024 11:33:39" ref="" />
             </stereotype-instances>
           </item>
+          <item id="c58f3b12374447d68dbc3db7d91f2457" cid="SYS001" type="system-boundary" name="Nine Men's Morris Game" creator="" creation-date="10/27/2024 10:23:01">
+            <owned-items />
+          </item>
           <item id="155fa9e13d8549f98e159facb4a88700" cid="REL013" type="relationship" creator="" creation-date="10/27/2024 11:13:26" from="5db9005055214e099a00fa753a468e8a" to="782b2c0333c84a7b8d08c6aaa137784e" visibility="package">
             <owned-items />
             <relation from="5db9005055214e099a00fa753a468e8a" to="782b2c0333c84a7b8d08c6aaa137784e" derived="false">
-              <start-role id="umlar-cf1f69cb-d9e3-444c-9d0f-17c415158517" name="" navigability="" association-type="association" visibility="private" property-ref="06a550b70cfb49a2ad9d461f33290e9d" />
-              <end-role id="umlar-2d1e5523-03bb-442c-9110-7510a8d5ad6b" name="" navigability="" association-type="association" visibility="private" property-ref="2e27b373d0d44236ba6d95ad7731a80a" />
+              <start-role id="umlar-446daa8a-8111-4a83-939e-c4fbfa851a38" name="" navigability="" association-type="association" visibility="private" property-ref="06a550b70cfb49a2ad9d461f33290e9d" />
+              <end-role id="umlar-fb39020d-749f-4ef2-b535-712c4f2c4d28" name="" navigability="" association-type="association" visibility="private" property-ref="2e27b373d0d44236ba6d95ad7731a80a" />
             </relation>
           </item>
           <item id="e3f68d842b034a2db2ad0ed89811b692" cid="AC006" type="actor" name="Tester" creator="" creation-date="10/27/2024 11:10:28" visibility="undefined" />
@@ -3059,8 +3014,8 @@ Main screen is visible</comment>
           <item id="e4dc904362674d70a537a980d12fe706" cid="REL018" type="relationship" creator="" creation-date="10/27/2024 11:33:45" from="4f3fea86b07f45729f0f809f933a1964" to="e3f68d842b034a2db2ad0ed89811b692" visibility="package">
             <owned-items />
             <relation from="4f3fea86b07f45729f0f809f933a1964" to="e3f68d842b034a2db2ad0ed89811b692" derived="false">
-              <start-role id="umlar-33ac732e-924b-413d-842e-edfddff48c6c" name="" navigability="" association-type="association" visibility="private" property-ref="534a4daf53294e4c969cce0752567f21" />
-              <end-role id="umlar-65d48ed9-e109-4d40-8ab2-663d323d45a4" name="" navigability="" association-type="association" visibility="private" property-ref="caec5fe3435541fabb681e7f89775464" />
+              <start-role id="umlar-72c33450-da0d-46b4-aea8-78ea472979bf" name="" navigability="" association-type="association" visibility="private" property-ref="534a4daf53294e4c969cce0752567f21" />
+              <end-role id="umlar-c002dbe3-cf1e-4770-b316-d294222734ed" name="" navigability="" association-type="association" visibility="private" property-ref="caec5fe3435541fabb681e7f89775464" />
             </relation>
           </item>
           <item id="dedc7e1d85c44c9fafe1375fae6e2487" cid="UC010" type="use-case" name="Log Game" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:58:13" visibility="undefined">
@@ -3080,15 +3035,15 @@ Main screen is visible</comment>
           <item id="0837d5c5dddb4258a3b87d8720a8e951" cid="REL009" type="relationship" creator="" creation-date="10/27/2024 10:56:38" from="2c1afd2509884777bda4afc3b8ed2ef5" to="2687212100a1491397753e60ba9b7a78" visibility="package">
             <owned-items />
             <relation from="2c1afd2509884777bda4afc3b8ed2ef5" to="2687212100a1491397753e60ba9b7a78" derived="false">
-              <start-role id="umlar-8f0191a0-462a-49a1-ad8e-8450b0383bd8" name="" navigability="" association-type="association" visibility="private" property-ref="3f03e4a2869648e1a6e0d5b241337d28" />
-              <end-role id="umlar-93adfecd-cd2c-49d9-b57e-31f8224351ed" name="" navigability="" association-type="association" visibility="private" property-ref="5e5993c5bada43f3a8ac85d7f8d7aa3f" />
+              <start-role id="umlar-d6d5c057-cad0-460b-b536-0d8f6a9f2ac3" name="" navigability="" association-type="association" visibility="private" property-ref="3f03e4a2869648e1a6e0d5b241337d28" />
+              <end-role id="umlar-b828d1d9-f1aa-44d1-a8ca-1b23039540d4" name="" navigability="" association-type="association" visibility="private" property-ref="5e5993c5bada43f3a8ac85d7f8d7aa3f" />
             </relation>
           </item>
           <item id="49eaa5e83c214e1d835029066d2929a8" cid="REL016" type="relationship" creator="" creation-date="10/27/2024 11:29:59" from="dd936ef670794495b18353072ca0378a" to="b7ed546a331b4c8a8e645d7b7619e757" visibility="package">
             <owned-items />
             <relation from="dd936ef670794495b18353072ca0378a" to="b7ed546a331b4c8a8e645d7b7619e757" derived="false">
-              <start-role id="umlar-dbcdb7a8-cb3d-41fb-90d6-e1a0211a65e5" name="" navigability="" association-type="association" visibility="private" property-ref="ac7d7319ccc0469fba56fb32f35098f4" />
-              <end-role id="umlar-2b7a3ec1-2d5c-4c84-ac91-6ad612566bf4" name="" navigability="" association-type="association" visibility="private" property-ref="622e9dc747694bbc85200dca27ed0c20" />
+              <start-role id="umlar-8cd3746e-bcd7-4055-852c-de941d51efa0" name="" navigability="" association-type="association" visibility="private" property-ref="ac7d7319ccc0469fba56fb32f35098f4" />
+              <end-role id="umlar-fa9fce9d-df0a-451c-b123-f095d8eca019" name="" navigability="" association-type="association" visibility="private" property-ref="622e9dc747694bbc85200dca27ed0c20" />
             </relation>
           </item>
           <item id="782b2c0333c84a7b8d08c6aaa137784e" cid="UC016" type="use-case" name="Analyise Game Data" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:12:42" visibility="undefined">
@@ -3101,16 +3056,9 @@ Main screen is visible</comment>
           <item id="96203d9016a343888a7df60c5bb6d8d1" cid="REL012" type="relationship" creator="" creation-date="10/27/2024 11:04:55" from="3144dbc554144ab0825bb77ed5254e6c" to="447de6592b804325a1e2c3a93d8a0173" visibility="package">
             <owned-items />
             <relation from="3144dbc554144ab0825bb77ed5254e6c" to="447de6592b804325a1e2c3a93d8a0173" derived="false">
-              <start-role id="umlar-07e82f5b-1075-4ef6-9e83-13a4e80f81d2" name="" navigability="" association-type="association" visibility="private" property-ref="240062f07f624c36b8f0b6eeda4fdb9c" />
-              <end-role id="umlar-b3bbfde0-d612-4ddf-89a7-7814df1ba2ff" name="" navigability="" association-type="association" visibility="private" property-ref="adaaf31c079c42a8896707d881eea49e" />
+              <start-role id="umlar-365aef97-c7bc-431c-9300-65a3f30128a7" name="" navigability="" association-type="association" visibility="private" property-ref="240062f07f624c36b8f0b6eeda4fdb9c" />
+              <end-role id="umlar-424e66ff-8d9d-4f4a-9568-7066c05999b0" name="" navigability="" association-type="association" visibility="private" property-ref="adaaf31c079c42a8896707d881eea49e" />
             </relation>
-          </item>
-          <item id="724edaca5cbd4dddb62c1ff134b340d3" cid="UC011" type="use-case" name="Log Game" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:59:36" visibility="undefined">
-            <use-case>
-              <stakeholders />
-              <special-requirements />
-              <issues />
-            </use-case>
           </item>
           <item id="9dc6086b730f46e89fe9077866e00276" cid="INC005" type="include" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:16:02" from="9c9f767506694c548aca4a13cd30bc51" to="b0be27d14db84b4fab207cb91f331b25" visibility="package">
             <stereotypes>
@@ -3119,6 +3067,13 @@ Main screen is visible</comment>
             <stereotype-instances>
               <stereotype id="9dc6086b730f46e89fe9077866e00276_include_c" type="include" creation-date="10/27/2024 11:16:02" ref="" />
             </stereotype-instances>
+          </item>
+          <item id="724edaca5cbd4dddb62c1ff134b340d3" cid="UC011" type="use-case" name="Log Game" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:59:36" visibility="undefined">
+            <use-case>
+              <stakeholders />
+              <special-requirements />
+              <issues />
+            </use-case>
           </item>
           <item id="0079a70f2b82411aa4a17d794793db14" cid="UC004" type="use-case" name="PvP Mode" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:47:41" visibility="undefined">
             <use-case>
@@ -3143,14 +3098,14 @@ Main screen is visible</comment>
               <stereotype id="9a0862fd66a14c93a98c5b6c90b18be0_include_c" type="include" creation-date="10/27/2024 10:56:44" ref="" />
             </stereotype-instances>
           </item>
-          <item id="b0be27d14db84b4fab207cb91f331b25" cid="UC018" type="use-case" name="Document" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:15:48" visibility="undefined">
+          <item id="4f3fea86b07f45729f0f809f933a1964" cid="UC022" type="use-case" name="Write test" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:32:11" visibility="undefined">
             <use-case>
               <stakeholders />
               <special-requirements />
               <issues />
             </use-case>
           </item>
-          <item id="4f3fea86b07f45729f0f809f933a1964" cid="UC022" type="use-case" name="Write test" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:32:11" visibility="undefined">
+          <item id="b0be27d14db84b4fab207cb91f331b25" cid="UC018" type="use-case" name="Document" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:15:48" visibility="undefined">
             <use-case>
               <stakeholders />
               <special-requirements />
@@ -3171,19 +3126,19 @@ Main screen is visible</comment>
               <issues />
             </use-case>
           </item>
-          <item id="6b3760e5808c4cd791b7c07615894f56" cid="REL003" type="relationship" creator="" creation-date="10/27/2024 10:27:24" from="ceab6eab03d04005bcd3bd55b96de63d" to="8aafe428ea7149419ae84507ac49c56d" visibility="package">
-            <owned-items />
-            <relation from="ceab6eab03d04005bcd3bd55b96de63d" to="8aafe428ea7149419ae84507ac49c56d" derived="false">
-              <start-role id="umlar-2e5770fb-616d-4107-b379-c54206a97d30" name="" navigability="" association-type="association" visibility="private" property-ref="2fbdc9b4c85c4d0983174c8f966e372d" />
-              <end-role id="umlar-9d0a519c-967a-4067-9fc7-6d2a5f65edb0" name="" navigability="" association-type="association" visibility="private" property-ref="635af74120d04cd39b4f4b660664d19c" />
-            </relation>
-          </item>
           <item id="447de6592b804325a1e2c3a93d8a0173" cid="UC014" type="use-case" name="Fix Bugs" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:04:42" visibility="undefined">
             <use-case>
               <stakeholders />
               <special-requirements />
               <issues />
             </use-case>
+          </item>
+          <item id="6b3760e5808c4cd791b7c07615894f56" cid="REL003" type="relationship" creator="" creation-date="10/27/2024 10:27:24" from="ceab6eab03d04005bcd3bd55b96de63d" to="8aafe428ea7149419ae84507ac49c56d" visibility="package">
+            <owned-items />
+            <relation from="ceab6eab03d04005bcd3bd55b96de63d" to="8aafe428ea7149419ae84507ac49c56d" derived="false">
+              <start-role id="umlar-e98aa612-a9e6-48fa-b03d-9dbbb199a9ed" name="" navigability="" association-type="association" visibility="private" property-ref="2fbdc9b4c85c4d0983174c8f966e372d" />
+              <end-role id="umlar-ff6227d7-3d2b-4aa5-a0b6-3691edf59c33" name="" navigability="" association-type="association" visibility="private" property-ref="635af74120d04cd39b4f4b660664d19c" />
+            </relation>
           </item>
           <item id="e3be289547914246becee62566a3f405" cid="EX006" type="extend" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:33:16" from="1e0e8a82808d46be8b167586b2b2215d" to="4f3fea86b07f45729f0f809f933a1964" visibility="package">
             <stereotypes>
@@ -3198,8 +3153,8 @@ Main screen is visible</comment>
           <item id="bd25454c9f0045599b1fb87879317f8b" cid="REL004" type="relationship" creator="" creation-date="10/27/2024 10:51:42" from="2687212100a1491397753e60ba9b7a78" to="c511da7dc5a24fe7b75e8bd3c0053ddc" visibility="package">
             <owned-items />
             <relation from="2687212100a1491397753e60ba9b7a78" to="c511da7dc5a24fe7b75e8bd3c0053ddc" derived="false">
-              <start-role id="umlar-bf019f87-9584-4536-8a06-c6bf6d7bc642" name="" navigability="" association-type="association" visibility="private" property-ref="1fec3d4297f24efa9e145488eada747a" />
-              <end-role id="umlar-7d3a56b8-7919-477b-acd0-5ec60cf8b8f6" name="" navigability="" association-type="association" visibility="private" property-ref="9ad7e191faae405786ef719ae502b377" />
+              <start-role id="umlar-1c2a2576-6d05-4dcb-b6f4-81b74d306af8" name="" navigability="" association-type="association" visibility="private" property-ref="1fec3d4297f24efa9e145488eada747a" />
+              <end-role id="umlar-d6363cbd-4fc3-4b27-9f49-804c2b16b18b" name="" navigability="" association-type="association" visibility="private" property-ref="9ad7e191faae405786ef719ae502b377" />
             </relation>
           </item>
           <item id="d36d2ebc4a7646aab15a2a69b3aee377" cid="UC020" type="use-case" name="Implement codebase" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:27:29" visibility="undefined">
@@ -3216,20 +3171,6 @@ Main screen is visible</comment>
               <issues />
             </use-case>
           </item>
-          <item id="99ca9c09b11a42e98ac58393b42fa499" cid="REL014" type="relationship" creator="" creation-date="10/27/2024 11:15:14" from="9c9f767506694c548aca4a13cd30bc51" to="5db9005055214e099a00fa753a468e8a" visibility="package">
-            <owned-items />
-            <relation from="9c9f767506694c548aca4a13cd30bc51" to="5db9005055214e099a00fa753a468e8a" derived="false">
-              <start-role id="umlar-a01c8b14-3dd6-4596-9cc6-a09e5611f142" name="" navigability="" association-type="association" visibility="private" property-ref="93b563a95af8425abef72c27697e7a63" />
-              <end-role id="umlar-52caf96d-2b47-4791-946d-be8686288f59" name="" navigability="" association-type="association" visibility="private" property-ref="b5e03ff626c0485c8285cd1132bdeea8" />
-            </relation>
-          </item>
-          <item id="1e0e8a82808d46be8b167586b2b2215d" cid="UC024" type="use-case" name="Write Integration Test" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:32:44" visibility="undefined">
-            <use-case>
-              <stakeholders />
-              <special-requirements />
-              <issues />
-            </use-case>
-          </item>
           <item id="8464d6f8d0174a29b906167c53174cff" cid="EX005" type="extend" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:33:11" from="d9e29b5dd88a43daa6693542af4c2e11" to="4f3fea86b07f45729f0f809f933a1964" visibility="package">
             <stereotypes>
               <stereotype name="extend" />
@@ -3238,6 +3179,20 @@ Main screen is visible</comment>
               <stereotype id="8464d6f8d0174a29b906167c53174cff_extend_c" type="extend" creation-date="10/27/2024 11:33:11" ref="" />
             </stereotype-instances>
             <extend extension-point="" condition="" />
+          </item>
+          <item id="1e0e8a82808d46be8b167586b2b2215d" cid="UC024" type="use-case" name="Write Integration Test" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:32:44" visibility="undefined">
+            <use-case>
+              <stakeholders />
+              <special-requirements />
+              <issues />
+            </use-case>
+          </item>
+          <item id="99ca9c09b11a42e98ac58393b42fa499" cid="REL014" type="relationship" creator="" creation-date="10/27/2024 11:15:14" from="9c9f767506694c548aca4a13cd30bc51" to="5db9005055214e099a00fa753a468e8a" visibility="package">
+            <owned-items />
+            <relation from="9c9f767506694c548aca4a13cd30bc51" to="5db9005055214e099a00fa753a468e8a" derived="false">
+              <start-role id="umlar-18f9c0a7-c6c7-4c3f-a7c5-e3adbd09b8cc" name="" navigability="" association-type="association" visibility="private" property-ref="93b563a95af8425abef72c27697e7a63" />
+              <end-role id="umlar-06e11394-364e-4052-86da-0e9e3245e770" name="" navigability="" association-type="association" visibility="private" property-ref="b5e03ff626c0485c8285cd1132bdeea8" />
+            </relation>
           </item>
         </abstract-items>
         <layer id="b404377cc66e449bad59785b3f7745bd" name="Default" visible="true" enabled="true" locked="false">
@@ -3618,7 +3573,7 @@ Main screen is visible</comment>
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-statechart" id="12bba8485d954f32a31d6b6d409763f9" name="AllapotgepDiagram" order-index="1" uid="" name-style="" show-fields="true" auto-routed-paths="false" default-line-style="default" show-frame="false">
+      <diagram type="uml-statechart" id="12bba8485d954f32a31d6b6d409763f9" name="StateMachineDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="360,-251" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -3626,11 +3581,11 @@ Main screen is visible</comment>
         </style>
         <meta>
           <authors>
-            <author />
+            <author> </author>
           </authors>
-          <description>letoltestol a jatek vegeig</description>
+          <description />
           <creation-date>10/24/2024 08:32:26</creation-date>
-          <change-date>10/31/2024 11:28:32</change-date>
+          <change-date>10/31/2024 11:16:46</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -3680,15 +3635,6 @@ Main screen is visible</comment>
           <item id="dicb38d1d186614e86b60e9bb8d90722e94966" veid="f39ed5d8742b4bdbadde24f680799e8e" cid="ELEM021" type="general-transition" creation-date="10/24/2024 08:36:47" from="4102d9d3ec3d40a88fd6713add4c5ad3" to="55e9a56438b1498eaebba5e092a7544d" visibility="package">
             <transition kind="internal" />
           </item>
-          <item id="d4a8e7f5ca9c4dff92d4f4817055f912" cid="FS001" type="final-state" name="Game ends with win" creator="" creation-date="10/31/2024 11:20:37" visibility="undefined">
-            <state composite="false" orthogonal="false" simple="false" submachine-state="false">
-              <state-invariant />
-              <actions />
-            </state>
-          </item>
-          <item id="7d0c584e2ba44aa892b387a10940292c" cid="ELEM033" type="general-transition" creator="" creation-date="10/31/2024 11:21:04" from="9322e5077cbe4b00a77bf2126afd0b83" to="00aa3de7a9374344b4ab6d69eaeac0f4" visibility="package">
-            <transition kind="internal" />
-          </item>
           <item id="die9447f43732c444499d89feb6724728c7675" veid="3b1e0cdd42de474c9a71ebd69c4562cb" cid="ELEM019" type="general-transition" creation-date="10/24/2024 08:54:05" from="60a25b689b404fdb9413dd9587e6d314" to="92501d8b7f1046b0aca632b845c71163" visibility="package">
             <transition kind="internal" />
           </item>
@@ -3697,9 +3643,6 @@ Main screen is visible</comment>
               <state-invariant />
               <actions />
             </state>
-          </item>
-          <item id="ef1fa51929ea44b089588a42cb6ff26b" cid="ELEM043" type="general-transition" creator="" creation-date="10/31/2024 11:21:47" from="4d32880821cf4aa18621ece3774595d6" to="9322e5077cbe4b00a77bf2126afd0b83" visibility="package">
-            <transition kind="internal" />
           </item>
           <item id="e75b2ea256d24f73b5722c28f86639ec" cid="ELEM028" type="general-transition" creator="" creation-date="10/31/2024 11:10:40" from="55e9a56438b1498eaebba5e092a7544d" to="dd096626c31849539b11d14f6f00c191" visibility="package">
             <transition kind="internal" />
@@ -3737,16 +3680,13 @@ Main screen is visible</comment>
           <item id="di64722c65231c4731be64987065ca02073876" veid="b625d0547d8640e8a6ff35bc367d510d" cid="ELEM016" type="general-transition" creation-date="10/24/2024 08:49:14" from="2def4ebe8e6d4e13b17d479eae7cb457" to="2def4ebe8e6d4e13b17d479eae7cb457" visibility="package">
             <transition kind="internal" />
           </item>
-          <item id="di58151836fe20485cb0fc9b5964022a6f6784" veid="97cf61a5d3954359bb69f67104b716e4" cid="ELEM025" type="general-transition" creation-date="10/24/2024 09:01:11" from="ec91a76d355b41d7aa0751503a10362f" to="53f5d6bc492c48a5bb12c86c16e6d361" visibility="package">
-            <transition kind="internal" />
-          </item>
-          <item id="9322e5077cbe4b00a77bf2126afd0b83" cid="ST017" type="state" name="Valid Jump" creator="" creation-date="10/31/2024 11:16:11" visibility="undefined">
+          <item id="9322e5077cbe4b00a77bf2126afd0b83" cid="ST017" type="state" name="Valid Jump" creator="" creation-date="10/31/2024 11:16:11">
             <state composite="false" orthogonal="false" simple="false" submachine-state="false">
               <state-invariant />
               <actions />
             </state>
           </item>
-          <item id="af475e050d734403873b0998db3bcb53" cid="ELEM030" type="general-transition" creator="" creation-date="10/31/2024 11:20:46" from="00aa3de7a9374344b4ab6d69eaeac0f4" to="d4a8e7f5ca9c4dff92d4f4817055f912" visibility="package">
+          <item id="di58151836fe20485cb0fc9b5964022a6f6784" veid="97cf61a5d3954359bb69f67104b716e4" cid="ELEM025" type="general-transition" creation-date="10/24/2024 09:01:11" from="ec91a76d355b41d7aa0751503a10362f" to="53f5d6bc492c48a5bb12c86c16e6d361" visibility="package">
             <transition kind="internal" />
           </item>
           <item id="di9431462a6e0f4febb83d58a4ee671e2a4343" veid="a976c74511a941b4ac9ddd35f1a84981" cid="ELEM005" type="general-transition" creation-date="10/24/2024 09:40:10" from="9727ebd3b48542028283a4b89fcab6d9" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
@@ -3755,16 +3695,7 @@ Main screen is visible</comment>
           <item id="did9f68a17092a465f84608ff135d506df8837" veid="93399d2283a24edbb72d4eaaec6b6b0f" cid="ELEM007" type="general-transition" creation-date="10/24/2024 09:04:58" from="9727ebd3b48542028283a4b89fcab6d9" to="6f8fbe41f4574eb79557f3c79f3cf25a" visibility="package">
             <transition kind="internal" />
           </item>
-          <item id="f3b13d26c9174acba3d07dc2559c8356" cid="ST016" type="state" name="Valid Move" creator="" creation-date="10/31/2024 11:15:50" visibility="undefined">
-            <state composite="false" orthogonal="false" simple="false" submachine-state="false">
-              <state-invariant />
-              <actions />
-            </state>
-          </item>
-          <item id="die362d822e2444ee48b9615f28e227ab43024" veid="4c939f5234d5472e86de9d7e73315729" cid="ELEM027" type="general-transition" creation-date="10/24/2024 09:48:45" from="6f8fbe41f4574eb79557f3c79f3cf25a" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
-            <transition kind="internal" />
-          </item>
-          <item id="dic05cd6a82c9b4bcf9f1248e279c539058371" veid="55f74b333d284df781e680e6c744dbfc" cid="ST012" type="state" name="Start game" creation-date="10/24/2024 08:57:59" visibility="undefined">
+          <item id="f3b13d26c9174acba3d07dc2559c8356" cid="ST016" type="state" name="Valid Move" creator="" creation-date="10/31/2024 11:15:50">
             <state composite="false" orthogonal="false" simple="false" submachine-state="false">
               <state-invariant />
               <actions />
@@ -3775,6 +3706,15 @@ Main screen is visible</comment>
               <state-invariant />
               <actions />
             </state>
+          </item>
+          <item id="dic05cd6a82c9b4bcf9f1248e279c539058371" veid="55f74b333d284df781e680e6c744dbfc" cid="ST012" type="state" name="Start game" creation-date="10/24/2024 08:57:59" visibility="undefined">
+            <state composite="false" orthogonal="false" simple="false" submachine-state="false">
+              <state-invariant />
+              <actions />
+            </state>
+          </item>
+          <item id="die362d822e2444ee48b9615f28e227ab43024" veid="4c939f5234d5472e86de9d7e73315729" cid="ELEM027" type="general-transition" creation-date="10/24/2024 09:48:45" from="6f8fbe41f4574eb79557f3c79f3cf25a" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
+            <transition kind="internal" />
           </item>
           <item id="di4a9343110f154f6caf606e9cb9adcfb82152" veid="1e442d6edf214872b557e065215bc17d" cid="ELEM022" type="general-transition" creation-date="10/24/2024 08:54:01" from="60a25b689b404fdb9413dd9587e6d314" to="6f11c6b765d7451d9d1bf77f159d769d" visibility="package">
             <transition kind="internal" />
@@ -3791,15 +3731,6 @@ Main screen is visible</comment>
               <actions />
             </state>
           </item>
-          <item id="d3086f98d5b64025856bacbe594be493" cid="FS002" type="final-state" name="Game ends with tie" creator="" creation-date="10/31/2024 11:28:32" visibility="undefined">
-            <state composite="false" orthogonal="false" simple="false" submachine-state="false">
-              <state-invariant />
-              <actions />
-            </state>
-          </item>
-          <item id="611f02b058fc43069d2f5a432973b05b" cid="ELEM031" type="general-transition" creator="" creation-date="10/31/2024 11:20:52" from="f3b13d26c9174acba3d07dc2559c8356" to="00aa3de7a9374344b4ab6d69eaeac0f4" visibility="package">
-            <transition kind="internal" />
-          </item>
           <item id="dib0de0d672fb94c18997f20fd1ae0a5449783" veid="15842b468f764a7db0cb8d8cd541eae0" cid="ST009" type="state" name="Select difficulty" creation-date="10/24/2024 08:47:46" visibility="undefined">
             <state composite="false" orthogonal="false" simple="false" submachine-state="false">
               <state-invariant />
@@ -3807,10 +3738,10 @@ Main screen is visible</comment>
             </state>
           </item>
           <item id="901be6e8b1fd4d5889132e33651726ad" cid="CN034" type="comment-connector" creator="" creation-date="10/31/2024 11:10:51" from="e75b2ea256d24f73b5722c28f86639ec" to="805e7eddb66f4ab29796e68038634886" />
-          <item id="di4222061acbde4a36a450dfb2788316179726" veid="dd2a7682beb04d5da74f6a5a1b0deebf" cid="ELEM015" type="general-transition" creation-date="10/24/2024 09:02:15" from="e8bd5d7c8dcb49cf80893e1c055294ba" to="cae62f8a6a264da4953144cfe6f5d80e" visibility="package">
+          <item id="dia91cf72b22494ac99121468ce532596f5882" veid="bc9b2cc7bbe84fb292cb1f9cafdf5d2e" cid="ELEM010" type="general-transition" creation-date="10/24/2024 08:51:45" from="60a25b689b404fdb9413dd9587e6d314" to="60a25b689b404fdb9413dd9587e6d314" visibility="package">
             <transition kind="internal" />
           </item>
-          <item id="dia91cf72b22494ac99121468ce532596f5882" veid="bc9b2cc7bbe84fb292cb1f9cafdf5d2e" cid="ELEM010" type="general-transition" creation-date="10/24/2024 08:51:45" from="60a25b689b404fdb9413dd9587e6d314" to="60a25b689b404fdb9413dd9587e6d314" visibility="package">
+          <item id="di4222061acbde4a36a450dfb2788316179726" veid="dd2a7682beb04d5da74f6a5a1b0deebf" cid="ELEM015" type="general-transition" creation-date="10/24/2024 09:02:15" from="e8bd5d7c8dcb49cf80893e1c055294ba" to="cae62f8a6a264da4953144cfe6f5d80e" visibility="package">
             <transition kind="internal" />
           </item>
           <item id="diafd1f4c3b66f4f8e8c02d467f22fd8c07198" veid="73aabd2d875b40638a2d84e7d84ec862" cid="ELEM001" type="general-transition" creation-date="10/24/2024 09:08:36" from="9727ebd3b48542028283a4b89fcab6d9" to="4d32880821cf4aa18621ece3774595d6" visibility="package">
@@ -3835,10 +3766,6 @@ Main screen is visible</comment>
             </state>
           </item>
           <item id="di2149e7b4ac19496ab6a4f554ff34a2681175" veid="9075801c11a34965acc4f8b3d1f6e20f" cid="ELEM018" type="general-transition" creation-date="10/24/2024 09:01:52" from="6f11c6b765d7451d9d1bf77f159d769d" to="cae62f8a6a264da4953144cfe6f5d80e" visibility="package">
-            <transition kind="internal" />
-          </item>
-          <item id="f28dc5a4cb664920a9198e1c55c2dd94" cid="CN035" type="comment-connector" creator="" creation-date="10/31/2024 11:21:27" from="611f02b058fc43069d2f5a432973b05b" to="46e35aae0e4f4b7bae052d4b84d09e6a" />
-          <item id="579da5e905874f199b168c6e5d92bc1b" cid="ELEM044" type="general-transition" creator="" creation-date="10/31/2024 11:27:37" from="4d32880821cf4aa18621ece3774595d6" to="d3086f98d5b64025856bacbe594be493" visibility="package">
             <transition kind="internal" />
           </item>
           <item id="di056f029fb29d46788570e49035f2d10f6972" veid="482790cad6f64faf8f3fff1c7698e626" cid="CN017" type="comment-connector" creation-date="10/24/2024 08:46:55" from="09d0bab6fb654f218a7e61ffb2e3a0b7" to="f65d5807a5ab471ab24043936e8b0347" />
@@ -4303,13 +4230,13 @@ Main screen is visible</comment>
             <relation from="3bd5b1f13c4746868286031c1127c56a" from-iid="7cd9c31d3a70405fbadca8e95a336b53" to="efd921c449f349a1b66b92bc121aadb7" to-iid="27e28c3b6ea748c1ac46e97e7fdd51b4" />
           </item>
           <item id="46e35aae0e4f4b7bae052d4b84d09e6a" iid="ecfe157224b74c25837d994c966385ca" veiid="486845e756a445ec8ae4bdcea9775e4f" creation-date="10/24/2024 09:46:32" order-index="77" type="entity">
-            <layout ax="1348.5254" ay="356" awidth="55" aheight="25" x="1348.5254" y="356" width="55" height="25" />
+            <layout ax="1305.5" ay="353" awidth="55" aheight="25" x="1305.5" y="353" width="55" height="25" />
           </item>
           <item id="df42b926014f4dba930872977da0b8c0" iid="14fe8ef45986498d898f1fc28e734eae" veiid="7b3e793156bb4070a892cd2291b8185a" creation-date="10/24/2024 09:46:32" order-index="78" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1349" y1="369" x2="1244" y2="368" start-border-pos="0.8715151977539063" end-border-pos="0.48936170212765956" name-position="0,20">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1306" y1="368" x2="1244" y2="365" start-border-pos="0.8511236572265625" end-border-pos="0.44680851063829785" name-position="0,20">
               <points>
-                <point x="1349" y="369" />
-                <point x="1244" y="368" />
+                <point x="1306" y="368" />
+                <point x="1244" y="365" />
               </points>
             </layout>
             <relation from="46e35aae0e4f4b7bae052d4b84d09e6a" from-iid="ecfe157224b74c25837d994c966385ca" to="041fcf7dfb16455ba7166c9450b2f118" to-iid="4cb1bdd50c604a6bb3feed977de42c65" />
@@ -4328,11 +4255,11 @@ Main screen is visible</comment>
             <relation from="dd927c081d8a4e21beccadd1786fdc1a" from-iid="af0e315ea12e444fac975db52e21b6b2" to="b93358e22c0c4fdfa303f32289ef6ca7" to-iid="5de4f1557a494322a5b50d39b82d26ca" />
           </item>
           <item id="68492850fd344d8ab875b6edd285b051" iid="16c44801159341bab914a2bf58c95b6c" veiid="47e8a8c0fd614d3b95ace1b88bbb2ae1" creation-date="10/24/2024 09:48:45" order-index="81" type="relation">
-            <layout line-style="curve" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1195" y1="319" x2="1219" y2="234" start-border-pos="0.8748039832481971" end-border-pos="0.6886911293894974" name-position="11,33">
+            <layout line-style="curve" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1195" y1="319" x2="1212" y2="234" start-border-pos="0.8748039832481971" end-border-pos="0.7057004319023841" name-position="0,20">
               <points>
                 <point x="1195" y="319" />
-                <point x="1180.5" y="273.95923" />
-                <point x="1219" y="234" />
+                <point x="1140.5" y="292.95923" />
+                <point x="1212" y="234" />
               </points>
             </layout>
             <relation from="6f8fbe41f4574eb79557f3c79f3cf25a" from-iid="4681e579a4e1447697906e5ed3b7603c" to="9727ebd3b48542028283a4b89fcab6d9" to-iid="3dabcbcb1853432e850b865c34694f85" />
@@ -4372,138 +4299,6 @@ Main screen is visible</comment>
           </item>
           <item id="00aa3de7a9374344b4ab6d69eaeac0f4" iid="3597767853164eefb7c178cd11a620b1" creation-date="10/24/2024 09:05:41" order-index="0" type="entity">
             <layout ax="1458" ay="392" awidth="122" aheight="52" x="1458" y="392" width="122" height="50" expanded="1458,392,122,52" collapsed="0,0,0,0" />
-          </item>
-          <item id="d4a8e7f5ca9c4dff92d4f4817055f912" iid="54d8d556d4c047298ec6de3909808af5" creation-date="10/31/2024 11:20:37" order-index="87" type="entity">
-            <layout name-position="25,12.000004" name-anchor="bottom" name-width="125" auto-anchor="true" label-attached="false" ax="1661" ay="405.5" awidth="25" aheight="25" x="1663" y="402" width="25" height="25" expanded="1661,405.5,25,25" collapsed="0,0,0,0" />
-          </item>
-          <item id="af475e050d734403873b0998db3bcb53" iid="e8183c75008a46a685ab9243d3a8b0d5" creation-date="10/31/2024 11:20:46" order-index="88" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1580" y1="418" x2="1661" y2="418" start-border-pos="0.375" end-border-pos="0.875" name-position="0,20">
-              <points>
-                <point x="1580" y="418" />
-                <point x="1661" y="418" />
-              </points>
-            </layout>
-            <relation from="00aa3de7a9374344b4ab6d69eaeac0f4" from-iid="3597767853164eefb7c178cd11a620b1" to="d4a8e7f5ca9c4dff92d4f4817055f912" to-iid="54d8d556d4c047298ec6de3909808af5" />
-          </item>
-          <item id="611f02b058fc43069d2f5a432973b05b" iid="4872aba9bfc44b1eacd70bceaf62f502" creation-date="10/31/2024 11:20:52" order-index="89" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1519" y1="345" x2="1519" y2="392" start-border-pos="0.625" end-border-pos="0.125" name-position="0,20">
-              <points>
-                <point x="1519" y="345" />
-                <point x="1519" y="392" />
-              </points>
-            </layout>
-            <relation from="f3b13d26c9174acba3d07dc2559c8356" from-iid="31ef1c104329463f9b2bf2c0bfd62d70" to="00aa3de7a9374344b4ab6d69eaeac0f4" to-iid="3597767853164eefb7c178cd11a620b1" />
-          </item>
-          <item id="7d0c584e2ba44aa892b387a10940292c" iid="36307b7872f64e448d1987ea1b5e9db4" creation-date="10/31/2024 11:21:04" order-index="90" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1674" y1="345" x2="1574" y2="392" start-border-pos="0.6237113402061856" end-border-pos="0.23812591052446208" name-position="0,20">
-              <points>
-                <point x="1674" y="345" />
-                <point x="1574" y="392" />
-              </points>
-            </layout>
-            <relation from="9322e5077cbe4b00a77bf2126afd0b83" from-iid="048e195cca044b1ba8de3d440d290a65" to="00aa3de7a9374344b4ab6d69eaeac0f4" to-iid="3597767853164eefb7c178cd11a620b1" />
-          </item>
-          <item id="f28dc5a4cb664920a9198e1c55c2dd94" iid="b408151ff59f45fb9266e020a905a6cd" creation-date="10/31/2024 11:21:27" order-index="91" type="comment-connector">
-            <layout line-style="oblique" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1519" y1="372" x2="1404" y2="369" start-border-pos="0.574468085106383" end-border-pos="0.38" end-local-pos="54.5" name-position="0,20">
-              <points>
-                <point x="1519" y="372" />
-                <point x="1404" y="369" />
-              </points>
-            </layout>
-            <relation from="611f02b058fc43069d2f5a432973b05b" from-iid="4872aba9bfc44b1eacd70bceaf62f502" to="46e35aae0e4f4b7bae052d4b84d09e6a" to-iid="ecfe157224b74c25837d994c966385ca" />
-          </item>
-          <item id="ef1fa51929ea44b089588a42cb6ff26b" iid="9c7f101c2e9546aaa6519f008c60764d" creation-date="10/31/2024 11:21:47" order-index="92" type="relation">
-            <layout line-style="curve" start-auto-side="false" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1568" y1="234" x2="1670" y2="293" start-border-pos="0.5" end-border-pos="0.11615934076997422" start-local-pos="52" name-position="0,20">
-              <points>
-                <point x="1568" y="234" />
-                <point x="1661" y="233.45923" />
-                <point x="1670" y="293" />
-              </points>
-            </layout>
-            <relation from="4d32880821cf4aa18621ece3774595d6" from-iid="f1d189db3f334839bb6e45388db4ab95" to="9322e5077cbe4b00a77bf2126afd0b83" to-iid="048e195cca044b1ba8de3d440d290a65" />
-          </item>
-          <item id="7af9a34c745e475084b04cfc52cf24ba" iid="3e848bae7e47496089d56dc96833e472" creation-date="10/24/2024 09:40:10" order-index="0" type="relation">
-            <layout line-style="oblique" start-auto-side="false" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1555" y1="182" x2="1507" y2="182" start-border-pos="0.21778351068496704" end-border-pos="0.09407216310501099" start-local-pos="84.5" end-local-pos="36.5" name-position="0,20">
-              <points>
-                <point x="1555" y="182" />
-                <point x="1555" y="122.5" />
-                <point x="1506.5" y="122.5" />
-                <point x="1507" y="182" />
-              </points>
-            </layout>
-            <relation from="4d32880821cf4aa18621ece3774595d6" from-iid="f1d189db3f334839bb6e45388db4ab95" to="4d32880821cf4aa18621ece3774595d6" to-iid="f1d189db3f334839bb6e45388db4ab95" />
-          </item>
-          <item id="8779315a4fe24419b7c8177d815174fd" iid="fd9b23d42a1e4f3cbd4988101a08edf7" creation-date="10/31/2024 11:23:05" order-index="93" type="entity">
-            <layout ax="1470.5" ay="59" awidth="140" aheight="25" x="1470.5" y="59" width="140" height="25" />
-          </item>
-          <item id="di90e89732c10f45b993d9a2cde500761a1651" iid="9a94e13b0bb8436888d8c6173203e25e" creation-date="10/31/2024 11:23:05" order-index="94" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1539" y1="84" x2="1540" y2="122" start-border-pos="0.6283035278320312" end-border-pos="0.444770541042402" name-position="0,20">
-              <points>
-                <point x="1539" y="84" />
-                <point x="1540" y="122" />
-              </points>
-            </layout>
-            <relation from="8779315a4fe24419b7c8177d815174fd" from-iid="fd9b23d42a1e4f3cbd4988101a08edf7" to="7af9a34c745e475084b04cfc52cf24ba" to-iid="3e848bae7e47496089d56dc96833e472" />
-          </item>
-          <item id="3721d98c298f44db80799d1ea108abe3" iid="836cde75b10e4b36b1838547c6468903" creation-date="10/31/2024 11:24:52" order-index="95" type="entity">
-            <layout ax="1537.5" ay="493.04077" awidth="160" aheight="52" x="1537.5" y="493.04077" width="140" height="52" />
-          </item>
-          <item id="di6c88f938a2394d6292461fc4b227472c1781" iid="39070de2d091421da4818fae8bef9e62" creation-date="10/31/2024 11:24:52" order-index="96" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1619" y1="493" x2="1618" y2="418" start-border-pos="0.12673721313476563" end-border-pos="0.4691358024691358" name-position="0,20">
-              <points>
-                <point x="1619" y="493" />
-                <point x="1618" y="418" />
-              </points>
-            </layout>
-            <relation from="3721d98c298f44db80799d1ea108abe3" from-iid="836cde75b10e4b36b1838547c6468903" to="af475e050d734403873b0998db3bcb53" to-iid="e8183c75008a46a685ab9243d3a8b0d5" />
-          </item>
-          <item id="a8742617b66c48c7b32825f49a3df41c" iid="634b29337bcf4223ac948377298c4417" creation-date="10/31/2024 11:25:09" order-index="97" type="entity">
-            <layout ax="1743.5" ay="280.55817" awidth="140" aheight="30.401062" x="1743.5" y="280.55817" width="140" height="30.401062" />
-          </item>
-          <item id="di3d6430e0419947dfa5e6fa0c2d4cd28f6439" iid="5495dd1147214393a8ceebc7db214872" creation-date="10/31/2024 11:25:09" order-index="98" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1744" y1="283" x2="1649" y2="230" start-border-pos="0.9824896454663907" end-border-pos="0.5" name-position="0,20">
-              <points>
-                <point x="1744" y="283" />
-                <point x="1649" y="230" />
-              </points>
-            </layout>
-            <relation from="a8742617b66c48c7b32825f49a3df41c" from-iid="634b29337bcf4223ac948377298c4417" to="ef1fa51929ea44b089588a42cb6ff26b" to-iid="9c7f101c2e9546aaa6519f008c60764d" />
-          </item>
-          <item id="8fd9441cd4a14bdb9c36fece3ddb2bc2" iid="10d2fc1ef28746a5bef0f34fdb7d5d2c" creation-date="10/31/2024 11:25:53" order-index="99" type="entity">
-            <layout ax="1391.5" ay="239.45923" awidth="97" aheight="31" x="1391.5" y="239.45923" width="97" height="24.5" />
-          </item>
-          <item id="di362281becaa54f7ea28c6f0f6b99354d7588" iid="e9193d87b96a489b85d7c0ab2db2d725" creation-date="10/31/2024 11:25:53" order-index="100" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1488" y1="261" x2="1519" y2="255" start-border-pos="0.4243284656155494" end-border-pos="0.3559322033898305" name-position="0,20">
-              <points>
-                <point x="1488" y="261" />
-                <point x="1519" y="255" />
-              </points>
-            </layout>
-            <relation from="8fd9441cd4a14bdb9c36fece3ddb2bc2" from-iid="10d2fc1ef28746a5bef0f34fdb7d5d2c" to="2f319319819044c288c5cc88af1dbead" to-iid="d70e49e6a0bf417c8622e0d89b7e170f" />
-          </item>
-          <item id="579da5e905874f199b168c6e5d92bc1b" iid="0603a91c910240e6a319435192e8ca21" creation-date="10/31/2024 11:27:37" order-index="102" type="relation">
-            <layout line-style="curve" lock-start-point="true" lock-to-fields="false" auto-path="" x1="1568" y1="208" x2="1780" y2="208" start-border-pos="0.375" end-border-pos="0.875" start-local-pos="97.5" end-local-pos="12.5407715" name-position="0,20">
-              <points>
-                <point x="1568" y="208" />
-                <point x="1780" y="208" />
-              </points>
-            </layout>
-            <relation from="4d32880821cf4aa18621ece3774595d6" from-iid="f1d189db3f334839bb6e45388db4ab95" to="d3086f98d5b64025856bacbe594be493" to-iid="d002ca900c574244b2330ef1f82022a8" />
-          </item>
-          <item id="4274e06ae1344ac2b4a281fd7a1a46cf" iid="a58b1b7ae943455681e866c605bb1727" creation-date="10/31/2024 11:27:51" order-index="103" type="entity">
-            <layout ax="1603.5" ay="111" awidth="140" aheight="53.5" x="1603.5" y="111" width="140" height="53.5" />
-          </item>
-          <item id="dia3d33c6c3b72438bac6adea1b35ebc993180" iid="5c558aa04c094fe0bce74db985283804" creation-date="10/31/2024 11:27:51" order-index="104" type="comment-connector">
-            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1674" y1="164" x2="1674" y2="208" start-border-pos="0.6246470860072545" end-border-pos="0.5" name-position="0,20">
-              <points>
-                <point x="1674" y="164" />
-                <point x="1674" y="208" />
-              </points>
-            </layout>
-            <relation from="4274e06ae1344ac2b4a281fd7a1a46cf" from-iid="a58b1b7ae943455681e866c605bb1727" to="579da5e905874f199b168c6e5d92bc1b" to-iid="0603a91c910240e6a319435192e8ca21" />
-          </item>
-          <item id="d3086f98d5b64025856bacbe594be493" iid="d002ca900c574244b2330ef1f82022a8" creation-date="10/31/2024 11:28:32" order-index="105" type="entity">
-            <layout name-position="0,10" name-anchor="bottom" name-width="284" auto-anchor="true" label-attached="false" ax="1779.5" ay="195.5" awidth="25" aheight="25" x="1779.5" y="195.5" width="157" height="25" expanded="1779.5,195.5,25,25" collapsed="0,0,0,0" />
           </item>
         </layer>
       </diagram>
