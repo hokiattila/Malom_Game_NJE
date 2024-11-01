@@ -21,7 +21,7 @@ class Player(ABC):
         pass
 
     def __str__(self: "Player") -> str:
-        return f"({"White" if self.color == "W" else "Black"}) - {self.name}"
+        return f'({"White" if self.color == "W" else "Black"}) - {self.name}'
 
 if __name__ == '__main__':
     print("This script cannot be run directly.")
