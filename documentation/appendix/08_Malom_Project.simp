@@ -2,7 +2,7 @@
 <sim-project version="14.70" multi-file="no" uid="simp76f323c723974174988c571ef6d36916" creation-date="10/26/2024 22:22:31">
   <meta>
     <name>Malom Game</name>
-    <authors>Mark Kovacs</authors>
+    <authors>Hoki Attila</authors>
     <description>Szoftvertechnológia, Haladó programozás és Mesterséges intelligencia</description>
   </meta>
   <counters models="1">
@@ -47,6 +47,34 @@
         <item-type type-id="final-state" type="Final State" />
         <value>3</value>
       </counter>
+      <counter>
+        <item-type type-id="drawing-shape" type="Simple Shape" />
+        <value>8</value>
+      </counter>
+      <counter>
+        <item-type type-id="drawing-line" type="Line" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-start-end" type="Start End" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-process" type="Process" />
+        <value>10</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-stored-data" type="Stored Data" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-data" type="Data" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-decision" type="Decision" />
+        <value>4</value>
+      </counter>
     </entity-names>
     <entity-ids>
       <counter>
@@ -55,7 +83,7 @@
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>89</value>
+        <value>119</value>
       </counter>
       <counter>
         <item-type type-id="generalization" type="Generalization" />
@@ -63,7 +91,7 @@
       </counter>
       <counter>
         <item-type type-id="universal-connector" type="Universal Connector" />
-        <value>91</value>
+        <value>96</value>
       </counter>
       <counter>
         <item-type type-id="reception" type="Reception" />
@@ -75,7 +103,7 @@
       </counter>
       <counter>
         <item-type type-id="relationship" type="Association" />
-        <value>19</value>
+        <value>34</value>
       </counter>
       <counter>
         <item-type type-id="actor" type="Actor" />
@@ -103,11 +131,11 @@
       </counter>
       <counter>
         <item-type type-id="comment-connector" type="Comment Connector" />
-        <value>53</value>
+        <value>59</value>
       </counter>
       <counter>
         <item-type type-id="comment" type="Comment" />
-        <value>53</value>
+        <value>55</value>
       </counter>
       <counter>
         <item-type type-id="general-transition" type="Transition" />
@@ -133,6 +161,38 @@
         <item-type type-id="final-state" type="Final State" />
         <value>4</value>
       </counter>
+      <counter>
+        <item-type type-id="drawing-shape" type="Simple Shape" />
+        <value>44</value>
+      </counter>
+      <counter>
+        <item-type type-id="drawing-line" type="Line" />
+        <value>44</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-start-end" type="Start End" />
+        <value>40</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-process" type="Process" />
+        <value>11</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-stored-data" type="Stored Data" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-data" type="Data" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-flow" type="Flow" />
+        <value>18</value>
+      </counter>
+      <counter>
+        <item-type type-id="flowchart-decision" type="Decision" />
+        <value>5</value>
+      </counter>
     </entity-ids>
     <diagrams>
       <counter>
@@ -141,11 +201,15 @@
       </counter>
       <counter>
         <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlUseCaseDiagram</type>
-        <value>1</value>
+        <value>2</value>
       </counter>
       <counter>
         <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlStateMachineDiagram</type>
         <value>2</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.Other.FlowchartDiagram</type>
+        <value>1</value>
       </counter>
     </diagrams>
     <fields>
@@ -256,6 +320,26 @@
       <person id="">
         <first-name>Mark</first-name>
         <last-name>Kovacs</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-f641f5942b444de5a7040a166da5ab8f" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Hoki</first-name>
+        <last-name>Attila</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-789a4b58f2d7461ea6ca445e8bba0012" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Hoki</first-name>
+        <last-name>Attila</last-name>
         <role />
         <e-mail />
         <phone-number />
@@ -494,7 +578,15 @@
     </style>
   </style-set>
   <items>
+    <item id="0d2a30c0534a483b9b4985842ab870d2" cid="AC009" type="actor" name="Player" creation-date="11/06/2024 10:22:22" visibility="undefined" />
     <item id="3f03e4a2869648e1a6e0d5b241337d28" cid="PROP068" type="property" owner="0837d5c5dddb4258a3b87d8720a8e951" creator="" creation-date="10/27/2024 10:56:38" visibility="private" />
+    <item id="38f44bc8c6774bdfa7bb03989b8b8521" cid="ELEM036" type="drawing-shape" name="SimpleShape4" owner="b2a87ae54f424d5ba30c0b495294b440" creation-date="11/09/2024 12:08:14">
+      <drawing>
+        <text>Data Processing Subsystem</text>
+      </drawing>
+      <drawing-shape type="Rectangle" />
+    </item>
+    <item id="b13695199f5744bc8da1f5b82ba1d6ab" cid="CN038" type="comment-connector" creation-date="11/06/2024 10:24:48" from="e15c6fabbad0442cb2e10534dd0e31f3" to="202ae41aa66f4667bbc45cbe866f6409" />
     <item id="47babaf2942147a0addc017042b2868d" cid="PROP050" type="property" name="BACK_GREEN" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:17:50" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -547,7 +639,11 @@
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="NULL" />
     </item>
+    <item id="b2a87ae54f424d5ba30c0b495294b440" cid="SYS003" type="system-boundary" name="Malom game software" creation-date="11/06/2024 10:19:18">
+      <owned-items />
+    </item>
     <item id="9b0545a1231548a8a7ff490178fe786c" veid="7d12d7c0662a4758bfd4140e9052f9da" cid="CN024" type="comment-connector" creator="" creation-date="10/24/2024 08:51:49" from="4b818c0594144a51913a87b833e5cea8" to="6dae51ea7c6541b39f238caea3776bba" />
+    <item id="5fb5fb88be274d46be8192c5c71e40b1" cid="PROP090" type="property" owner="867c4e46ec104eff9d15d6ba796fde74" creator="" creation-date="11/09/2024 12:09:53" visibility="private" />
     <item id="ab7715a41f4244fc8f46a2c752e9b9f8" veid="462c1509efc64af9b368ab427a4d5112" cid="CN033" type="comment-connector" creator="" creation-date="10/24/2024 09:46:56" from="dd927c081d8a4e21beccadd1786fdc1a" to="b93358e22c0c4fdfa303f32289ef6ca7" />
     <item id="46fd1588fd18492e883fc3d78998c0ba" veid="10ad9416721441f188fb2a7c06e04211" cid="PROP003" type="property" name="color" owner="68ae3b91126f488a9ae220586b5eb567" creation-date="10/26/2024 22:37:17" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
@@ -601,6 +697,30 @@
       </style>
       <structural-feature type="Integer" type-id="Uml.Integer" />
       <property default-value="0" />
+    </item>
+    <item id="b817ea67b9e64d9bac08398b7780c6f0" cid="FCF008" type="flowchart-flow" name="FALSE" creation-date="11/09/2024 14:30:34" from="42e27228659e4c28960af41b42cdac42" to="9e5855e03aad43ecbb29d8165c2b2204">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+        <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
     </item>
     <item id="7fd47b661a454240bbd6ff32da125d31" cid="PROP052" type="property" name="BACK_BLUE" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:18:05" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
@@ -657,6 +777,7 @@
       </style>
       <structural-feature type="String" type-id="Uml.String" />
     </item>
+    <item id="37917f1a7ced469184b244cee315ab2b" cid="PROP092" type="property" owner="fae6bde19ca547c2909eb9b51912a62f" creator="" creation-date="11/09/2024 12:10:44" visibility="private" />
     <item id="f20d5a5533434d5c82b23e4499dd5872" veid="18e799a50d45451a8038eeff04b62bc6" cid="ELEM038" type="universal-connector" creation-date="11/06/2024 10:21:59" from="c4746bae53c244159bda27c92c780679" to="112c9b9d33f6499ca235731a4fce16d1">
       <connector />
     </item>
@@ -718,6 +839,7 @@
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="&quot;AStarPlayer&quot;" />
     </item>
+    <item id="53e876ce8dcd4b838d7215921264a685" cid="PROP111" type="property" owner="f0911c6c62044743bc20d5fc29719691" creator="" creation-date="11/09/2024 12:25:56" visibility="private" />
     <item id="1c0fa12ef0bb4e31a4f2b21307d5f024" cid="PROP040" type="property" name="RED" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:16:57" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -744,6 +866,7 @@
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[31m'" />
     </item>
+    <item id="59246113737740e0bb328bf5f2c05dcd" cid="PROP089" type="property" owner="867c4e46ec104eff9d15d6ba796fde74" creator="" creation-date="11/09/2024 12:09:53" visibility="private" />
     <item id="a405c4b8f738412badc51a6451f486a8" cid="PROP019" type="property" name="player2" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:38:28" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -859,6 +982,12 @@
         <actions />
       </state>
     </item>
+    <item id="ac2d1a39dd6543d389bdb4c58efd7ce6" cid="ELEM041" type="drawing-shape" name="SimpleShape6" owner="b2a87ae54f424d5ba30c0b495294b440" creation-date="11/09/2024 12:11:01">
+      <drawing>
+        <text>Validation Subsystem</text>
+      </drawing>
+      <drawing-shape type="Rectangle" />
+    </item>
     <item id="f09f295dcd38417893acd8d04ef7792b" cid="PROP037" type="property" name="GREY" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:16:42" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -886,6 +1015,9 @@
       <property default-value="'\033[38;5;248m'" />
     </item>
     <item id="dib8fa5ebb3bba47f09fe48273d7bc47cd1666" veid="8b93b731bdf3455e97553aecd16efe51" cid="CN045" type="comment-connector" creator="" creation-date="11/06/2024 14:31:30" from="51ab9999db53441c9e3bad5df7bdbd4d" to="886a0e39fda0498d893536d29e205a4e" />
+    <item id="de01d18443a34e15bd036288544cd364" cid="SYS003" type="system-boundary" name="Malom game software" creation-date="11/06/2024 10:19:18">
+      <owned-items />
+    </item>
     <item id="65f97cd06b834cf490d99f1380308067" cid="PROP029" type="property" name="OKBLUE" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:15:26" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -956,7 +1088,36 @@
       <property default-value="&quot;MiniMaxPlayer&quot;" />
     </item>
     <item id="dd936ef670794495b18353072ca0378a" cid="AC005" type="actor" name="UI Designer" creation-date="10/27/2024 11:08:02" visibility="undefined" />
+    <item id="fb5202fa8f704ef6857f1f4a11285370" cid="PROP117" type="property" owner="275dea3127c04387ae11cd3c88efcb6a" creator="" creation-date="11/09/2024 12:33:15" visibility="private" />
     <item id="06a550b70cfb49a2ad9d461f33290e9d" cid="PROP076" type="property" owner="155fa9e13d8549f98e159facb4a88700" creator="" creation-date="10/27/2024 11:13:26" visibility="private" />
+    <item id="b75d2ed287a6417384af60341509ed42" cid="CMT040" type="comment" name="Comment" creation-date="11/06/2024 10:23:01">
+      <comment>Human player</comment>
+    </item>
+    <item id="b553d2a22da84fef93cc94b01c5d4b2c" cid="PROP104" type="property" owner="6a7296bcd0c041dba9ed438360a4c572" creator="" creation-date="11/09/2024 12:15:33" visibility="private" />
+    <item id="9e5855e03aad43ecbb29d8165c2b2204" cid="FCDC001" type="flowchart-decision" name="Is move preventing an enemy mill?" creation-date="11/09/2024 14:26:34">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#FFFFFF" font="Georgia;9;B" shadow="true" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#FF5555,#FF5555" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+    </item>
     <item id="622e9dc747694bbc85200dca27ed0c20" cid="PROP083" type="property" owner="49eaa5e83c214e1d835029066d2929a8" creator="" creation-date="10/27/2024 11:29:59" visibility="private" />
     <item id="6f8fbe41f4574eb79557f3c79f3cf25a" veid="68d9dd7e94f6427293042dc443ef7f4d" cid="ST004" type="state" name="Valid placement" creation-date="10/24/2024 09:04:28" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
@@ -971,6 +1132,7 @@
     <item id="b93358e22c0c4fdfa303f32289ef6ca7" veid="f81610e0d6e04b1798c47b51daa9be34" cid="ELEM011" type="general-transition" creation-date="10/24/2024 09:07:49" from="1d799cbd3b354b5d96fd18820baac59b" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
       <transition kind="internal" />
     </item>
+    <item id="757bb3fa4de244a2b37d906a17c05143" cid="PROP114" type="property" owner="f0e74a1d1ff946dd9835714b19cc45ff" creator="" creation-date="11/09/2024 12:26:06" visibility="private" />
     <item id="a77c796b4ef549bf87f66c6df034d0f2" cid="PROP015" type="property" name="board" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:37:12" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1034,6 +1196,9 @@
       </style>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[36m'" />
+    </item>
+    <item id="e17e81b2e9dc43e496485e13c2411b0c" cid="CMT040" type="comment" name="Comment" creation-date="11/06/2024 10:23:01">
+      <comment>Human player</comment>
     </item>
     <item id="240062f07f624c36b8f0b6eeda4fdb9c" cid="PROP074" type="property" owner="96203d9016a343888a7df60c5bb6d8d1" creator="" creation-date="10/27/2024 11:04:55" visibility="private" />
     <item id="534a4daf53294e4c969cce0752567f21" cid="PROP086" type="property" owner="e4dc904362674d70a537a980d12fe706" creator="" creation-date="10/27/2024 11:33:45" visibility="private" />
@@ -1117,6 +1282,9 @@
       </style>
       <structural-feature type="DateTime" type-id="Uml.DateTime" />
     </item>
+    <item id="e15c6fabbad0442cb2e10534dd0e31f3" cid="CMT041" type="comment" name="Comment" creation-date="11/06/2024 10:24:48">
+      <comment>Tester</comment>
+    </item>
     <item id="24a1de5a041244f781d432b141be6580" cid="PROP034" type="property" name="ENDC" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:15:45" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1190,6 +1358,9 @@
       <comment>Eg: [3,B,18],[3,B,5], place to 3 to form an unblockable mill</comment>
     </item>
     <item id="80da03d74c0f48ae96eae7bba8b7efac" veid="e13cbdcd6c0c49119354e01866fcff0c" cid="CN023" type="comment-connector" creator="" creation-date="10/24/2024 08:49:23" from="586ef703ddb1454083e108034eca3c8e" to="0e0ea0ca3ef94a41a39f55767b7280c8" />
+    <item id="0920fab9149b4fb39473b1f153b3ed91" cid="ELEM037" type="universal-connector" owner="de01d18443a34e15bd036288544cd364" creation-date="11/06/2024 10:22:57">
+      <connector />
+    </item>
     <item id="d9c620ee549840e98e77cad48a2684b2" cid="PROP049" type="property" name="BACK_RED" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:17:44" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1216,6 +1387,7 @@
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[41m'" />
     </item>
+    <item id="98cecfc32fb148799bb306e51af496c4" cid="PROP096" type="property" owner="0ba1e77d2e004145ba30d92778dda221" creator="" creation-date="11/09/2024 12:11:33" visibility="private" />
     <item id="0e5a3d1a0f2b4cfca15df4637dbf978a" cid="PROP012" type="property" name="debug" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:36:18" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1243,6 +1415,30 @@
       <property default-value="False" />
     </item>
     <item id="di0d4e0c366f0d4c908b0d6c1e90ebda713747" veid="9398a61143fa42b4bc7659ba686c4bd0" cid="CN046" type="comment-connector" creator="" creation-date="11/06/2024 14:40:25" from="b19e18b16bf54681aeb0141ca5eb86ba" to="69f986571b2e484da86b5b734d8f1ce7" />
+    <item id="2f042d90e02240eaadbd329d40757d27" cid="FCP008" type="flowchart-process" name="Add move to best_moves" creation-date="11/09/2024 14:32:13">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#FFFFFF" font="Georgia;9.75;B" shadow="true" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#8080FF,#8080FF" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+    </item>
     <item id="f19fc20cd5484e03931d607d95af3f99" cid="PROP053" type="property" name="BACK_MAGENTA" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:18:11" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1298,6 +1494,7 @@
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[35m'" />
     </item>
+    <item id="35179556342146bbaab28943dc6147a8" cid="PROP108" type="property" owner="973b7e5612194912aad41f4e9015ec1b" creator="" creation-date="11/09/2024 12:22:11" visibility="private" />
     <item id="b877af5f4e4c4a30862b7e64fabfc31b" cid="PROP013" type="property" name="log" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:36:27" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1326,9 +1523,16 @@
     <item id="46e35aae0e4f4b7bae052d4b84d09e6a" veid="a8b487e48c684613962a3f2b2c81655f" cid="CMT035" type="comment" name="Comment" creator="" creation-date="10/24/2024 09:46:32">
       <comment>Is mill</comment>
     </item>
+    <item id="a990d77fc3db4717ba9b3f9ac3914569" cid="PROP118" type="property" owner="275dea3127c04387ae11cd3c88efcb6a" creator="" creation-date="11/09/2024 12:33:15" visibility="private" />
     <item id="87c9ce4adb0b4400a21654ce2088a35b" veid="801ec309578a411aaed7f8b2caa720a5" cid="CN031" type="comment-connector" creator="" creation-date="10/24/2024 09:44:03" from="3bd5b1f13c4746868286031c1127c56a" to="efd921c449f349a1b66b92bc121aadb7" />
     <item id="di127a530446d94527911cfcce367e6f8d4014" veid="14340822e9f34795936c76be44a0a383" cid="CN048" type="comment-connector" creator="" creation-date="11/06/2024 14:57:53" from="312e0baa22d94b2fbaf77fe264cc737a" to="42c8734ef1fc4fee955917dccb596d01" />
+    <item id="de71ea91a42845469ceaa2a2e5d21e89" cid="ELEM038" type="universal-connector" creation-date="11/06/2024 10:21:59" from="202ae41aa66f4667bbc45cbe866f6409" to="a6e7026270cc445499f422441423965d">
+      <connector />
+    </item>
     <item id="635af74120d04cd39b4f4b660664d19c" cid="PROP057" type="property" owner="6b3760e5808c4cd791b7c07615894f56" creator="" creation-date="10/27/2024 10:27:24" visibility="private" />
+    <item id="84c1134d09e3496a96ecfd8daf5170c9" cid="ELEM037" type="universal-connector" owner="b2a87ae54f424d5ba30c0b495294b440" creation-date="11/06/2024 10:22:57" from="49ca65ebfdac40f78c2027e720571f18" to="57a89776f1d941bb9b40ad363488f174">
+      <connector />
+    </item>
     <item id="c2aafa6f295947d2a86bb11c868b5045" veid="b7cdcca6c5df4f3988cf8f32f9e3f15f" cid="CMT025" type="comment" name="Comment" creator="" creation-date="10/24/2024 08:47:05">
       <comment>Computer vs. Computer</comment>
     </item>
@@ -1359,6 +1563,7 @@
       <property default-value="NULL" />
     </item>
     <item id="3ab99f0d6c5c48bcaecf66a68749fe44" veid="8e617600fd174084b37ea1fc643314ed" cid="AC009" type="actor" name="Player" creation-date="11/06/2024 10:22:22" visibility="undefined" />
+    <item id="202ae41aa66f4667bbc45cbe866f6409" cid="AC010" type="actor" name="Developer" creation-date="11/06/2024 10:19:35" visibility="undefined" />
     <item id="eccc463b9dce4453adf6dd7e88b004df" cid="PROP031" type="property" name="OKGREEN" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:15:36" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1437,6 +1642,7 @@
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[93m'" />
     </item>
+    <item id="2a8789c26fee42c2b7a7915d9e21d57d" cid="PROP103" type="property" owner="6a7296bcd0c041dba9ed438360a4c572" creator="" creation-date="11/09/2024 12:15:33" visibility="private" />
     <item id="3a9900e89bdd45e5a9b6bf71de8e845a" cid="PROP022" type="property" name="difficulty" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:43:01" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1482,6 +1688,7 @@
     <item id="68492850fd344d8ab875b6edd285b051" veid="4c939f5234d5472e86de9d7e73315729" cid="ELEM027" type="general-transition" creation-date="10/24/2024 09:48:45" from="6f8fbe41f4574eb79557f3c79f3cf25a" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
       <transition kind="internal" />
     </item>
+    <item id="7461a5576a184dfea345d991749132f1" cid="PROP094" type="property" owner="e56c8eb1d367414baeb3d8f83e536a5c" creator="" creation-date="11/09/2024 12:11:27" visibility="private" />
     <item id="128602aff3934071bd9bd2ec8a7c2b79" veid="356fd8cc804b401a9a938cb40c7421a0" cid="CMT032" type="comment" name="Comment" creator="" creation-date="10/24/2024 09:41:35">
       <comment>player 1 And Player 2 
 hasn't placed all pieces</comment>
@@ -1541,6 +1748,30 @@ hasn't placed all pieces</comment>
       </style>
       <structural-feature type="String" type-id="Uml.String" />
     </item>
+    <item id="f00304e12d244cecac979bad275965b2" cid="FCP009" type="flowchart-process" name="Return random element from valid_moves." creation-date="11/09/2024 14:39:13">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#FFFFFF" font="Georgia;12;B" shadow="true" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#8080FF,#8080FF" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+    </item>
     <item id="546ccadd571a41d292ee82301fd89ed8" cid="PROP009" type="property" name="pieces_placed_player2" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:35:03" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1567,11 +1798,11 @@ hasn't placed all pieces</comment>
       <structural-feature type="Integer" type-id="Uml.Integer" />
       <property default-value="0" />
     </item>
-    <item id="312e0baa22d94b2fbaf77fe264cc737a" cid="CMT049" type="comment" name="Comment" creator="" creation-date="11/06/2024 14:57:53">
-      <comment> eg [3,B,18],[3,4,5] palce to 4: [3,B,18],[3,B,5] setting an unblockable mill</comment>
-    </item>
     <item id="805e7eddb66f4ab29796e68038634886" veid="a0d84bcb60c04e4c91e5ed06b9291513" cid="CMT022" type="comment" name="Comment" creator="" creation-date="10/24/2024 08:40:38">
       <comment>Installation succesful</comment>
+    </item>
+    <item id="312e0baa22d94b2fbaf77fe264cc737a" cid="CMT049" type="comment" name="Comment" creator="" creation-date="11/06/2024 14:57:53">
+      <comment> eg [3,B,18],[3,4,5] palce to 4: [3,B,18],[3,B,5] setting an unblockable mill</comment>
     </item>
     <item id="89861ed8a6534da9a3d466a25559b538" cid="PROP047" type="property" name="BACK_GREY" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:17:29" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
@@ -1678,6 +1909,31 @@ hasn't placed all pieces</comment>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[1m'" />
     </item>
+    <item id="ebaa0c232bc149df8c352ab43ff6b42e" cid="PROP018" type="property" name="player1" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:38:18" visibility="public">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#000000" font="Georgia;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="Player" type-id="Class:2af31bfe49b54e79bb7ca5e6722e5ac8" />
+    </item>
     <item id="728fe685de724d6a9f86b7f85e7f9d60" cid="PROP002" type="property" name="name" owner="2af31bfe49b54e79bb7ca5e6722e5ac8" creator="" creation-date="10/26/2024 22:25:06" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1704,35 +1960,12 @@ hasn't placed all pieces</comment>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="&quot;Player&quot;" />
     </item>
-    <item id="ebaa0c232bc149df8c352ab43ff6b42e" cid="PROP018" type="property" name="player1" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:38:18" visibility="public">
-      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
-        <text-style type="name" color="#000000" font="Georgia;11.25;B" />
-        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
-        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
-        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
-        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
-        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
-        <border color="#000000" dash-style="solid" />
-        <label-connector color="#80000000" dash-style="Dash" />
-        <alternate-styles>
-          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
-            <text-style type="name" color="#000000" font="Georgia;10;B" />
-            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
-            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
-            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
-            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
-            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
-            <border color="#00008B" dash-style="solid" />
-            <label-connector color="#80000000" dash-style="Dash" />
-          </alternate-style>
-        </alternate-styles>
-      </style>
-      <structural-feature type="Player" type-id="Class:2af31bfe49b54e79bb7ca5e6722e5ac8" />
-    </item>
     <item id="d71f1198b8f14f0c9cffbb62a85d1ac1" cid="PROP005" type="property" owner="fc3a5b3b82504edfa4fb3b5a0e6f9923" creator="" creation-date="10/27/2024 08:30:44" visibility="private">
       <structural-feature type="Game" type-id="Class:1762393b4da04717a9c008929c5cf885" />
       <property aggregation="shared" />
     </item>
+    <item id="e015cac750464e75a2dee1afab30900c" cid="AC010" type="actor" name="Developer" creation-date="11/06/2024 10:19:35" visibility="undefined" />
+    <item id="744b3b1b80de40be967b3f7439fc1e28" cid="PROP095" type="property" owner="0ba1e77d2e004145ba30d92778dda221" creator="" creation-date="11/09/2024 12:11:33" visibility="private" />
     <item id="1886707c13d343b38b101df544a989be" cid="CMT045" type="comment" name="Comment" creator="" creation-date="11/06/2024 14:27:16">
       <comment>[W,W,0]
 In this case as B, place to 0 to prevent a mill formed by W</comment>
@@ -1773,6 +2006,12 @@ In this case as B, place to 0 to prevent a mill formed by W</comment>
       <comment>Switch player
 </comment>
     </item>
+    <item id="57a89776f1d941bb9b40ad363488f174" cid="ELEM036" type="drawing-shape" name="SimpleShape4" owner="b2a87ae54f424d5ba30c0b495294b440" creation-date="11/09/2024 12:08:14">
+      <drawing>
+        <text>GUI Subsystem</text>
+      </drawing>
+      <drawing-shape type="Rectangle" />
+    </item>
     <item id="7bcb439a3dc04bf7bd7885e77de47aa7" veid="10ad9416721441f188fb2a7c06e04211" cid="PROP003" type="property" name="color" owner="eb28f378b81e43768c60e821898cc180" creation-date="10/26/2024 22:37:17" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1804,7 +2043,6 @@ In this case as B, place to 0 to prevent a mill formed by W</comment>
         <actions />
       </state>
     </item>
-    <item id="adaaf31c079c42a8896707d881eea49e" cid="PROP075" type="property" owner="96203d9016a343888a7df60c5bb6d8d1" creator="" creation-date="10/27/2024 11:04:55" visibility="private" />
     <item id="48d1762ba4404ccfabf262ff16643b5c" cid="PROP030" type="property" name="OKCYAN" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:15:30" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1831,8 +2069,10 @@ In this case as B, place to 0 to prevent a mill formed by W</comment>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[96m'" />
     </item>
+    <item id="adaaf31c079c42a8896707d881eea49e" cid="PROP075" type="property" owner="96203d9016a343888a7df60c5bb6d8d1" creator="" creation-date="10/27/2024 11:04:55" visibility="private" />
     <item id="cedd410075f74a4e8d42401628ab6a60" veid="31d3be541e5843548f489ba078407ddf" cid="CN038" type="comment-connector" creator="" creation-date="11/06/2024 10:24:48" from="1a01a37d6b4f4684967c5968b0ee87e3" to="c4746bae53c244159bda27c92c780679" />
     <item id="9ad7e191faae405786ef719ae502b377" cid="PROP059" type="property" owner="bd25454c9f0045599b1fb87879317f8b" creator="" creation-date="10/27/2024 10:51:42" visibility="private" />
+    <item id="66ba594649bb47c49c922c09906583db" cid="PROP093" type="property" owner="e56c8eb1d367414baeb3d8f83e536a5c" creator="" creation-date="11/09/2024 12:11:27" visibility="private" />
     <item id="73c8e82127184c05b3867811b3d666b4" cid="PROP036" type="property" name="UNDERLINE" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:16:02" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -1861,6 +2101,30 @@ In this case as B, place to 0 to prevent a mill formed by W</comment>
     </item>
     <item id="2fbdc9b4c85c4d0983174c8f966e372d" cid="PROP056" type="property" owner="6b3760e5808c4cd791b7c07615894f56" creator="" creation-date="10/27/2024 10:27:24" visibility="private" />
     <item id="di5ffebc506e09449dbb2b490c86938fff7955" veid="b08262574a5541eb91076b914ac86334" cid="CN049" type="comment-connector" creator="" creation-date="11/06/2024 15:01:07" from="4031be1d68da43518fe5270cff4f443a" to="4f3a572521d149348dcdc5d4a745709b" />
+    <item id="11237c780bb74e1694cbbffd8379f93b" cid="FCF009" type="flowchart-flow" name="TRUE" creation-date="11/09/2024 14:32:13" from="9e5855e03aad43ecbb29d8165c2b2204" to="2f042d90e02240eaadbd329d40757d27">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+        <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+    </item>
     <item id="112c9b9d33f6499ca235731a4fce16d1" veid="d54b0201550641f6beeb19fabd778ba0" cid="SYS003" type="system-boundary" name="Malom game software" creation-date="11/06/2024 10:19:18">
       <owned-items />
     </item>
@@ -1958,6 +2222,7 @@ In this case as B, place to 0 to prevent a mill formed by W</comment>
     <item id="3bd5b1f13c4746868286031c1127c56a" veid="a5bc082af64049b6b2b203e7e9c1bc6f" cid="CMT034" type="comment" name="Comment" creator="" creation-date="10/24/2024 09:44:03">
       <comment>Player_X must place a piece</comment>
     </item>
+    <item id="49ca65ebfdac40f78c2027e720571f18" cid="AC009" type="actor" name="Player" creation-date="11/06/2024 10:22:22" visibility="undefined" />
     <item id="92501d8b7f1046b0aca632b845c71163" veid="b7ae3e69b947432cbf2070f344180f8f" cid="ST005" type="state" name="A* Player" creation-date="10/24/2024 08:53:22" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
@@ -1977,6 +2242,7 @@ Main screen is visible</comment>
         <actions />
       </state>
     </item>
+    <item id="2537728f242b4e7ca21132e7235f93df" cid="CN037" type="comment-connector" creation-date="11/06/2024 10:23:01" from="b75d2ed287a6417384af60341509ed42" to="49ca65ebfdac40f78c2027e720571f18" />
     <item id="3837032ab75f4255a68c596d21eda044" veid="ec164a2d28d948daacdc6f015e9476f7" cid="CMT030" type="comment" name="Comment" creator="" creation-date="10/24/2024 08:55:35">
       <comment>Hard</comment>
     </item>
@@ -2009,6 +2275,7 @@ Main screen is visible</comment>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[34m'" />
     </item>
+    <item id="d12df6cb8b09459099deee88c2ad71fc" cid="PROP107" type="property" owner="973b7e5612194912aad41f4e9015ec1b" creator="" creation-date="11/09/2024 12:22:11" visibility="private" />
     <item id="di0d016925776246c79d2f5a62063849a86161" veid="f4c355fe0d7b48ff8d6c4aac09c8879b" cid="CN047" type="comment-connector" creator="" creation-date="11/06/2024 14:52:56" from="bfc4a6356ae24bbe985b7410a160dfdd" to="27f15f021e8b43be80f12fcfcbb3d238" />
     <item id="9727ebd3b48542028283a4b89fcab6d9" veid="78b49f15d3aa4913b38b3cbd762c3fb6" cid="ST006" type="state" name="Phase I. " creation-date="10/24/2024 09:03:11" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
@@ -2022,6 +2289,7 @@ Main screen is visible</comment>
         <actions />
       </state>
     </item>
+    <item id="4a687d52f7f34279b9a80223c2d56a8c" cid="PROP113" type="property" owner="f0e74a1d1ff946dd9835714b19cc45ff" creator="" creation-date="11/09/2024 12:26:06" visibility="private" />
     <item id="ec91a76d355b41d7aa0751503a10362f" veid="44eaef1cf9974b7e98fb2c5009bac5c6" cid="ST001" type="state" name="Select Game mode" creation-date="10/24/2024 08:42:21" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
@@ -2033,34 +2301,9 @@ Main screen is visible</comment>
     <item id="0b74f90c1e1548ddaf748a3825127239" cid="CMT052" type="comment" name="Comment" creator="" creation-date="11/07/2024 13:09:53">
       <comment>Check if self can complete a mill this turn</comment>
     </item>
+    <item id="9f1f52f011654d9585dfed0746069074" cid="PROP102" type="property" owner="b7e4e8618f8b4abfacdf454751e76dfd" creator="" creation-date="11/09/2024 12:15:22" visibility="private" />
     <item id="1a7330ad73a1469fb5e32af5916ab348" veid="e03523ecf18944c8b5f03b28e92c3883" cid="ELEM037" type="universal-connector" owner="112c9b9d33f6499ca235731a4fce16d1" creation-date="11/06/2024 10:22:57" from="3ab99f0d6c5c48bcaecf66a68749fe44" to="112c9b9d33f6499ca235731a4fce16d1">
       <connector />
-    </item>
-    <item id="065f6a8d67e34fd9bdeeabfc0109f052" veid="b2babacce31240a78c48ec9cb80cbddf" cid="PROP004" type="property" name="name" owner="68ae3b91126f488a9ae220586b5eb567" creation-date="10/26/2024 22:37:47" visibility="public">
-      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
-        <text-style type="name" color="#000000" font="Georgia;11.25;B" />
-        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
-        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
-        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
-        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
-        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
-        <border color="#000000" dash-style="solid" />
-        <label-connector color="#80000000" dash-style="Dash" />
-        <alternate-styles>
-          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
-            <text-style type="name" color="#000000" font="Georgia;10;B" />
-            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
-            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
-            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
-            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
-            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
-            <border color="#00008B" dash-style="solid" />
-            <label-connector color="#80000000" dash-style="Dash" />
-          </alternate-style>
-        </alternate-styles>
-      </style>
-      <structural-feature type="String" type-id="Uml.String" />
-      <property default-value="&quot;HumanPlayer&quot;" />
     </item>
     <item id="c04affa8986548008405d9c14162f3de" cid="PROP007" type="property" name="turn_player1" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:33:14" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
@@ -2088,6 +2331,32 @@ Main screen is visible</comment>
       <structural-feature type="Boolean" type-id="Uml.Boolean" />
       <property default-value="True" />
     </item>
+    <item id="065f6a8d67e34fd9bdeeabfc0109f052" veid="b2babacce31240a78c48ec9cb80cbddf" cid="PROP004" type="property" name="name" owner="68ae3b91126f488a9ae220586b5eb567" creation-date="10/26/2024 22:37:47" visibility="public">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#000000" font="Georgia;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="String" type-id="Uml.String" />
+      <property default-value="&quot;HumanPlayer&quot;" />
+    </item>
     <item id="cae8c0a99e70432db6a563ee0e113b90" cid="UC018" type="use-case" name="Document" owner="c58f3b12374447d68dbc3db7d91f2457" creation-date="10/27/2024 11:15:48" visibility="undefined">
       <use-case>
         <stakeholders />
@@ -2101,6 +2370,30 @@ Main screen is visible</comment>
     <item id="aeef075fbe75433ba1e87ee3b4b7ac2d" veid="335c9d3482f944bab8e7a4a318a74717" cid="ELEM013" type="general-transition" creation-date="10/24/2024 09:03:37" from="cae62f8a6a264da4953144cfe6f5d80e" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
       <transition kind="internal" />
     </item>
+    <item id="42e27228659e4c28960af41b42cdac42" cid="FCDC001" type="flowchart-decision" name="Is move completing a mill?" creation-date="11/09/2024 14:26:34">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#FFFFFF" font="Georgia;9.75;B" shadow="true" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#FF5555,#FF5555" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+    </item>
     <item id="60a25b689b404fdb9413dd9587e6d314" veid="15842b468f764a7db0cb8d8cd541eae0" cid="ST009" type="state" name="Select difficulty" creation-date="10/24/2024 08:47:46" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
@@ -2113,19 +2406,47 @@ Main screen is visible</comment>
     <item id="09d0bab6fb654f218a7e61ffb2e3a0b7" veid="7001c1f2ccb64f7f9699da5c41b9f87d" cid="ELEM023" type="general-transition" creation-date="10/24/2024 08:45:31" from="ec91a76d355b41d7aa0751503a10362f" to="0cf6fdee76164162b9f9040d6bbf43cc" visibility="package">
       <transition kind="internal" />
     </item>
-    <item id="0e0ea0ca3ef94a41a39f55767b7280c8" veid="b625d0547d8640e8a6ff35bc367d510d" cid="ELEM016" type="general-transition" creation-date="10/24/2024 08:49:14" from="2def4ebe8e6d4e13b17d479eae7cb457" to="2def4ebe8e6d4e13b17d479eae7cb457" visibility="package">
-      <transition kind="internal" />
-    </item>
     <item id="6f11c6b765d7451d9d1bf77f159d769d" veid="fbc4ee8a828d467db0285c2e220c750e" cid="ST010" type="state" name="A.L. Player" creation-date="10/24/2024 08:53:04" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
         <actions />
       </state>
     </item>
+    <item id="0e0ea0ca3ef94a41a39f55767b7280c8" veid="b625d0547d8640e8a6ff35bc367d510d" cid="ELEM016" type="general-transition" creation-date="10/24/2024 08:49:14" from="2def4ebe8e6d4e13b17d479eae7cb457" to="2def4ebe8e6d4e13b17d479eae7cb457" visibility="package">
+      <transition kind="internal" />
+    </item>
     <item id="efd921c449f349a1b66b92bc121aadb7" veid="93399d2283a24edbb72d4eaaec6b6b0f" cid="ELEM007" type="general-transition" creation-date="10/24/2024 09:04:58" from="9727ebd3b48542028283a4b89fcab6d9" to="6f8fbe41f4574eb79557f3c79f3cf25a" visibility="package">
       <transition kind="internal" />
     </item>
+    <item id="b006399ebe2d4294911fc63ee7b752d7" cid="CMT041" type="comment" name="Comment" creation-date="11/06/2024 10:24:48">
+      <comment>Tester</comment>
+    </item>
     <item id="caec5fe3435541fabb681e7f89775464" cid="PROP087" type="property" owner="e4dc904362674d70a537a980d12fe706" creator="" creation-date="10/27/2024 11:33:45" visibility="private" />
+    <item id="83e1fd430ce04afc96c425e4e2a95ffc" cid="PROP017" type="property" name="last_move" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:37:57" visibility="public">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+        <text-style type="name" color="#000000" font="Georgia;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+        <border color="#000000" dash-style="solid" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+            <text-style type="name" color="#000000" font="Georgia;10;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+            <border color="#00008B" dash-style="solid" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="Uml.Integer | Tuple[Uml.Integer, Uml.Integer]" type-id="Uml.Integer | Tuple[Uml.Integer, Uml.Integer]" />
+    </item>
     <item id="9c55ff18c2b34d44b8817ec36441db3a" cid="PROP028" type="property" name="HEADER" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:15:12" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -2152,34 +2473,11 @@ Main screen is visible</comment>
       <structural-feature type="String" type-id="Uml.String" />
       <property default-value="'\033[95m'" />
     </item>
-    <item id="83e1fd430ce04afc96c425e4e2a95ffc" cid="PROP017" type="property" name="last_move" owner="1762393b4da04717a9c008929c5cf885" creator="" creation-date="10/27/2024 08:37:57" visibility="public">
-      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
-        <text-style type="name" color="#000000" font="Georgia;11.25;B" />
-        <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
-        <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
-        <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
-        <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
-        <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
-        <border color="#000000" dash-style="solid" />
-        <label-connector color="#80000000" dash-style="Dash" />
-        <alternate-styles>
-          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
-            <text-style type="name" color="#000000" font="Georgia;10;B" />
-            <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
-            <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
-            <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
-            <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
-            <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
-            <border color="#00008B" dash-style="solid" />
-            <label-connector color="#80000000" dash-style="Dash" />
-          </alternate-style>
-        </alternate-styles>
-      </style>
-      <structural-feature type="Uml.Integer | Tuple[Uml.Integer, Uml.Integer]" type-id="Uml.Integer | Tuple[Uml.Integer, Uml.Integer]" />
-    </item>
+    <item id="b988e250cb8640abb79cb356ee81f8e8" cid="PROP101" type="property" owner="b7e4e8618f8b4abfacdf454751e76dfd" creator="" creation-date="11/09/2024 12:15:22" visibility="private" />
     <item id="fdce3c8a436946d5bc1834c654b0832c" cid="CMT042" type="comment" name="Comment" creator="" creation-date="11/06/2024 14:14:09">
       <comment>No</comment>
     </item>
+    <item id="05b3ba8468204e68b1d7a9d377aa2f77" cid="PROP091" type="property" owner="fae6bde19ca547c2909eb9b51912a62f" creator="" creation-date="11/09/2024 12:10:44" visibility="private" />
     <item id="8174c30e5f5047a4917d173cb7c343c9" cid="PROP055" type="property" name="BACK_WHITE" owner="5b35881d4fe5491faed32da3a6d99552" creator="" creation-date="10/27/2024 10:18:28" visibility="public">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
         <text-style type="name" color="#000000" font="Georgia;11.25;B" />
@@ -2218,6 +2516,7 @@ Main screen is visible</comment>
         <actions />
       </state>
     </item>
+    <item id="e0722313e20f4cc982dbe8b6578b96dd" cid="PROP112" type="property" owner="f0911c6c62044743bc20d5fc29719691" creator="" creation-date="11/09/2024 12:25:56" visibility="private" />
     <item id="55e9a56438b1498eaebba5e092a7544d" veid="961b81f32b4149319a8827b1d882a102" cid="ST008" type="state" name="Run installation wizard" creation-date="10/24/2024 08:36:17" visibility="undefined">
       <state composite="false" orthogonal="false" simple="false" submachine-state="false">
         <state-invariant />
@@ -2227,14 +2526,14 @@ Main screen is visible</comment>
     <item id="685bff3d317c4a03a4a7d54d9576a23a" veid="5778e03473a54e6e98202d44f4d86518" cid="ELEM002" type="general-transition" creation-date="10/24/2024 08:37:54" from="55e9a56438b1498eaebba5e092a7544d" to="55e9a56438b1498eaebba5e092a7544d" visibility="package">
       <transition kind="internal" />
     </item>
-    <item id="1a01a37d6b4f4684967c5968b0ee87e3" veid="4e7dd6ccec704bd182cb0a5eff3c0f92" cid="CMT041" type="comment" name="Comment" creator="" creation-date="11/06/2024 10:24:48">
-      <comment>Tester</comment>
+    <item id="2fea56149bc3444fa3f5c9549cb5ec9e" veid="6d3fec2a27b849b6bf9d418e65fb2223" cid="ELEM012" type="general-transition" creation-date="10/24/2024 09:01:17" from="53f5d6bc492c48a5bb12c86c16e6d361" to="cae62f8a6a264da4953144cfe6f5d80e" visibility="package">
+      <transition kind="internal" />
     </item>
     <item id="9feff8c9e53a45a9be8c08a58b59376b" veid="a976c74511a941b4ac9ddd35f1a84981" cid="ELEM005" type="general-transition" creation-date="10/24/2024 09:40:10" from="9727ebd3b48542028283a4b89fcab6d9" to="9727ebd3b48542028283a4b89fcab6d9" visibility="package">
       <transition kind="internal" />
     </item>
-    <item id="2fea56149bc3444fa3f5c9549cb5ec9e" veid="6d3fec2a27b849b6bf9d418e65fb2223" cid="ELEM012" type="general-transition" creation-date="10/24/2024 09:01:17" from="53f5d6bc492c48a5bb12c86c16e6d361" to="cae62f8a6a264da4953144cfe6f5d80e" visibility="package">
-      <transition kind="internal" />
+    <item id="1a01a37d6b4f4684967c5968b0ee87e3" veid="4e7dd6ccec704bd182cb0a5eff3c0f92" cid="CMT041" type="comment" name="Comment" creator="" creation-date="11/06/2024 10:24:48">
+      <comment>Tester</comment>
     </item>
     <item id="f65d5807a5ab471ab24043936e8b0347" veid="f5a902bd424a416593839395842ddc87" cid="CMT024" type="comment" name="Comment" creator="" creation-date="10/24/2024 08:46:10">
       <comment>Person vs. Computer</comment>
@@ -2299,7 +2598,7 @@ Main screen is visible</comment>
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-class" id="pc1cdb0a62ffc4897b3d7a47dd75029bb_394952190" name="OsztalyDiagram" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-228,-359" zoom="0.5">
+      <diagram type="uml-class" id="pc1cdb0a62ffc4897b3d7a47dd75029bb_394952190" name="ClassDiagram" order-index="1" uid="" name-style="" show-fields="true" auto-routed-paths="false" default-line-style="default" show-frame="false" view-location="-385,-545" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -2307,7 +2606,7 @@ Main screen is visible</comment>
         </style>
         <meta>
           <authors>
-            <author> </author>
+            <author />
           </authors>
           <description />
           <creation-date>10/26/2024 22:23:11</creation-date>
@@ -2487,16 +2786,16 @@ Main screen is visible</comment>
           <item id="00ec82cb9c84459f8514e2d79de4cb90" cid="REL002" type="relationship" creator="" creation-date="10/27/2024 09:14:02" from="1762393b4da04717a9c008929c5cf885" to="5b35881d4fe5491faed32da3a6d99552" visibility="package">
             <owned-items />
             <relation from="1762393b4da04717a9c008929c5cf885" to="5b35881d4fe5491faed32da3a6d99552" derived="false">
-              <start-role id="umlar-3eedb598-866b-4278-9f11-a22ae681efc4" name="" navigability="" association-type="association" visibility="private" property-ref="2fa98b687692446eb3960d0c48ceb0c4" />
-              <end-role id="umlar-42d8bdc5-6372-4f28-b2f3-42a5f875f521" name="" navigability="" association-type="association" visibility="private" property-ref="1d29d80a7c2f4185b2c9cd9a32d08973" />
+              <start-role id="umlar-4c06b1c6-bd4e-471b-b132-58e74a92dd6c" name="" navigability="" association-type="association" visibility="private" property-ref="2fa98b687692446eb3960d0c48ceb0c4" />
+              <end-role id="umlar-dd4d62a8-1679-4654-b845-5dc58b19d6e9" name="" navigability="" association-type="association" visibility="private" property-ref="1d29d80a7c2f4185b2c9cd9a32d08973" />
             </relation>
           </item>
           <item id="f68f2c2a7ee64a77ac7e4ffe83b9a13f" cid="GNR002" type="generalization" creator="" creation-date="10/26/2024 22:36:25" from="e17a355a85d0484ebbf9f9979de93d80" to="2af31bfe49b54e79bb7ca5e6722e5ac8" visibility="package" />
           <item id="fc3a5b3b82504edfa4fb3b5a0e6f9923" cid="REL001" type="relationship" creator="" creation-date="10/27/2024 08:30:44" from="1762393b4da04717a9c008929c5cf885" to="2af31bfe49b54e79bb7ca5e6722e5ac8" visibility="package">
             <owned-items />
             <relation from="1762393b4da04717a9c008929c5cf885" to="2af31bfe49b54e79bb7ca5e6722e5ac8" derived="false">
-              <start-role id="umlar-dfda7fc3-002f-43bb-824d-b4639b2944fa" name="" navigability="" association-type="association" visibility="private" property-ref="d71f1198b8f14f0c9cffbb62a85d1ac1" />
-              <end-role id="umlar-9924a007-cb6a-4a8c-9d07-a3c2f4ef3dce" name="" navigability="" association-type="association" visibility="private" property-ref="20dc331a96d3457f9842ef99fd47eac6" />
+              <start-role id="umlar-7e4b7a55-fd8a-4e3b-bc3d-e08ca96a268d" name="" navigability="" association-type="association" visibility="private" property-ref="d71f1198b8f14f0c9cffbb62a85d1ac1" />
+              <end-role id="umlar-c94423f2-1d0e-4b0a-b7a8-bb0edb1f7e5f" name="" navigability="" association-type="association" visibility="private" property-ref="20dc331a96d3457f9842ef99fd47eac6" />
             </relation>
           </item>
           <item id="c830e4225c4f4701a358028a80cc38c9" cid="GNR008" type="generalization" creator="" creation-date="10/27/2024 00:03:06" from="eb28f378b81e43768c60e821898cc180" to="2af31bfe49b54e79bb7ca5e6722e5ac8" visibility="package" />
@@ -2908,7 +3207,7 @@ Main screen is visible</comment>
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-usecase" id="p1934a4d61a614edb8a321735a51552b7_476311470" name="HasznalatiEset" order-index="2" overview-order-index="0" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="0,1" zoom="0.9">
+      <diagram type="uml-usecase" id="p1934a4d61a614edb8a321735a51552b7_476311470" name="UseCase" order-index="2" overview-order-index="1" uid="" name-style="" show-fields="true" auto-routed-paths="false" default-line-style="default" show-frame="false" view-location="0,-37" zoom="0.9">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -2916,7 +3215,7 @@ Main screen is visible</comment>
         </style>
         <meta>
           <authors>
-            <author> </author>
+            <author />
           </authors>
           <description />
           <creation-date>10/27/2024 10:22:37</creation-date>
@@ -2935,8 +3234,8 @@ Main screen is visible</comment>
           <item id="a8cfd15be1db4d2da034461ce6d856ec" cid="REL005" type="relationship" creator="" creation-date="10/27/2024 10:52:54" from="2687212100a1491397753e60ba9b7a78" to="1e6260c513cb4451bc7909a62c7255de" visibility="package">
             <owned-items />
             <relation from="2687212100a1491397753e60ba9b7a78" to="1e6260c513cb4451bc7909a62c7255de" derived="false">
-              <start-role id="umlar-dadbb9f8-5863-4f09-8427-f11ee663193d" name="" navigability="" association-type="association" visibility="private" property-ref="af2482f101014cb59a15bff3fd9dc128" />
-              <end-role id="umlar-19e11c1a-0ac3-4668-802e-104cdfe33879" name="" navigability="" association-type="association" visibility="private" property-ref="815ef4b835954938a2bbf021624ee7dc" />
+              <start-role id="umlar-bcb194ac-2190-44ec-9ce0-7b5b48540411" name="" navigability="" association-type="association" visibility="private" property-ref="af2482f101014cb59a15bff3fd9dc128" />
+              <end-role id="umlar-0c9616fb-be39-4c08-9ede-036213e03326" name="" navigability="" association-type="association" visibility="private" property-ref="815ef4b835954938a2bbf021624ee7dc" />
             </relation>
           </item>
           <item id="0c295c356e214adab61c81d2caec0488" cid="INC001" type="include" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:26:32" from="8aafe428ea7149419ae84507ac49c56d" to="03385e3a3bcd4276bd77f0aadb1822f8" visibility="package">
@@ -2950,8 +3249,8 @@ Main screen is visible</comment>
           <item id="4d400730d3554cb0b4b6352908a8e01e" cid="REL011" type="relationship" creator="" creation-date="10/27/2024 11:01:19" from="3144dbc554144ab0825bb77ed5254e6c" to="f54c5680769841ff8a377bf973f7b1ad" visibility="package">
             <owned-items />
             <relation from="3144dbc554144ab0825bb77ed5254e6c" to="f54c5680769841ff8a377bf973f7b1ad" derived="false">
-              <start-role id="umlar-eaf0bee8-c048-4eb5-9773-687c00ebd6d0" name="" navigability="" association-type="association" visibility="private" property-ref="4d8e1f282dd54ca4925c37da43a42777" />
-              <end-role id="umlar-d8b58d93-9dcb-4215-bff1-58409322dd9f" name="" navigability="" association-type="association" visibility="private" property-ref="d804f550fcce4ee68eea691f439ba094" />
+              <start-role id="umlar-ded9cd18-0d9d-48cf-801f-98181f42f5b1" name="" navigability="" association-type="association" visibility="private" property-ref="4d8e1f282dd54ca4925c37da43a42777" />
+              <end-role id="umlar-785e1e07-ae83-4a1f-90dd-20fc54306f39" name="" navigability="" association-type="association" visibility="private" property-ref="d804f550fcce4ee68eea691f439ba094" />
             </relation>
           </item>
           <item id="0b02b9c9c88f458cb2c6a5e7e23afb14" cid="EX004" type="extend" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:59:36" from="724edaca5cbd4dddb62c1ff134b340d3" to="c511da7dc5a24fe7b75e8bd3c0053ddc" visibility="package">
@@ -3054,8 +3353,8 @@ Main screen is visible</comment>
           <item id="d0a523e9213042089069d0fadf96d706" cid="REL017" type="relationship" creator="" creation-date="10/27/2024 11:30:05" from="dd936ef670794495b18353072ca0378a" to="d36d2ebc4a7646aab15a2a69b3aee377" visibility="package">
             <owned-items />
             <relation from="dd936ef670794495b18353072ca0378a" to="d36d2ebc4a7646aab15a2a69b3aee377" derived="false">
-              <start-role id="umlar-ac775fae-8e02-4874-a743-a1073ad5d64a" name="" navigability="" association-type="association" visibility="private" property-ref="66564516d9df4c4dbc4333ea64d9a4ac" />
-              <end-role id="umlar-d59f3dcd-85be-4e73-8408-6fe591e8d6b3" name="" navigability="" association-type="association" visibility="private" property-ref="d002a524ef7e4f7088b7a0f0c4e86354" />
+              <start-role id="umlar-53c3df93-5bae-4253-9f82-4cd0cfb9a0c8" name="" navigability="" association-type="association" visibility="private" property-ref="66564516d9df4c4dbc4333ea64d9a4ac" />
+              <end-role id="umlar-9280c7a1-c2f5-45ea-847c-90a76ee436ea" name="" navigability="" association-type="association" visibility="private" property-ref="d002a524ef7e4f7088b7a0f0c4e86354" />
             </relation>
           </item>
           <item id="15229f07d14a4de3a28ebd06a40d5672" cid="UC019" type="use-case" name="Design Interface" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:20:19" visibility="undefined">
@@ -3068,8 +3367,8 @@ Main screen is visible</comment>
           <item id="d67ec32c6159432881ad3995840ab0c3" cid="REL015" type="relationship" creator="" creation-date="10/27/2024 11:29:53" from="dd936ef670794495b18353072ca0378a" to="15229f07d14a4de3a28ebd06a40d5672" visibility="package">
             <owned-items />
             <relation from="dd936ef670794495b18353072ca0378a" to="15229f07d14a4de3a28ebd06a40d5672" derived="false">
-              <start-role id="umlar-3ad88f25-a4c8-4f8e-b730-b4da3a5866f4" name="" navigability="" association-type="association" visibility="private" property-ref="0b93c2619eb548c29cfc09384feaa6d0" />
-              <end-role id="umlar-92975852-ff23-417e-85da-a05e2d4940d2" name="" navigability="" association-type="association" visibility="private" property-ref="fe5fb857174e4390b151ac19f8b5588f" />
+              <start-role id="umlar-1b5e0bff-eab3-42cc-9fb1-0e95e2ceeaa3" name="" navigability="" association-type="association" visibility="private" property-ref="0b93c2619eb548c29cfc09384feaa6d0" />
+              <end-role id="umlar-e2018482-ab8b-456f-a3bc-3971eedf471d" name="" navigability="" association-type="association" visibility="private" property-ref="fe5fb857174e4390b151ac19f8b5588f" />
             </relation>
           </item>
           <item id="9c9f767506694c548aca4a13cd30bc51" cid="UC017" type="use-case" name="Improve AI Profiles" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:14:53" visibility="undefined">
@@ -3124,8 +3423,8 @@ Main screen is visible</comment>
           <item id="155fa9e13d8549f98e159facb4a88700" cid="REL013" type="relationship" creator="" creation-date="10/27/2024 11:13:26" from="5db9005055214e099a00fa753a468e8a" to="782b2c0333c84a7b8d08c6aaa137784e" visibility="package">
             <owned-items />
             <relation from="5db9005055214e099a00fa753a468e8a" to="782b2c0333c84a7b8d08c6aaa137784e" derived="false">
-              <start-role id="umlar-bcf4d8fe-209c-4257-a647-ce6f047dadae" name="" navigability="" association-type="association" visibility="private" property-ref="06a550b70cfb49a2ad9d461f33290e9d" />
-              <end-role id="umlar-fcbb271e-3f96-426e-a2ee-2fd3f33d582b" name="" navigability="" association-type="association" visibility="private" property-ref="2e27b373d0d44236ba6d95ad7731a80a" />
+              <start-role id="umlar-cc1e2936-610c-4e81-84f9-0f77f288bc98" name="" navigability="" association-type="association" visibility="private" property-ref="06a550b70cfb49a2ad9d461f33290e9d" />
+              <end-role id="umlar-57743539-6a3c-4ed9-bebb-151fbcb598e4" name="" navigability="" association-type="association" visibility="private" property-ref="2e27b373d0d44236ba6d95ad7731a80a" />
             </relation>
           </item>
           <item id="e3f68d842b034a2db2ad0ed89811b692" cid="AC006" type="actor" name="Tester" creator="" creation-date="10/27/2024 11:10:28" visibility="undefined" />
@@ -3139,8 +3438,8 @@ Main screen is visible</comment>
           <item id="e4dc904362674d70a537a980d12fe706" cid="REL018" type="relationship" creator="" creation-date="10/27/2024 11:33:45" from="4f3fea86b07f45729f0f809f933a1964" to="e3f68d842b034a2db2ad0ed89811b692" visibility="package">
             <owned-items />
             <relation from="4f3fea86b07f45729f0f809f933a1964" to="e3f68d842b034a2db2ad0ed89811b692" derived="false">
-              <start-role id="umlar-a971376f-39d1-44db-a6b8-3827f4e45095" name="" navigability="" association-type="association" visibility="private" property-ref="534a4daf53294e4c969cce0752567f21" />
-              <end-role id="umlar-117d8e36-b251-4fa5-92ae-bb7c255586b7" name="" navigability="" association-type="association" visibility="private" property-ref="caec5fe3435541fabb681e7f89775464" />
+              <start-role id="umlar-995d3a85-58a9-4bc8-b5b8-67e08622ba75" name="" navigability="" association-type="association" visibility="private" property-ref="534a4daf53294e4c969cce0752567f21" />
+              <end-role id="umlar-b1bf00d2-a54c-46ea-8c6b-34560ebd4ec0" name="" navigability="" association-type="association" visibility="private" property-ref="caec5fe3435541fabb681e7f89775464" />
             </relation>
           </item>
           <item id="dedc7e1d85c44c9fafe1375fae6e2487" cid="UC010" type="use-case" name="Log Game" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:58:13" visibility="undefined">
@@ -3160,15 +3459,15 @@ Main screen is visible</comment>
           <item id="0837d5c5dddb4258a3b87d8720a8e951" cid="REL009" type="relationship" creator="" creation-date="10/27/2024 10:56:38" from="2c1afd2509884777bda4afc3b8ed2ef5" to="2687212100a1491397753e60ba9b7a78" visibility="package">
             <owned-items />
             <relation from="2c1afd2509884777bda4afc3b8ed2ef5" to="2687212100a1491397753e60ba9b7a78" derived="false">
-              <start-role id="umlar-ccce7810-ea7f-44ca-9f29-7dac6fc8d98f" name="" navigability="" association-type="association" visibility="private" property-ref="3f03e4a2869648e1a6e0d5b241337d28" />
-              <end-role id="umlar-bbb07773-3009-435c-bd57-6b5052a911ae" name="" navigability="" association-type="association" visibility="private" property-ref="5e5993c5bada43f3a8ac85d7f8d7aa3f" />
+              <start-role id="umlar-97bd5257-5936-4316-9c20-80d9c5b375f7" name="" navigability="" association-type="association" visibility="private" property-ref="3f03e4a2869648e1a6e0d5b241337d28" />
+              <end-role id="umlar-01902224-f250-463f-85ce-0aa7e1796dcf" name="" navigability="" association-type="association" visibility="private" property-ref="5e5993c5bada43f3a8ac85d7f8d7aa3f" />
             </relation>
           </item>
           <item id="49eaa5e83c214e1d835029066d2929a8" cid="REL016" type="relationship" creator="" creation-date="10/27/2024 11:29:59" from="dd936ef670794495b18353072ca0378a" to="b7ed546a331b4c8a8e645d7b7619e757" visibility="package">
             <owned-items />
             <relation from="dd936ef670794495b18353072ca0378a" to="b7ed546a331b4c8a8e645d7b7619e757" derived="false">
-              <start-role id="umlar-e8becd24-c436-43aa-a48d-6b76f54d6e06" name="" navigability="" association-type="association" visibility="private" property-ref="ac7d7319ccc0469fba56fb32f35098f4" />
-              <end-role id="umlar-19fe645d-312b-40b7-963e-d6f2ecf50a6c" name="" navigability="" association-type="association" visibility="private" property-ref="622e9dc747694bbc85200dca27ed0c20" />
+              <start-role id="umlar-4fad24a5-afe8-4402-8643-effdd087c322" name="" navigability="" association-type="association" visibility="private" property-ref="ac7d7319ccc0469fba56fb32f35098f4" />
+              <end-role id="umlar-90664f20-735a-4d06-8a36-4fa02182ed95" name="" navigability="" association-type="association" visibility="private" property-ref="622e9dc747694bbc85200dca27ed0c20" />
             </relation>
           </item>
           <item id="782b2c0333c84a7b8d08c6aaa137784e" cid="UC016" type="use-case" name="Analyise Game Data" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:12:42" visibility="undefined">
@@ -3181,8 +3480,8 @@ Main screen is visible</comment>
           <item id="96203d9016a343888a7df60c5bb6d8d1" cid="REL012" type="relationship" creator="" creation-date="10/27/2024 11:04:55" from="3144dbc554144ab0825bb77ed5254e6c" to="447de6592b804325a1e2c3a93d8a0173" visibility="package">
             <owned-items />
             <relation from="3144dbc554144ab0825bb77ed5254e6c" to="447de6592b804325a1e2c3a93d8a0173" derived="false">
-              <start-role id="umlar-778f9fe5-9bdd-404b-89dd-d9e4b5d4874a" name="" navigability="" association-type="association" visibility="private" property-ref="240062f07f624c36b8f0b6eeda4fdb9c" />
-              <end-role id="umlar-8b391190-ab8c-4bbf-b0f9-22d8aeb8a04b" name="" navigability="" association-type="association" visibility="private" property-ref="adaaf31c079c42a8896707d881eea49e" />
+              <start-role id="umlar-fd31fc3a-58f6-444a-9eea-70a7facfaa6d" name="" navigability="" association-type="association" visibility="private" property-ref="240062f07f624c36b8f0b6eeda4fdb9c" />
+              <end-role id="umlar-ab672b9c-52fa-4c64-a6aa-d812d84f6aad" name="" navigability="" association-type="association" visibility="private" property-ref="adaaf31c079c42a8896707d881eea49e" />
             </relation>
           </item>
           <item id="724edaca5cbd4dddb62c1ff134b340d3" cid="UC011" type="use-case" name="Log Game" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 10:59:36" visibility="undefined">
@@ -3254,8 +3553,8 @@ Main screen is visible</comment>
           <item id="6b3760e5808c4cd791b7c07615894f56" cid="REL003" type="relationship" creator="" creation-date="10/27/2024 10:27:24" from="ceab6eab03d04005bcd3bd55b96de63d" to="8aafe428ea7149419ae84507ac49c56d" visibility="package">
             <owned-items />
             <relation from="ceab6eab03d04005bcd3bd55b96de63d" to="8aafe428ea7149419ae84507ac49c56d" derived="false">
-              <start-role id="umlar-0a7075ff-f674-4cd4-ba59-f1c6b5d119c0" name="" navigability="" association-type="association" visibility="private" property-ref="2fbdc9b4c85c4d0983174c8f966e372d" />
-              <end-role id="umlar-9f5ca630-1d1b-432c-8d08-e020eaeec152" name="" navigability="" association-type="association" visibility="private" property-ref="635af74120d04cd39b4f4b660664d19c" />
+              <start-role id="umlar-66f943b1-e455-4237-8b57-7434b4bc6a64" name="" navigability="" association-type="association" visibility="private" property-ref="2fbdc9b4c85c4d0983174c8f966e372d" />
+              <end-role id="umlar-510b3764-8cb1-4061-9195-b533346bfc73" name="" navigability="" association-type="association" visibility="private" property-ref="635af74120d04cd39b4f4b660664d19c" />
             </relation>
           </item>
           <item id="447de6592b804325a1e2c3a93d8a0173" cid="UC014" type="use-case" name="Fix Bugs" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:04:42" visibility="undefined">
@@ -3278,8 +3577,8 @@ Main screen is visible</comment>
           <item id="bd25454c9f0045599b1fb87879317f8b" cid="REL004" type="relationship" creator="" creation-date="10/27/2024 10:51:42" from="2687212100a1491397753e60ba9b7a78" to="c511da7dc5a24fe7b75e8bd3c0053ddc" visibility="package">
             <owned-items />
             <relation from="2687212100a1491397753e60ba9b7a78" to="c511da7dc5a24fe7b75e8bd3c0053ddc" derived="false">
-              <start-role id="umlar-239b82c1-b86d-416b-b967-48c5b372b063" name="" navigability="" association-type="association" visibility="private" property-ref="1fec3d4297f24efa9e145488eada747a" />
-              <end-role id="umlar-3df2801a-0416-4bc9-8f79-3ed5243f3acc" name="" navigability="" association-type="association" visibility="private" property-ref="9ad7e191faae405786ef719ae502b377" />
+              <start-role id="umlar-15c7d4bc-8b84-402f-b24c-df1fdab4ab01" name="" navigability="" association-type="association" visibility="private" property-ref="1fec3d4297f24efa9e145488eada747a" />
+              <end-role id="umlar-6c47a079-080c-4232-be03-5c1cdd5682f2" name="" navigability="" association-type="association" visibility="private" property-ref="9ad7e191faae405786ef719ae502b377" />
             </relation>
           </item>
           <item id="d36d2ebc4a7646aab15a2a69b3aee377" cid="UC020" type="use-case" name="Implement codebase" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:27:29" visibility="undefined">
@@ -3299,8 +3598,8 @@ Main screen is visible</comment>
           <item id="99ca9c09b11a42e98ac58393b42fa499" cid="REL014" type="relationship" creator="" creation-date="10/27/2024 11:15:14" from="9c9f767506694c548aca4a13cd30bc51" to="5db9005055214e099a00fa753a468e8a" visibility="package">
             <owned-items />
             <relation from="9c9f767506694c548aca4a13cd30bc51" to="5db9005055214e099a00fa753a468e8a" derived="false">
-              <start-role id="umlar-054c48b0-0c79-4da4-9e8a-62bc0bf70427" name="" navigability="" association-type="association" visibility="private" property-ref="93b563a95af8425abef72c27697e7a63" />
-              <end-role id="umlar-dbcc6e22-a45b-4fa6-804d-c332dc5eb51c" name="" navigability="" association-type="association" visibility="private" property-ref="b5e03ff626c0485c8285cd1132bdeea8" />
+              <start-role id="umlar-be733db5-fdad-4b94-a1ef-e723598278cb" name="" navigability="" association-type="association" visibility="private" property-ref="93b563a95af8425abef72c27697e7a63" />
+              <end-role id="umlar-8a508273-e548-4cf0-9708-863bfd6bda68" name="" navigability="" association-type="association" visibility="private" property-ref="b5e03ff626c0485c8285cd1132bdeea8" />
             </relation>
           </item>
           <item id="1e0e8a82808d46be8b167586b2b2215d" cid="UC024" type="use-case" name="Write Integration Test" owner="c58f3b12374447d68dbc3db7d91f2457" creator="" creation-date="10/27/2024 11:32:44" visibility="undefined">
@@ -3698,7 +3997,7 @@ Main screen is visible</comment>
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-statechart" id="12bba8485d954f32a31d6b6d409763f9" name="StateMachineDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="360,-251" zoom="0.8">
+      <diagram type="uml-statechart" id="12bba8485d954f32a31d6b6d409763f9" name="StateMachineDiagram" order-index="1" uid="" name-style="" show-fields="true" auto-routed-paths="false" default-line-style="default" show-frame="false" view-location="0,-148" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -3706,7 +4005,7 @@ Main screen is visible</comment>
         </style>
         <meta>
           <authors>
-            <author> </author>
+            <author />
           </authors>
           <description />
           <creation-date>10/24/2024 08:32:26</creation-date>
@@ -4427,7 +4726,7 @@ Main screen is visible</comment>
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-usecase" id="c102f2894dd844a3a9182c0eca73422b" name="contect_diagram_malom_game" order-index="2" overview-order-index="0" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="0,-90">
+      <diagram type="uml-usecase" id="c102f2894dd844a3a9182c0eca73422b" name="ContextDiagram" order-index="2" overview-order-index="7" uid="" name-style="" show-fields="true" auto-routed-paths="false" default-line-style="default" show-frame="false" view-location="0,78">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -4435,7 +4734,7 @@ Main screen is visible</comment>
         </style>
         <meta>
           <authors>
-            <author> </author>
+            <author />
           </authors>
           <description />
           <creation-date>11/06/2024 10:17:22</creation-date>
@@ -4512,7 +4811,7 @@ Main screen is visible</comment>
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-statechart" id="p3dd9fb8cf04d40fc9ec21b7a2e4dc243_618720221" name="Astar_decision_tree" order-index="3" overview-order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="103,-67" zoom="0.7">
+      <diagram type="uml-statechart" id="p3dd9fb8cf04d40fc9ec21b7a2e4dc243_618720221" name="Astar_decision_tree" order-index="3" overview-order-index="10" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-33,-91" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -4567,7 +4866,7 @@ Main screen is visible</comment>
             <connector end-cap="arrow" />
           </item>
           <item id="ed9eb54a0db44f1db8ea3fd03c1d284b" cid="CH004" type="choice" name="Self can form a mill this turn" creator="" creation-date="11/06/2024 14:20:39" visibility="undefined" />
-          <item id="82896d006ccc4b5daf215b05e2955c5e" cid="CH001" type="choice" name="Is slef first turn" creator="" creation-date="11/06/2024 14:11:16" visibility="undefined" />
+          <item id="82896d006ccc4b5daf215b05e2955c5e" cid="CH001" type="choice" name="Is self first turn" creator="" creation-date="11/06/2024 14:11:16" visibility="undefined" />
           <item id="82479ccf25c643ebaccfd5da11277075" cid="ST019" type="state" name="makeFirstMove()" creator="" creation-date="11/06/2024 14:12:49" visibility="undefined">
             <state composite="false" orthogonal="false" simple="false" submachine-state="false">
               <state-invariant />
@@ -4581,7 +4880,7 @@ Main screen is visible</comment>
           <item id="2c8fcae80e284554a84b4a8b374c267f" cid="ELEM078" type="universal-connector" creator="" creation-date="11/06/2024 15:00:36" from="42c8734ef1fc4fee955917dccb596d01" to="4f3a572521d149348dcdc5d4a745709b">
             <connector end-cap="arrow" />
           </item>
-          <item id="9f46b37babf1483bba1fa6aad153c32c" cid="FS001" type="final-state" name="FinalState1" creator="" creation-date="11/07/2024 13:11:22">
+          <item id="9f46b37babf1483bba1fa6aad153c32c" cid="FS001" type="final-state" name="FinalState1" creator="" creation-date="11/07/2024 13:11:22" visibility="undefined">
             <state composite="false" orthogonal="false" simple="false" submachine-state="false">
               <state-invariant />
               <actions />
@@ -4590,7 +4889,7 @@ Main screen is visible</comment>
           <item id="1da16da8f8384e45ad83a06e4c32d72d" cid="ELEM034" type="general-transition" creator="" creation-date="11/06/2024 14:17:34" from="7c3b4f52793349da8e5c5e799c938857" to="7422cb3a9e9b4784a32fac28f96c100b" visibility="package">
             <transition kind="internal" />
           </item>
-          <item id="c76eb3e7b0234ae580e5eb4b34703df2" cid="FS002" type="final-state" name="A* Algorithm end" creator="" creation-date="11/07/2024 13:11:59">
+          <item id="c76eb3e7b0234ae580e5eb4b34703df2" cid="FS002" type="final-state" name="A* Algorithm end" creator="" creation-date="11/07/2024 13:11:59" visibility="undefined">
             <state composite="false" orthogonal="false" simple="false" submachine-state="false">
               <state-invariant />
               <actions />
@@ -4989,6 +5288,863 @@ Main screen is visible</comment>
               </points>
             </layout>
             <relation from="69f986571b2e484da86b5b734d8f1ce7" from-iid="9c2e3e51f451483fbe185f87e4e58507" to="27f15f021e8b43be80f12fcfcbb3d238" to-iid="eca29842ceb84d7798f8288af1784e05" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-usecase" id="p2be5690a9b894a48bf79a5e52bcd3353_121969589" name="ArchitectureDiagram" order-index="4" overview-order-index="8" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="1,320" zoom="0.9">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author>Hoki Attila</author>
+          </authors>
+          <description />
+          <creation-date>11/09/2024 09:57:38</creation-date>
+          <change-date>11/09/2024 12:33:15</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="a6e7026270cc445499f422441423965d" cid="ELEM036" type="drawing-shape" name="SimpleShape4" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:08:14">
+            <drawing>
+              <text>Debug Subsystem</text>
+            </drawing>
+            <drawing-shape type="Rectangle" />
+          </item>
+          <item id="11a21ca665df4b868608af08ede55e12" cid="ELEM032" type="drawing-shape" name="SimpleShape2" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:07:08">
+            <drawing>
+              <text>Engine</text>
+            </drawing>
+            <drawing-shape type="Rectangle" />
+          </item>
+          <item id="e56c8eb1d367414baeb3d8f83e536a5c" cid="REL021" type="relationship" creator="" creation-date="11/09/2024 12:11:27" from="202ae41aa66f4667bbc45cbe866f6409" to="ee39e2550b24443da2c52eb552885c85" visibility="package">
+            <owned-items />
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" to="ee39e2550b24443da2c52eb552885c85" derived="false">
+              <start-role id="umlar-a11e726e-2142-482f-ac95-a4cd88e64457" name="" navigability="" association-type="association" visibility="private" property-ref="66ba594649bb47c49c922c09906583db" />
+              <end-role id="umlar-a7b5f142-c83d-4a31-8d6d-c66ecd13287d" name="" navigability="" association-type="association" visibility="private" property-ref="7461a5576a184dfea345d991749132f1" />
+            </relation>
+          </item>
+          <item id="ee39e2550b24443da2c52eb552885c85" cid="ELEM041" type="drawing-shape" name="SimpleShape6" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:11:01">
+            <drawing>
+              <text>Authentication Subsystem</text>
+            </drawing>
+            <drawing-shape type="Rectangle" />
+          </item>
+          <item id="f0e74a1d1ff946dd9835714b19cc45ff" cid="REL031" type="relationship" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:26:06" from="ee39e2550b24443da2c52eb552885c85" to="ac2d1a39dd6543d389bdb4c58efd7ce6" visibility="package">
+            <owned-items />
+            <relation from="ee39e2550b24443da2c52eb552885c85" to="ac2d1a39dd6543d389bdb4c58efd7ce6" derived="false">
+              <start-role id="umlar-81ab7870-c71f-4f59-b6df-f22ba2ef42db" name="" navigability="" association-type="association" visibility="private" property-ref="4a687d52f7f34279b9a80223c2d56a8c" />
+              <end-role id="umlar-08076ff2-ec29-41f9-ac61-46f66a329ce4" name="" navigability="" association-type="association" visibility="private" property-ref="757bb3fa4de244a2b37d906a17c05143" />
+            </relation>
+          </item>
+          <item id="f0911c6c62044743bc20d5fc29719691" cid="REL030" type="relationship" creator="" creation-date="11/09/2024 12:25:56" from="202ae41aa66f4667bbc45cbe866f6409" to="ac2d1a39dd6543d389bdb4c58efd7ce6" visibility="package">
+            <owned-items />
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" to="ac2d1a39dd6543d389bdb4c58efd7ce6" derived="false">
+              <start-role id="umlar-a7aca9c2-260f-4091-a2bc-b4d5169e29a2" name="" navigability="" association-type="association" visibility="private" property-ref="53e876ce8dcd4b838d7215921264a685" />
+              <end-role id="umlar-37392a9a-8006-4bb2-9271-002dc68cf682" name="" navigability="" association-type="association" visibility="private" property-ref="e0722313e20f4cc982dbe8b6578b96dd" />
+            </relation>
+          </item>
+          <item id="973b7e5612194912aad41f4e9015ec1b" cid="REL028" type="relationship" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:22:11" from="11a21ca665df4b868608af08ede55e12" to="a6e7026270cc445499f422441423965d" visibility="package">
+            <owned-items />
+            <relation from="11a21ca665df4b868608af08ede55e12" to="a6e7026270cc445499f422441423965d" derived="false">
+              <start-role id="umlar-9fff724c-cb6a-4c46-baa6-3dccc80dc550" name="" navigability="" association-type="association" visibility="private" property-ref="d12df6cb8b09459099deee88c2ad71fc" />
+              <end-role id="umlar-3a1e7d35-f92d-4670-8b4a-45fadc77517f" name="" navigability="" association-type="association" visibility="private" property-ref="35179556342146bbaab28943dc6147a8" />
+            </relation>
+          </item>
+          <item id="2b0ebbbcc96c4912bc3eb4c21d090e8e" cid="ELEM030" type="drawing-shape" name="SimpleShape1" owner="de01d18443a34e15bd036288544cd364" creator="" creation-date="11/09/2024 09:58:57">
+            <drawing>
+              <text>Game Engine</text>
+            </drawing>
+            <drawing-shape type="Rectangle" />
+          </item>
+          <item id="867c4e46ec104eff9d15d6ba796fde74" cid="REL019" type="relationship" creator="" creation-date="11/09/2024 12:09:53" from="202ae41aa66f4667bbc45cbe866f6409" to="57a89776f1d941bb9b40ad363488f174" visibility="package">
+            <owned-items />
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" to="57a89776f1d941bb9b40ad363488f174" derived="false">
+              <start-role id="umlar-ab5010e6-7d12-46a9-979b-32d7f4d84e9a" name="" navigability="" association-type="association" visibility="private" property-ref="59246113737740e0bb328bf5f2c05dcd" />
+              <end-role id="umlar-7f3a835f-a02b-48f7-9151-852f85c088c6" name="" navigability="" association-type="association" visibility="private" property-ref="5fb5fb88be274d46be8192c5c71e40b1" />
+            </relation>
+          </item>
+          <item id="6239acfa1bea4c88b6570749d031c477" cid="ELEM042" type="drawing-shape" name="SimpleShape7" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:12:21">
+            <drawing />
+            <drawing-shape type="Rectangle" />
+          </item>
+          <item id="b7e4e8618f8b4abfacdf454751e76dfd" cid="REL025" type="relationship" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:15:22" from="11a21ca665df4b868608af08ede55e12" to="38f44bc8c6774bdfa7bb03989b8b8521" visibility="package">
+            <owned-items />
+            <relation from="11a21ca665df4b868608af08ede55e12" to="38f44bc8c6774bdfa7bb03989b8b8521" derived="false">
+              <start-role id="umlar-0dc8a7f5-9d9e-4554-941f-13ba7ca94e3d" name="" navigability="" association-type="association" visibility="private" property-ref="b988e250cb8640abb79cb356ee81f8e8" />
+              <end-role id="umlar-7a462231-33d2-41a6-8a7c-e197b3d0751e" name="" navigability="" association-type="association" visibility="private" property-ref="9f1f52f011654d9585dfed0746069074" />
+            </relation>
+          </item>
+          <item id="6a7296bcd0c041dba9ed438360a4c572" cid="REL026" type="relationship" creator="" creation-date="11/09/2024 12:15:33" from="202ae41aa66f4667bbc45cbe866f6409" to="38f44bc8c6774bdfa7bb03989b8b8521" visibility="package">
+            <owned-items />
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" to="38f44bc8c6774bdfa7bb03989b8b8521" derived="false">
+              <start-role id="umlar-ac1fa440-4c5c-45fb-805e-d79899e7bbe7" name="" navigability="" association-type="association" visibility="private" property-ref="2a8789c26fee42c2b7a7915d9e21d57d" />
+              <end-role id="umlar-21204798-63df-4ff5-8d63-c3700cb26644" name="" navigability="" association-type="association" visibility="private" property-ref="b553d2a22da84fef93cc94b01c5d4b2c" />
+            </relation>
+          </item>
+          <item id="0ba1e77d2e004145ba30d92778dda221" cid="REL022" type="relationship" creator="" creation-date="11/09/2024 12:11:33" from="49ca65ebfdac40f78c2027e720571f18" to="ee39e2550b24443da2c52eb552885c85" visibility="package">
+            <owned-items />
+            <relation from="49ca65ebfdac40f78c2027e720571f18" to="ee39e2550b24443da2c52eb552885c85" derived="false">
+              <start-role id="umlar-080faf0e-e17f-49f7-aed5-97e060d4eb44" name="" navigability="" association-type="association" visibility="private" property-ref="744b3b1b80de40be967b3f7439fc1e28" />
+              <end-role id="umlar-2cf266c8-fdeb-4b4e-a02c-438744c1ccf6" name="" navigability="" association-type="association" visibility="private" property-ref="98cecfc32fb148799bb306e51af496c4" />
+            </relation>
+          </item>
+          <item id="275dea3127c04387ae11cd3c88efcb6a" cid="REL033" type="relationship" creator="" creation-date="11/09/2024 12:33:15" from="202ae41aa66f4667bbc45cbe866f6409" to="11a21ca665df4b868608af08ede55e12" visibility="package">
+            <owned-items />
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" to="11a21ca665df4b868608af08ede55e12" derived="false">
+              <start-role id="umlar-47e51173-391a-4576-8b4b-84b877cea1eb" name="" navigability="" association-type="association" visibility="private" property-ref="fb5202fa8f704ef6857f1f4a11285370" />
+              <end-role id="umlar-60775f22-1419-41fe-9118-9b0c1e54ddfa" name="" navigability="" association-type="association" visibility="private" property-ref="a990d77fc3db4717ba9b3f9ac3914569" />
+            </relation>
+          </item>
+          <item id="fae6bde19ca547c2909eb9b51912a62f" cid="REL020" type="relationship" owner="b2a87ae54f424d5ba30c0b495294b440" creator="" creation-date="11/09/2024 12:10:44" from="11a21ca665df4b868608af08ede55e12" to="57a89776f1d941bb9b40ad363488f174" visibility="package">
+            <owned-items />
+            <relation from="11a21ca665df4b868608af08ede55e12" to="57a89776f1d941bb9b40ad363488f174" derived="false">
+              <start-role id="umlar-31d9ca60-f508-4d19-a18f-a51a9328b378" name="" navigability="" association-type="association" visibility="private" property-ref="05b3ba8468204e68b1d7a9d377aa2f77" />
+              <end-role id="umlar-e97158cf-f000-4159-8e2c-f34b2528ebf1" name="" navigability="" association-type="association" visibility="private" property-ref="37917f1a7ced469184b244cee315ab2b" />
+            </relation>
+          </item>
+        </abstract-items>
+        <layer id="3ba4ea1378e249639fb226db6d271e30" name="Default" visible="true" enabled="true" locked="false">
+          <item id="b2a87ae54f424d5ba30c0b495294b440" iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/06/2024 10:19:18" order-index="0" type="entity">
+            <layout ax="723" ay="434" awidth="538" aheight="679" x="723" y="434" width="424" height="679" expanded="723,434,538,679" collapsed="0,0,0,0" />
+          </item>
+          <item id="202ae41aa66f4667bbc45cbe866f6409" iid="b13bad911fa444a6897569f7aad9abc0" creation-date="11/06/2024 10:19:35" order-index="1" type="entity">
+            <layout name-position="0,10" name-anchor="bottom" auto-anchor="true" label-attached="false" ax="501" ay="725" awidth="50" aheight="100" x="501" y="725" width="50" height="120" />
+            <actor />
+          </item>
+          <item id="11a21ca665df4b868608af08ede55e12" iid="d6a1ec81b2dd4e4aa0e49e6d2c0e1052" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:07:08" order-index="9" type="entity">
+            <layout ax="928" ay="492.91846" awidth="128" aheight="33" x="928" y="492.91846" width="104" height="28" />
+          </item>
+          <item id="84c1134d09e3496a96ecfd8daf5170c9" iid="191e94f03f5a4557a79647b388495571" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/06/2024 10:22:57" order-index="2" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1338" y1="775" x2="1171" y2="734" start-border-pos="0.875" end-border-pos="0.38443395495414734" end-local-pos="28.5" name-position="0,20">
+              <points>
+                <point x="1338" y="775" />
+                <point x="1171" y="734" />
+              </points>
+            </layout>
+            <relation from="49ca65ebfdac40f78c2027e720571f18" from-iid="0e36593532504b6c8c3e486cad02c6b2" to="57a89776f1d941bb9b40ad363488f174" to-iid="b51fd59999b540fb9bdef7ac0b231263" />
+          </item>
+          <item id="57a89776f1d941bb9b40ad363488f174" iid="b51fd59999b540fb9bdef7ac0b231263" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:08:14" order-index="0" type="entity">
+            <layout ax="1067" ay="705.4592" awidth="104" aheight="53" x="1067" y="705.4592" width="104" height="53" />
+          </item>
+          <item id="a6e7026270cc445499f422441423965d" iid="0c20cbcbe99b485d8c0e7284a9e4ae7d" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:08:14" order-index="10" type="entity">
+            <layout ax="894" ay="705.4592" awidth="104" aheight="53" x="894" y="705.4592" width="104" height="53" />
+          </item>
+          <item id="de71ea91a42845469ceaa2a2e5d21e89" iid="e719989e6cda48018d98a9629a4f1358" creation-date="11/06/2024 10:21:59" order-index="3" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="551" y1="775" x2="894" y2="732" start-border-pos="0.375" end-border-pos="0.875" end-local-pos="26.5" name-position="0,20">
+              <points>
+                <point x="551" y="775" />
+                <point x="894" y="732" />
+              </points>
+            </layout>
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" from-iid="b13bad911fa444a6897569f7aad9abc0" to="a6e7026270cc445499f422441423965d" to-iid="0c20cbcbe99b485d8c0e7284a9e4ae7d" />
+          </item>
+          <item id="49ca65ebfdac40f78c2027e720571f18" iid="0e36593532504b6c8c3e486cad02c6b2" creation-date="11/06/2024 10:22:22" order-index="4" type="entity">
+            <layout name-position="0,10" name-anchor="bottom" auto-anchor="true" label-attached="false" ax="1338" ay="725" awidth="50" aheight="100" x="1338" y="725" width="50" height="120" />
+            <actor />
+          </item>
+          <item id="b75d2ed287a6417384af60341509ed42" iid="03d9d93e59e545d8b42b086e5c351865" creation-date="11/06/2024 10:23:01" order-index="5" type="entity">
+            <layout ax="1293" ay="574.5" awidth="140" aheight="28" x="1293" y="574.5" width="140" height="28" />
+          </item>
+          <item id="2537728f242b4e7ca21132e7235f93df" iid="eeaef07d2d014a8e9ac0a9b9520ec39d" creation-date="11/06/2024 10:23:01" order-index="6" type="comment-connector">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="1363" y1="602" x2="1363" y2="725" start-border-pos="0.625" end-border-pos="0.125" name-position="0,20">
+              <points>
+                <point x="1363" y="602" />
+                <point x="1363" y="725" />
+              </points>
+            </layout>
+            <relation from="b75d2ed287a6417384af60341509ed42" from-iid="03d9d93e59e545d8b42b086e5c351865" to="49ca65ebfdac40f78c2027e720571f18" to-iid="0e36593532504b6c8c3e486cad02c6b2" />
+          </item>
+          <item id="e15c6fabbad0442cb2e10534dd0e31f3" iid="52bc440586604291be7a823c67232981" creation-date="11/06/2024 10:24:48" order-index="7" type="entity">
+            <layout ax="501" ay="574.5" awidth="50" aheight="28" x="501" y="574.5" width="50" height="28" />
+          </item>
+          <item id="b13695199f5744bc8da1f5b82ba1d6ab" iid="f09208df20b341ff99e6fc6f196e506e" creation-date="11/06/2024 10:24:48" order-index="8" type="comment-connector">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="526" y1="602" x2="526" y2="725" start-border-pos="0.625" end-border-pos="0.125" name-position="0,20">
+              <points>
+                <point x="526" y="602" />
+                <point x="526" y="725" />
+              </points>
+            </layout>
+            <relation from="e15c6fabbad0442cb2e10534dd0e31f3" from-iid="52bc440586604291be7a823c67232981" to="202ae41aa66f4667bbc45cbe866f6409" to-iid="b13bad911fa444a6897569f7aad9abc0" />
+          </item>
+          <item id="867c4e46ec104eff9d15d6ba796fde74" iid="73a253fa8acc4f999e52d38c2d469ea7" creation-date="11/09/2024 12:09:53" order-index="12" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="551" y1="775" x2="1119" y2="758" start-border-pos="0.375" end-border-pos="0.625" start-local-pos="50" end-local-pos="52" name-position="0,20" name-width="146">
+              <points>
+                <point x="551" y="775" />
+                <point x="717" y="825" />
+                <point x="744" y="825" />
+                <point x="1119" y="825" />
+                <point x="1119" y="758" />
+              </points>
+            </layout>
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" from-iid="b13bad911fa444a6897569f7aad9abc0" to="57a89776f1d941bb9b40ad363488f174" to-iid="b51fd59999b540fb9bdef7ac0b231263" />
+          </item>
+          <item id="ee39e2550b24443da2c52eb552885c85" iid="85b2cfb19c194280a3c75dd0795e5415" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:11:01" order-index="14" type="entity">
+            <layout ax="916" ay="896" awidth="128" aheight="53" x="916" y="896" width="128" height="53" />
+          </item>
+          <item id="fae6bde19ca547c2909eb9b51912a62f" iid="16fe7f7b72d04af8ae39837ddb2aed63" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:10:44" order-index="13" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="992" y1="526" x2="1119" y2="705" start-border-pos="0.6259765625" end-border-pos="0.125" start-local-pos="63.5" end-local-pos="52" name-position="0,20">
+              <points>
+                <point x="992" y="526" />
+                <point x="1119" y="705" />
+              </points>
+            </layout>
+            <relation from="11a21ca665df4b868608af08ede55e12" from-iid="d6a1ec81b2dd4e4aa0e49e6d2c0e1052" to="57a89776f1d941bb9b40ad363488f174" to-iid="b51fd59999b540fb9bdef7ac0b231263" />
+          </item>
+          <item id="e56c8eb1d367414baeb3d8f83e536a5c" iid="3edafc43dd894322bfc4c1a22f9cd534" creation-date="11/09/2024 12:11:27" order-index="15" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="551" y1="775" x2="916" y2="922" start-border-pos="0.375" end-border-pos="0.8773584905660378" start-local-pos="50" end-local-pos="26" name-position="0,20">
+              <points>
+                <point x="551" y="775" />
+                <point x="916" y="922" />
+              </points>
+            </layout>
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" from-iid="b13bad911fa444a6897569f7aad9abc0" to="ee39e2550b24443da2c52eb552885c85" to-iid="85b2cfb19c194280a3c75dd0795e5415" />
+          </item>
+          <item id="0ba1e77d2e004145ba30d92778dda221" iid="9a5873511bbc415cadaa3a2313bb0209" creation-date="11/09/2024 12:11:33" order-index="16" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="1338" y1="775" x2="1044" y2="922" start-border-pos="0.875" end-border-pos="0.37264150943396224" start-local-pos="50" end-local-pos="26" name-position="0,20">
+              <points>
+                <point x="1338" y="775" />
+                <point x="1044" y="922" />
+              </points>
+            </layout>
+            <relation from="49ca65ebfdac40f78c2027e720571f18" from-iid="0e36593532504b6c8c3e486cad02c6b2" to="ee39e2550b24443da2c52eb552885c85" to-iid="85b2cfb19c194280a3c75dd0795e5415" />
+          </item>
+          <item id="ac2d1a39dd6543d389bdb4c58efd7ce6" iid="f2eda01dedf04fc78063facc15eba7ff" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:11:01" order-index="0" type="entity">
+            <layout ax="916" ay="1033.5408" awidth="128" aheight="53" x="916" y="1033.5408" width="128" height="53" />
+          </item>
+          <item id="6a7296bcd0c041dba9ed438360a4c572" iid="24cd276c62864af2a14a1753c42c06f8" creation-date="11/09/2024 12:15:33" order-index="18" type="relation">
+            <layout start-role-position="25,15" end-role-position="25.690527,-16.351515" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="551" y1="775" x2="788" y2="677" start-border-pos="0.375" end-border-pos="0.751179245300591" start-local-pos="50" end-local-pos="52.75" name-position="0,20">
+              <points>
+                <point x="551" y="775" />
+                <point x="653" y="731.9592" />
+                <point x="788" y="677" />
+              </points>
+            </layout>
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" from-iid="b13bad911fa444a6897569f7aad9abc0" to="38f44bc8c6774bdfa7bb03989b8b8521" to-iid="8ce3271d04254a769adf6845a3055e7f" />
+          </item>
+          <item id="38f44bc8c6774bdfa7bb03989b8b8521" iid="8ce3271d04254a769adf6845a3055e7f" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:08:14" order-index="0" type="entity">
+            <layout ax="788" ay="624.25" awidth="140" aheight="53" x="788" y="624.25" width="140" height="53" />
+          </item>
+          <item id="973b7e5612194912aad41f4e9015ec1b" iid="617f2903239848c79e824062a2a14154" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:22:11" order-index="19" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="990" y1="526" x2="946" y2="705" start-border-pos="0.62890625" end-border-pos="0.125" start-local-pos="62" end-local-pos="52" name-position="0,20">
+              <points>
+                <point x="990" y="526" />
+                <point x="946" y="705" />
+              </points>
+            </layout>
+            <relation from="11a21ca665df4b868608af08ede55e12" from-iid="d6a1ec81b2dd4e4aa0e49e6d2c0e1052" to="a6e7026270cc445499f422441423965d" to-iid="0c20cbcbe99b485d8c0e7284a9e4ae7d" />
+          </item>
+          <item id="b7e4e8618f8b4abfacdf454751e76dfd" iid="69320b733a4448fd821aa89cd9e11770" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:15:22" order-index="17" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="27.381498,-14.568924" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="992" y1="526" x2="858" y2="624" start-border-pos="0.625" end-border-pos="0.125" start-local-pos="64" end-local-pos="70" name-position="0,20">
+              <points>
+                <point x="992" y="526" />
+                <point x="858" y="624" />
+              </points>
+            </layout>
+            <relation from="11a21ca665df4b868608af08ede55e12" from-iid="d6a1ec81b2dd4e4aa0e49e6d2c0e1052" to="38f44bc8c6774bdfa7bb03989b8b8521" to-iid="8ce3271d04254a769adf6845a3055e7f" />
+          </item>
+          <item id="f0911c6c62044743bc20d5fc29719691" iid="6f2929b2e4f541c59e3cfeac6f13711d" creation-date="11/09/2024 12:25:56" order-index="20" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="551" y1="775" x2="916" y2="1060" start-border-pos="0.375" end-border-pos="0.8773584905660378" start-local-pos="50" end-local-pos="26" name-position="0,20">
+              <points>
+                <point x="551" y="775" />
+                <point x="916" y="1060" />
+              </points>
+            </layout>
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" from-iid="b13bad911fa444a6897569f7aad9abc0" to="ac2d1a39dd6543d389bdb4c58efd7ce6" to-iid="f2eda01dedf04fc78063facc15eba7ff" />
+          </item>
+          <item id="f0e74a1d1ff946dd9835714b19cc45ff" iid="b6265f6be92f4e25b37cfcebf7ef7fb6" container="b2a87ae54f424d5ba30c0b495294b440" container-iid="6bc166f55d6147c384fefc0c0ae56807" creation-date="11/09/2024 12:26:06" order-index="21" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="980" y1="949" x2="980" y2="1034" start-border-pos="0.625" end-border-pos="0.125" start-local-pos="64" end-local-pos="64" name-position="0,20">
+              <points>
+                <point x="980" y="949" />
+                <point x="980" y="1034" />
+              </points>
+            </layout>
+            <relation from="ee39e2550b24443da2c52eb552885c85" from-iid="85b2cfb19c194280a3c75dd0795e5415" to="ac2d1a39dd6543d389bdb4c58efd7ce6" to-iid="f2eda01dedf04fc78063facc15eba7ff" />
+          </item>
+          <item id="275dea3127c04387ae11cd3c88efcb6a" iid="210df9b762a348cabc1ed2eef300277b" creation-date="11/09/2024 12:33:15" order-index="22" type="relation">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="551" y1="775" x2="928" y2="509" start-border-pos="0.375" end-border-pos="0.8781701290246212" start-local-pos="50" end-local-pos="16.081543" name-position="0,20">
+              <points>
+                <point x="551" y="775" />
+                <point x="823.5" y="575.91846" />
+                <point x="928" y="509" />
+              </points>
+            </layout>
+            <relation from="202ae41aa66f4667bbc45cbe866f6409" from-iid="b13bad911fa444a6897569f7aad9abc0" to="11a21ca665df4b868608af08ede55e12" to-iid="d6a1ec81b2dd4e4aa0e49e6d2c0e1052" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="flowchart" id="p4af28c086196441cbaa13a408880bc45_202676588" name="GreedPlayer_algorithm" order-index="5" overview-order-index="11" uid="" name-style="" show-fields="true" auto-routed-paths="false" default-line-style="default" view-location="-516,-123" zoom="0.6">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author />
+          </authors>
+          <description />
+          <creation-date>11/09/2024 14:06:58</creation-date>
+          <change-date>11/09/2024 14:41:20</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="5add58ac944d46d899b8778d9aa7e5b0" cid="FCDC003" type="flowchart-decision" name="Is best_moves empty?" creator="" creation-date="11/09/2024 14:38:38">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;9.75;B" shadow="true" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#FF5555,#FF5555" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di09849b2b59074b8cb8e226db17b109525227" veid="291f47c85a9742e38af1da1e73192f42" cid="CN057" type="comment-connector" creator="" creation-date="11/09/2024 14:08:37" from="26608050f2e44c8eb4248f55b63d2059" to="80060f5e0bc341aea3835f7d979c9c1f" />
+          <item id="73846141ee964284916e1574a2d124d8" cid="FCP002" type="flowchart-process" name="Initialization (Set move= first element from valid_ moves)" creator="" creation-date="11/09/2024 14:23:17">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;11.25;B" shadow="true" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#55AAFF,#55AAFF" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="30d8140f48054c37ac3c21de8a67eeb5" cid="CMT054" type="comment" creator="" creation-date="11/09/2024 14:07:18">
+            <style style-name="" shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;15.75;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#000000" font="Georgia;15.75;B" />
+              <text-style type="tagged-value" color="#1E1E1E" font="Georgia;15.75;B" />
+              <text-style type="stereotype" color="#1E1E1E" font="Georgia;15.75;B" />
+              <background type="forward-diagonal" colors="#FFD700,#FFFFE0" />
+              <border color="#FFA500" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+            </style>
+            <comment>Nine Mans Morris
+GreedyPlayer logic</comment>
+          </item>
+          <item id="b2e83b44bf984726a027cf67b1c16433" cid="FCF009" type="flowchart-flow" name="TRUE" creator="" creation-date="11/09/2024 14:32:13" from="42e27228659e4c28960af41b42cdac42" to="0022ae6dc5c54128959303d6a68b3ea9">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+              <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+              <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="ce45f3f0ec2341ebb173b5087cb8c3c2" cid="FCDT001" type="flowchart-data" name="Take boardstate, valid_ moves" creator="" creation-date="11/09/2024 14:10:24">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;9.75;B" shadow="true" />
+              <text-style type="part-header" color="#FFFFFF" font="Georgia;9;I" />
+              <text-style type="text" color="#FFFFFF" font="Georgia;9.75;BU" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#FFFFFF" font="Georgia;9.75;BU" />
+              <text-style type="stereotype" color="#FFFFFF" font="Georgia;9.75;BU" />
+              <background type="vertical-linear" colors="#00D5D5,#00D5D5" />
+              <border color="#000000" width="2" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#FFFFFF" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#FFFFFF" font="Georgia;9;I" />
+                  <text-style type="text" color="#FFFFFF" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#FFFFFF" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#FFFFFF" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#00D5D5,#00D5D5" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="ea8332f79a46459ba97b173bd75e763e" cid="FCF014" type="flowchart-flow" name="FALSE" creator="" creation-date="11/09/2024 14:39:57" from="5add58ac944d46d899b8778d9aa7e5b0" to="5ed18850bf134d0dbc9bb9268636ccbf">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+              <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+              <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="746e641958af48d4b41f1c0de76f3b39" cid="FCF003" type="flowchart-flow" creator="" creation-date="11/09/2024 14:14:13" from="ce45f3f0ec2341ebb173b5087cb8c3c2" to="80060f5e0bc341aea3835f7d979c9c1f" />
+          <item id="d4b79d4d5b9d4abfbdab0e7bc5675f93" cid="FCF016" type="flowchart-flow" creator="" creation-date="11/09/2024 14:41:16" from="f00304e12d244cecac979bad275965b2" to="b521827a0b8c4a74b0adcb025bd2f40b" />
+          <item id="b521827a0b8c4a74b0adcb025bd2f40b" cid="ELEM039" type="flowchart-start-end" name="END" creator="" creation-date="11/09/2024 14:41:11">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;11.25;B" shadow="true" />
+              <text-style type="part-header" color="#FFFFFF" font="Georgia;9;I" />
+              <text-style type="text" color="#FFFFFF" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#FFFFFF" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#FFFFFF" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#D50000,#D50000" />
+              <border color="#FF8080" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#FFFFFF" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#FFFFFF" font="Georgia;9;I" />
+                  <text-style type="text" color="#FFFFFF" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#FFFFFF" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#FFFFFF" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#FF5555,#FF5555" />
+                  <border color="#FF8080" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="ef700c021d3e4291939b3f4227f7490a" cid="FCF010" type="flowchart-flow" name="SET MOVE TO NEXT VALID_MOVE" creator="" creation-date="11/09/2024 14:36:46" from="9e5855e03aad43ecbb29d8165c2b2204" to="287e6425610c44f1ac7c67b0ec8d9913">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+              <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+              <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="d6f560f5b2574df79e2dee1561ea06aa" cid="FCF017" type="flowchart-flow" creator="" creation-date="11/09/2024 14:41:20" from="5ed18850bf134d0dbc9bb9268636ccbf" to="b521827a0b8c4a74b0adcb025bd2f40b" />
+          <item id="54d08596f60646f5a4f2a39741ad70ab" cid="FCF002" type="flowchart-flow" creator="" creation-date="11/09/2024 14:13:27" from="26608050f2e44c8eb4248f55b63d2059" to="ce45f3f0ec2341ebb173b5087cb8c3c2" />
+          <item id="24aa678e09f1409f9f33eb8490726327" cid="FCF011" type="flowchart-flow" name="TRUE" creator="" creation-date="11/09/2024 14:38:12" from="287e6425610c44f1ac7c67b0ec8d9913" to="5add58ac944d46d899b8778d9aa7e5b0">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+              <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+              <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="80589f7a9f6042c58491da73eb480d42" cid="FCF006" type="flowchart-flow" creator="" creation-date="11/09/2024 14:27:06" from="73846141ee964284916e1574a2d124d8" to="287e6425610c44f1ac7c67b0ec8d9913" />
+          <item id="eae7152e2e6a4788bc2727fad2e303e0" cid="FCF015" type="flowchart-flow" name="TRUE" creator="" creation-date="11/09/2024 14:40:26" from="5add58ac944d46d899b8778d9aa7e5b0" to="f00304e12d244cecac979bad275965b2">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+              <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+              <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="287e6425610c44f1ac7c67b0ec8d9913" cid="FCDC001" type="flowchart-decision" name="Reached end of valid_moves?" creator="" creation-date="11/09/2024 14:26:34">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;9.75;B" shadow="true" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#FF952B,#FF952B" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="1eaeb116215e4765aebea45526fa9975" cid="FCF005" type="flowchart-flow" creator="" creation-date="11/09/2024 14:25:01" from="80060f5e0bc341aea3835f7d979c9c1f" to="73846141ee964284916e1574a2d124d8" />
+          <item id="5ed18850bf134d0dbc9bb9268636ccbf" cid="FCP009" type="flowchart-process" name="Return random element from best_moves." creator="" creation-date="11/09/2024 14:39:13">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;12;B" shadow="true" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#8080FF,#8080FF" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="0022ae6dc5c54128959303d6a68b3ea9" cid="FCP008" type="flowchart-process" name="Add move to best_moves" creator="" creation-date="11/09/2024 14:32:13">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;9.75;B" shadow="true" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#8080FF,#8080FF" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="26608050f2e44c8eb4248f55b63d2059" cid="ELEM033" type="flowchart-start-end" name="START" creator="" creation-date="11/09/2024 14:07:01">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;11.25;B" />
+              <text-style type="part-header" color="#FFFFFF" font="Georgia;9;I" />
+              <text-style type="text" color="#FFFFFF" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#FFFFFF" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#FFFFFF" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#2B2BFF,#2B2BFF" />
+              <border color="#FFFFFF" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#FFFFFF" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#FFFFFF" font="Georgia;9;I" />
+                  <text-style type="text" color="#FFFFFF" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#FFFFFF" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#FFFFFF" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#2B2BFF,#2B2BFF" />
+                  <border color="#FFFFFF" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="f5a9c49b845b4f0792fe6d95cea01702" cid="FCF008" type="flowchart-flow" name="FALSE" creator="" creation-date="11/09/2024 14:30:34" from="287e6425610c44f1ac7c67b0ec8d9913" to="42e27228659e4c28960af41b42cdac42">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#000000" font="Georgia;14.25;B" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;14.25;B" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;14.25;B" />
+              <text-style type="stereotype" color="#555555" font="Georgia;14.25;B" />
+              <background type="vertical-linear" colors="#FFFFFF,#E9E9E9" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="80060f5e0bc341aea3835f7d979c9c1f" cid="FCP001" type="flowchart-process" name="Initialize datastorage for best_moves" creator="" creation-date="11/09/2024 14:08:05">
+            <style style-name="Default" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF">
+              <text-style type="name" color="#FFFFFF" font="Georgia;11.25;B" shadow="true" />
+              <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+              <text-style type="text" color="#2A2A2A" font="Georgia;9.75;" horizontal-alignment="left" />
+              <text-style type="tagged-value" color="#555555" font="Georgia;9.75;" />
+              <text-style type="stereotype" color="#555555" font="Georgia;9.75;I" />
+              <background type="vertical-linear" colors="#55AAFF,#55AAFF" />
+              <border color="#000000" dash-style="solid" />
+              <label-connector color="#80000000" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#80000000" gloss-effect="left-rounded" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF">
+                  <text-style type="name" color="#000000" font="Georgia;10;B" />
+                  <text-style type="part-header" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="text" color="#000000" font="Georgia;9;" horizontal-alignment="left" />
+                  <text-style type="tagged-value" color="#1E1E1E" font="Georgia;9;I" />
+                  <text-style type="stereotype" color="#1E1E1E" font="Georgia;9;I" />
+                  <background type="vertical-linear" colors="#1E90FF,#87CEFA" />
+                  <border color="#00008B" dash-style="solid" />
+                  <label-connector color="#80000000" dash-style="Dash" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+        </abstract-items>
+        <layer id="339afe15b6f24d3d915eae97e5b5d6bc" name="Default" visible="true" enabled="true" locked="false">
+          <item id="26608050f2e44c8eb4248f55b63d2059" iid="bb6fc8c2674a47df99106ecd318b7a83" creation-date="11/09/2024 14:07:01" order-index="0" presentation-style="stereotype-icon" type="entity">
+            <layout ax="218.5" ay="-84" awidth="150" aheight="60" x="218.5" y="-84" width="150" height="60" />
+          </item>
+          <item id="30d8140f48054c37ac3c21de8a67eeb5" iid="29c5f33b26344573867bd40b648c1022" creation-date="11/09/2024 14:07:18" order-index="1" type="entity">
+            <layout ax="427.5" ay="-80.5" awidth="224" aheight="53" x="427.5" y="-80.5" width="145" height="40" />
+          </item>
+          <item id="80060f5e0bc341aea3835f7d979c9c1f" iid="ac024902a2dc4390b7042364e0433fbb" creation-date="11/09/2024 14:08:05" order-index="2" type="entity">
+            <layout ax="195" ay="243" awidth="198" aheight="79" x="195" y="243" width="198" height="79" />
+          </item>
+          <item id="ce45f3f0ec2341ebb173b5087cb8c3c2" iid="c92cb35cc6814441a09c938cf0f1d1de" creation-date="11/09/2024 14:10:24" order-index="5" type="entity">
+            <layout ax="150.5" ay="60" awidth="287" aheight="96" x="150.5" y="60" width="287" height="96" />
+          </item>
+          <item id="54d08596f60646f5a4f2a39741ad70ab" iid="631c12c2980446e0a18348c93372b142" creation-date="11/09/2024 14:13:27" order-index="6" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="294" y1="-24" x2="294" y2="60" start-border-pos="0.625" end-border-pos="0.125" start-local-pos="75" end-local-pos="88.5" name-position="0,20">
+              <points>
+                <point x="294" y="-24" />
+                <point x="294" y="60" />
+              </points>
+            </layout>
+            <relation from="26608050f2e44c8eb4248f55b63d2059" from-iid="bb6fc8c2674a47df99106ecd318b7a83" to="ce45f3f0ec2341ebb173b5087cb8c3c2" to-iid="c92cb35cc6814441a09c938cf0f1d1de" />
+          </item>
+          <item id="746e641958af48d4b41f1c0de76f3b39" iid="20ea9d16d0b14004b8f6c4623dbcae63" creation-date="11/09/2024 14:14:13" order-index="7" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="294" y1="156" x2="293" y2="243" start-border-pos="0.625" end-border-pos="0.12416666666666666" start-local-pos="88.5" end-local-pos="74.5" name-position="0,20">
+              <points>
+                <point x="294" y="156" />
+                <point x="293" y="243" />
+              </points>
+            </layout>
+            <relation from="ce45f3f0ec2341ebb173b5087cb8c3c2" from-iid="c92cb35cc6814441a09c938cf0f1d1de" to="80060f5e0bc341aea3835f7d979c9c1f" to-iid="ac024902a2dc4390b7042364e0433fbb" />
+          </item>
+          <item id="73846141ee964284916e1574a2d124d8" iid="c4a7418fb2954dbf8518a50480573c15" creation-date="11/09/2024 14:23:17" order-index="8" type="entity">
+            <layout ax="558.5" ay="252.5" awidth="358" aheight="60" x="558.5" y="252.5" width="150" height="60" />
+          </item>
+          <item id="1eaeb116215e4765aebea45526fa9975" iid="cd2e35093435428f97b61bce662350ee" creation-date="11/09/2024 14:25:01" order-index="9" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="393" y1="282" x2="558" y2="282" start-border-pos="0.375" end-border-pos="0.875" start-local-pos="30" end-local-pos="30" name-position="0,20">
+              <points>
+                <point x="393" y="282" />
+                <point x="558" y="282" />
+              </points>
+            </layout>
+            <relation from="80060f5e0bc341aea3835f7d979c9c1f" from-iid="ac024902a2dc4390b7042364e0433fbb" to="73846141ee964284916e1574a2d124d8" to-iid="c4a7418fb2954dbf8518a50480573c15" />
+          </item>
+          <item id="287e6425610c44f1ac7c67b0ec8d9913" iid="e2f50c25dc3841b3b9ea5b1c7bda3a6a" creation-date="11/09/2024 14:26:34" order-index="10" type="entity">
+            <layout ax="611.5" ay="421.5" awidth="252" aheight="183" x="611.5" y="421.5" width="252" height="183" />
+          </item>
+          <item id="80589f7a9f6042c58491da73eb480d42" iid="67cc04af811e4299a8ab36ce2ad4c596" creation-date="11/09/2024 14:27:06" order-index="11" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="738" y1="312" x2="738" y2="421" start-border-pos="0.625" end-border-pos="0.125" start-local-pos="179" end-local-pos="132.5" name-position="0,20">
+              <points>
+                <point x="738" y="312" />
+                <point x="738" y="421" />
+              </points>
+            </layout>
+            <relation from="73846141ee964284916e1574a2d124d8" from-iid="c4a7418fb2954dbf8518a50480573c15" to="287e6425610c44f1ac7c67b0ec8d9913" to-iid="e2f50c25dc3841b3b9ea5b1c7bda3a6a" />
+          </item>
+          <item id="f5a9c49b845b4f0792fe6d95cea01702" iid="d4ecb34150a94a97a37747f187b13005" creation-date="11/09/2024 14:30:34" order-index="12" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="738" y1="604" x2="738" y2="657" start-border-pos="0.6244517543859649" end-border-pos="0.1256127506494522" start-local-pos="114.5" end-local-pos="102.5" name-position="47,0" name-width="180">
+              <points>
+                <point x="738" y="604" />
+                <point x="738" y="657" />
+              </points>
+            </layout>
+            <relation from="287e6425610c44f1ac7c67b0ec8d9913" from-iid="e2f50c25dc3841b3b9ea5b1c7bda3a6a" to="42e27228659e4c28960af41b42cdac42" to-iid="62fab0ec2a3e48088c3686b816c4c00f" />
+          </item>
+          <item id="42e27228659e4c28960af41b42cdac42" iid="62fab0ec2a3e48088c3686b816c4c00f" creation-date="11/09/2024 14:26:34" order-index="0" type="entity">
+            <layout ax="623.5" ay="657" awidth="228" aheight="145" x="623.5" y="657" width="228" height="145" />
+          </item>
+          <item id="0022ae6dc5c54128959303d6a68b3ea9" iid="1382e5e543494affbc37591108ec03d2" creation-date="11/09/2024 14:32:13" order-index="13" type="entity">
+            <layout ax="137.5" ay="702" awidth="274" aheight="60" x="137.5" y="702" width="274" height="60" />
+          </item>
+          <item id="b2e83b44bf984726a027cf67b1c16433" iid="9d7bfa611f8140e29800a19f94d593dc" creation-date="11/09/2024 14:32:13" order-index="14" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="624" y1="730" x2="412" y2="731" start-border-pos="0.375" end-border-pos="0.3717381795247396" start-local-pos="203.5" name-position="0,20">
+              <points>
+                <point x="624" y="730" />
+                <point x="412" y="731" />
+              </points>
+            </layout>
+            <relation from="42e27228659e4c28960af41b42cdac42" from-iid="62fab0ec2a3e48088c3686b816c4c00f" to="0022ae6dc5c54128959303d6a68b3ea9" to-iid="1382e5e543494affbc37591108ec03d2" />
+          </item>
+          <item id="b817ea67b9e64d9bac08398b7780c6f0" iid="dc7be21d8c4e425591adec5b4ca246cc" creation-date="11/09/2024 14:30:34" order-index="0" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="738" y1="801" x2="738" y2="884" start-border-pos="0.6243872568011284" end-border-pos="0.1256127506494522" start-local-pos="102.5" end-local-pos="102.5" name-position="47,0" name-width="180">
+              <points>
+                <point x="738" y="801" />
+                <point x="738" y="884" />
+              </points>
+            </layout>
+            <relation from="42e27228659e4c28960af41b42cdac42" from-iid="62fab0ec2a3e48088c3686b816c4c00f" to="9e5855e03aad43ecbb29d8165c2b2204" to-iid="ba7d3a4535264d4e8e8f368f6415ccda" />
+          </item>
+          <item id="9e5855e03aad43ecbb29d8165c2b2204" iid="ba7d3a4535264d4e8e8f368f6415ccda" creation-date="11/09/2024 14:26:34" order-index="1" type="entity">
+            <layout ax="615.5" ay="883.6316" awidth="244" aheight="183" x="615.5" y="883.6316" width="244" height="183" />
+          </item>
+          <item id="2f042d90e02240eaadbd329d40757d27" iid="63bf1aac9dae412392519abded71c71a" creation-date="11/09/2024 14:32:13" order-index="0" type="entity">
+            <layout ax="137.5" ay="945.1316" awidth="274" aheight="60" x="137.5" y="945.1316" width="274" height="60" />
+          </item>
+          <item id="11237c780bb74e1694cbbffd8379f93b" iid="3e610111b818467ca5270b4ecc60ec96" creation-date="11/09/2024 14:32:13" order-index="1" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="615" y1="975" x2="412" y2="975" start-border-pos="0.3753162159035854" end-border-pos="0.37445170084635415" start-local-pos="73" name-position="0,20">
+              <points>
+                <point x="615" y="975" />
+                <point x="412" y="975" />
+              </points>
+            </layout>
+            <relation from="9e5855e03aad43ecbb29d8165c2b2204" from-iid="ba7d3a4535264d4e8e8f368f6415ccda" to="2f042d90e02240eaadbd329d40757d27" to-iid="63bf1aac9dae412392519abded71c71a" />
+          </item>
+          <item id="ef700c021d3e4291939b3f4227f7490a" iid="72b75d8cd67744cb8e3139fd9c0cd3cf" creation-date="11/09/2024 14:36:46" order-index="15" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="859" y1="975" x2="862" y2="512" start-border-pos="0.3748202297856899" end-border-pos="0.3731343283582089" start-local-pos="91.36841" end-local-pos="66" name-position="188,-10">
+              <points>
+                <point x="859" y="975" />
+                <point x="1062" y="975" />
+                <point x="1058" y="507" />
+                <point x="862" y="512" />
+              </points>
+            </layout>
+            <relation from="9e5855e03aad43ecbb29d8165c2b2204" from-iid="ba7d3a4535264d4e8e8f368f6415ccda" to="287e6425610c44f1ac7c67b0ec8d9913" to-iid="e2f50c25dc3841b3b9ea5b1c7bda3a6a" />
+          </item>
+          <item id="24aa678e09f1409f9f33eb8490726327" iid="8e663248641f41d2beae8f69ca191aa8" creation-date="11/09/2024 14:38:12" order-index="16" type="relation">
+            <layout line-style="oblique" end-auto-side="false" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="611" y1="513" x2="99" y2="513" start-border-pos="0.875" end-border-pos="0.375" start-local-pos="67" end-local-pos="61" name-position="0,20">
+              <points>
+                <point x="611" y="513" />
+                <point x="99" y="513" />
+              </points>
+            </layout>
+            <relation from="287e6425610c44f1ac7c67b0ec8d9913" from-iid="e2f50c25dc3841b3b9ea5b1c7bda3a6a" to="5add58ac944d46d899b8778d9aa7e5b0" to-iid="b2c542f87800463abab93d024a4c59a8" />
+          </item>
+          <item id="5add58ac944d46d899b8778d9aa7e5b0" iid="b2c542f87800463abab93d024a4c59a8" creation-date="11/09/2024 14:38:38" order-index="17" type="entity">
+            <layout ax="-153" ay="433.25" awidth="252" aheight="159.5" x="-153" y="433.25" width="252" height="159.5" />
+          </item>
+          <item id="5ed18850bf134d0dbc9bb9268636ccbf" iid="04d8e85902e545b9b4350a3b909ad6f5" creation-date="11/09/2024 14:39:13" order-index="18" type="entity">
+            <layout ax="-590" ay="473.5" awidth="274" aheight="79" x="-590" y="473.5" width="274" height="79" />
+          </item>
+          <item id="ea8332f79a46459ba97b173bd75e763e" iid="a5645fa12a734cbfb8d595ff8ad9cada" creation-date="11/09/2024 14:39:57" order-index="19" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="-153" y1="513" x2="-316" y2="513" start-border-pos="0.875" end-border-pos="0.375" start-local-pos="61" end-local-pos="39.5" name-position="0,20">
+              <points>
+                <point x="-153" y="513" />
+                <point x="-316" y="513" />
+              </points>
+            </layout>
+            <relation from="5add58ac944d46d899b8778d9aa7e5b0" from-iid="b2c542f87800463abab93d024a4c59a8" to="5ed18850bf134d0dbc9bb9268636ccbf" to-iid="04d8e85902e545b9b4350a3b909ad6f5" />
+          </item>
+          <item id="eae7152e2e6a4788bc2727fad2e303e0" iid="63208d1170aa46f380ee08323a3e6ebf" creation-date="11/09/2024 14:40:26" order-index="21" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="-27" y1="592" x2="-27" y2="746" start-border-pos="0.625" end-border-pos="0.125" start-local-pos="107" end-local-pos="126" name-position="53,-5" name-width="160">
+              <points>
+                <point x="-27" y="592" />
+                <point x="-27" y="746" />
+              </points>
+            </layout>
+            <relation from="5add58ac944d46d899b8778d9aa7e5b0" from-iid="b2c542f87800463abab93d024a4c59a8" to="f00304e12d244cecac979bad275965b2" to-iid="da35909a6e8145588ce3cc1bb28f1b5f" />
+          </item>
+          <item id="f00304e12d244cecac979bad275965b2" iid="da35909a6e8145588ce3cc1bb28f1b5f" creation-date="11/09/2024 14:39:13" order-index="0" type="entity">
+            <layout ax="-153" ay="746.5" awidth="252" aheight="79" x="-153" y="746.5" width="252" height="79" />
+          </item>
+          <item id="b521827a0b8c4a74b0adcb025bd2f40b" iid="c6f37a2beea44562b77a4218c4d9e246" creation-date="11/09/2024 14:41:11" order-index="22" type="entity">
+            <layout ax="-528" ay="756" awidth="150" aheight="60" x="-528" y="756" width="150" height="60" />
+          </item>
+          <item id="d4b79d4d5b9d4abfbdab0e7bc5675f93" iid="586e588acd2141099e5a907f2e3ebf7d" creation-date="11/09/2024 14:41:16" order-index="23" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="-153" y1="786" x2="-378" y2="786" start-border-pos="0.8765822784810127" end-border-pos="0.3729166666666667" start-local-pos="39" end-local-pos="29.5" name-position="0,20">
+              <points>
+                <point x="-153" y="786" />
+                <point x="-378" y="786" />
+              </points>
+            </layout>
+            <relation from="f00304e12d244cecac979bad275965b2" from-iid="da35909a6e8145588ce3cc1bb28f1b5f" to="b521827a0b8c4a74b0adcb025bd2f40b" to-iid="c6f37a2beea44562b77a4218c4d9e246" />
+          </item>
+          <item id="d6f560f5b2574df79e2dee1561ea06aa" iid="518f2b390583441091b9801f83916856" creation-date="11/09/2024 14:41:20" order-index="24" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="-453" y1="552" x2="-453" y2="756" start-border-pos="0.625" end-border-pos="0.125" start-local-pos="102" end-local-pos="75" name-position="0,20">
+              <points>
+                <point x="-453" y="552" />
+                <point x="-453" y="756" />
+              </points>
+            </layout>
+            <relation from="5ed18850bf134d0dbc9bb9268636ccbf" from-iid="04d8e85902e545b9b4350a3b909ad6f5" to="b521827a0b8c4a74b0adcb025bd2f40b" to-iid="c6f37a2beea44562b77a4218c4d9e246" />
           </item>
         </layer>
       </diagram>
