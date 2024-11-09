@@ -41,8 +41,7 @@ class Game:
         self.p2_flag = p2_flag
         self.GUIRemovePhase = None
         self.event_list = [""]
-        if debug:
-            self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
+        self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
         #if not debug:
         #    self.game_GUI = window.GUI(self)
 
@@ -184,6 +183,8 @@ class Game:
                     if self.debug:
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
+                    if self.log:
+                        self.log_game(f"Mill formed by {self.current_player().color}!\n")
                     if self.debug and self.current_player().name == "HumanPlayer":
                         self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
                     elif self.current_player().name != "HumanPlayer":
@@ -259,6 +260,8 @@ class Game:
             piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
             if self.debug:
                 print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
+            if self.log:
+                self.log_game(f"{current_player.color} removes opponent's piece at position {piece_to_remove}\n")
             self.board[piece_to_remove] = str(piece_to_remove) # A valasztott korongot levesszuk a tablarol
             self.event_list.append(f"White removes piece {piece_to_remove}" if self.turn_player1 else f"Black removes piece {piece_to_remove}")
 
@@ -358,6 +361,8 @@ class Game:
                     self.register_move(move)  # A visszaadott lépést regisztráljuk
                     if self.debug:
                         print(f"Player{player_number} moves:", move)  # Debug log
+                    if self.log:
+                        self.log_game(f"Player{player_number} moves: {move}\n")
 
                 else:  # Egyébként mozgatási fázisban vagyunk
                     move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
@@ -405,9 +410,7 @@ class Game:
                             self.footer_text = "Helytelen lépés!"
                             self.kijelolt_babu = None
 
-
-            if self.debug:
-                print(f"Player{player_number} moves: {lepes}")  # Debug log
+            if self.debug: # Debug log
                 self.print_board_debug()
 
 
@@ -468,7 +471,7 @@ class Game:
 
     def enforce_tie(self: "Game") -> None: # Dontetlen kikenyszeritese
         if self.log: # Ha a logolas be van kapcsolva
-            self.log_game("Reached maximum allowed rounds!\nGame ended in a tie")  # Debug log
+            self.log_game("\nReached maximum allowed rounds!\nGame ended in a tie")  # Debug log
             self.validate_log_file()
         sys.exit("Reached maximum allowed rounds!\nGame ended with a tie") # Dontetlen kikenyszeritese ha elerjuk a lepeshatart
 
