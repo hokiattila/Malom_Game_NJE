@@ -461,5 +461,10 @@ class Game:
                 f.write(logtext)
         return
 
+    def enforce_tie(self: "Game") -> None: # Dontetlen kikenyszeritese
+        if self.log: # Ha a logolas be van kapcsolva
+            self.log_game("Reached maximum allowed rounds!\n Game ended in a tie")  # Debug log
+        sys.exit("Reached maximum allowed rounds!\nGame ended with a tie") # Dontetlen kikenyszeritese ha elerjuk a lepeshatart
+
 if __name__ == '__main__':
     print("This script cannot be run directly.")

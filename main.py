@@ -90,8 +90,10 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
 
 
 
-    #print_brd()
+    round_count: int = 0
     while True: # Vegtelen ciklus
+        if round_count > 100:
+            new_game.enforce_tie()
         if new_game.game_over(): # Ha a jatek veget er
             if args.debug:
                 print_res() # Kiirjuk az eredmenyt
@@ -99,8 +101,10 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
         if args.debug:
             if new_game.turn_player1:
                 new_game.player_move(new_game.player1, 1)  # Egyebkent player 1 lep
+                round_count += 1
             else:
                 new_game.player_move(new_game.player2, 2)  # Egyebkent player 1 lep
+                round_count += 1
         if not args.debug:
             lepes = listen_for_events(event_queue)
             if lepes == "closeApp":
