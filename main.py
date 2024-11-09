@@ -71,8 +71,6 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
         new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
         print_brd = new_game.print_board_debug  # Debug esetben
         print_res = new_game.print_result_debug # Debug esetben
-        new_game = Game(mode=args.mode, debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1,  p2_flag=p2)  # Letrehozunk egy uj Game peldanyt
-        new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
         print_brd()  # Megjelenitjuk a tablat
     else:
         event_queue = queue.Queue()
@@ -83,7 +81,6 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
         #new_game.game_GUI = window.GUI(new_game, event_queue)
         # Elindítjuk a GUI szálat
         threading.Thread(target=gui_thread, args=(event_queue,), daemon=True).start()
-
     if args.log:
         new_game.log_game() # Ha kaptunk log kapcsolot akkor letrehozzuk a log fajlt
 
