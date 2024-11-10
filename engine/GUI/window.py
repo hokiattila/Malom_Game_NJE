@@ -221,11 +221,9 @@ class GUI:
                                                   width=200, command=self.update_mode)
         mode_dropdown.pack(pady=(0, 20))
 
-        difficulty_label = customtkinter.CTkLabel(self.app, text="Nehézségi szint kiválasztása:")
-        difficulty_label.pack(pady=5)
-        difficulty_dropdown = customtkinter.CTkComboBox(self.app, values=["easy", "medium", "hard"],
+        self.difficulty_label = customtkinter.CTkLabel(self.app, text="Nehézségi szint kiválasztása:")
+        self.difficulty_dropdown = customtkinter.CTkComboBox(self.app, values=["easy", "medium", "hard"],
                                                         variable=self.difficulty, width=200)
-        difficulty_dropdown.pack(pady=(0, 20))
 
         # AI beállítások (csak akkor látszanak, ha a cvc van kiválasztva)
         self.flag1_label = customtkinter.CTkLabel(self.app, text="AI Típus 1 (cvc esetén):")
@@ -264,15 +262,26 @@ class GUI:
         self.delay_label.pack_forget()
         self.delay_dropdown.pack_forget()
 
+        self.difficulty_label.pack_forget()
+        self.difficulty_dropdown.pack_forget()
     def update_mode(self, selected_mode):
-        if selected_mode == "cvc":
+        if selected_mode == "pvp":
+            self.hide_ai_settings()
+            self.hide_pvp_settings()
+        elif selected_mode == "cvc":
             # Ha a cvc van kiválasztva, jelenítsük meg az AI beállításokat
             self.show_ai_settings()
         else:
             # Ha nem cvc, akkor rejtjük el az AI beállításokat
             self.hide_ai_settings()
 
+    def hide_pvp_settings(self):
+        self.difficulty_label.pack_forget()
+        self.difficulty_dropdown.pack_forget()
     def show_ai_settings(self):
+        self.difficulty_label.pack_forget()
+        self.difficulty_dropdown.pack_forget()
+
         self.start_button.pack_forget()
         self.back_button.pack_forget()
 
@@ -290,6 +299,15 @@ class GUI:
 
     def hide_ai_settings(self):
         # Az AI beállítások eltüntetése
+        self.start_button.pack_forget()
+        self.back_button.pack_forget()
+
+        self.difficulty_label.pack(pady=5)
+        self.difficulty_dropdown.pack(pady=(0, 20))
+        
+        self.back_button.pack(pady=(30, 10))
+        self.start_button.pack(pady=20)
+
         self.flag1_label.pack_forget()
         self.flag1_dropdown.pack_forget()
 
@@ -298,6 +316,8 @@ class GUI:
 
         self.delay_label.pack_forget()
         self.delay_dropdown.pack_forget()
+
+
 
     def start_game(self):
         self.game_over = False
