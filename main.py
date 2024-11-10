@@ -71,8 +71,6 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
         new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
         print_brd = new_game.print_board_debug  # Debug esetben
         print_res = new_game.print_result_debug # Debug esetben
-        new_game = Game(mode=args.mode, debug=args.debug, log=args.log, difficulty=difficulty, p1_flag=p1,  p2_flag=p2)  # Letrehozunk egy uj Game peldanyt
-        new_game.print_initials()  # Kiirjuk az alapadatokat konzolra (Debug mod)
         print_brd()  # Megjelenitjuk a tablat
     else:
         event_queue = queue.Queue()
@@ -83,15 +81,16 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
         #new_game.game_GUI = window.GUI(new_game, event_queue)
         # Elindítjuk a GUI szálat
         threading.Thread(target=gui_thread, args=(event_queue,), daemon=True).start()
-
     if args.log:
         new_game.log_game() # Ha kaptunk log kapcsolot akkor letrehozzuk a log fajlt
 
 
 
 
-    #print_brd()
+    round_count: int = 0
     while True: # Vegtelen ciklus
+        if round_count > 100:
+            new_game.enforce_tie()
         if new_game.game_over(): # Ha a jatek veget er
             if args.debug:
                 print_res() # Kiirjuk az eredmenyt
@@ -99,8 +98,10 @@ if __name__ == '__main__':  # Ha kozvetlenul futtajuk a fajlt
         if args.debug:
             if new_game.turn_player1:
                 new_game.player_move(new_game.player1, 1)  # Egyebkent player 1 lep
+                round_count += 1
             else:
                 new_game.player_move(new_game.player2, 2)  # Egyebkent player 1 lep
+                round_count += 1
         if not args.debug:
             lepes = listen_for_events(event_queue)
             if lepes == "closeApp":

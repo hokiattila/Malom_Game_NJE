@@ -1,2 +1,6 @@
 .idea
 engine/log
+engine/__pycache__
+player/__pycache__
+GUI/__pycache__
+__pycache__/

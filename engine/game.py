@@ -1,4 +1,5 @@
 import os.path
+import os
 import sys
 from datetime import datetime
 from ftplib import print_line
@@ -27,7 +28,7 @@ class Game:
         self.turn_player1 = True            # Soron kovetkezo jatekos (feher kezd)
         self.pieces_placed_player1 = 0      # Jatekos 1 lerakott korongjai szama
         self.pieces_placed_player2 = 0      # Jatekos 2 lerakott korongjainak szama
-        self.game_id = getrandbits(128)     # Egyedi jatekazonosito
+        self.game_id = getrandbits(32)     # Egyedi jatekazonosito
         self.mode = mode                    # Jatekmod (pl. cvc - computer vs. computer)
         self.debug = debug                  # Debug parameter
         self.log = log                      # Logolas be- illetve kikapcsolasa
@@ -40,8 +41,7 @@ class Game:
         self.p2_flag = p2_flag
         self.GUIRemovePhase = None
         self.event_list = [""]
-        if debug:
-            self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
+        self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
         #if not debug:
         #    self.game_GUI = window.GUI(self)
 
@@ -61,8 +61,8 @@ class Game:
     def gui_log_steps(self, log_text):
         self.event_list.append(log_text)
 
-    def start_game_gui(self, mode, difficulty):
-        self.player1, self.player2 = self.initiate_players(mode, difficulty, self.p1_flag, self.p2_flag)
+    def start_game_gui(self, mode, difficulty, p1_flag="greedy", p2_flag="greedy"):
+        self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
 
 
     def initiate_players(self, mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
@@ -114,7 +114,7 @@ class Game:
         if self.debug:
             print("Game id:", self.game_id)
             print("Game mode:", self.mode)
-            print(f"{self.player1.name} vs. {self.player2.name}\n")
+            print(f"{self.player1.name} vs. {self.player2.name}")
             print("Time:", self.time)
 
 
@@ -164,8 +164,6 @@ class Game:
         self.turn_player1 = not self.turn_player1
 
 
-
-
     # Egy lepest regisztral a tablan
     # Ha a celpozicio (target) adott, akkor a mozgatasi fazisban vagyunk, ha nincs megadva, akkor a lerakasi fazisban.
     # Ha a lepes ervenytelen, es a debug mod aktiv, akkor figyelmezteto uzenetet ad vissza.
@@ -185,7 +183,9 @@ class Game:
                     if self.debug:
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
-                    if (self.debug and self.current_player().name == "HumanPlayer"):
+                    if self.log:
+                        self.log_game(f"Mill formed by {self.current_player().color}!\n")
+                    if self.debug and self.current_player().name == "HumanPlayer":
                         self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
                     elif self.current_player().name != "HumanPlayer":
                         event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
@@ -213,7 +213,7 @@ class Game:
                     if self.debug:
                         self.print_board_debug()
                         print(f"Mill formed by {self.current_player().color}!") # Debug log
-                    if (self.debug and self.current_player().name == "HumanPlayer"):
+                    if self.debug and self.current_player().name == "HumanPlayer":
                         self.remove_opponent_piece()  # Meghivjuk a koronglevetelert felelos metodust
                     elif self.current_player().name != "HumanPlayer":
                         event_text = "White gets a Mill" if self.turn_player1 else "Black gets a Mill"
@@ -256,10 +256,12 @@ class Game:
         if not removable_pieces: # Ha az ellenfel osszes korongja malomban van,
             removable_pieces = opponent_pieces_on_board # akkor tetszoleges elveheto
 
-        if piece_to_remove_GUI == None:
+        if piece_to_remove_GUI is None:
             piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
             if self.debug:
                 print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
+            if self.log:
+                self.log_game(f"{current_player.color} removes opponent's piece at position {piece_to_remove}\n")
             self.board[piece_to_remove] = str(piece_to_remove) # A valasztott korongot levesszuk a tablarol
             self.event_list.append(f"White removes piece {piece_to_remove}" if self.turn_player1 else f"Black removes piece {piece_to_remove}")
 
@@ -359,6 +361,8 @@ class Game:
                     self.register_move(move)  # A visszaadott lépést regisztráljuk
                     if self.debug:
                         print(f"Player{player_number} moves:", move)  # Debug log
+                    if self.log:
+                        self.log_game(f"Player{player_number} moves: {move}\n")
 
                 else:  # Egyébként mozgatási fázisban vagyunk
                     move, target = player.make_move(self.board,self.generate_valid_moves())  # Tuple-t fogunk visszakapni
@@ -385,7 +389,7 @@ class Game:
                     else:
                         self.footer_text = "Helytelen lépés"
                 else:  # Egyébként mozgatási fázisban vagyunk
-                    if self.kijelolt_babu == None:
+                    if self.kijelolt_babu is None:
                         valid_moves = self.generate_valid_moves()
                         if any(piece == lepes for piece, _ in valid_moves):
                             self.kijelolt_babu = lepes #Nem mozgatunk, csak megjegyezzuk
@@ -406,9 +410,7 @@ class Game:
                             self.footer_text = "Helytelen lépés!"
                             self.kijelolt_babu = None
 
-
-            if self.debug:
-                print(f"Player{player_number} moves: {lepes}")  # Debug log
+            if self.debug: # Debug log
                 self.print_board_debug()
 
 
@@ -419,10 +421,16 @@ class Game:
     def print_result_debug(self: "Game") -> None:
         if self.board.count('W') < 3:   # Ha Player1-nek kevesebb mint 3 korongja maradt, Player2 nyert
             if self.debug:
-                print(f"Player 2 {self.player2} wins!") # Game log (Debug mod)
+                print(f"\nPlayer 2 {self.player2} wins!") # Game log (Debug mod)
+            if self.log:
+                self.log_game(f"\nPlayer 2 {self.player2} wins!")
+                self.validate_log_file()
         elif self.board.count('B') < 3: # Ha Player2-nek kevesebb mint 3 korongja maradt, Player1 nyert
             if self.debug:
                 print(f"Player 1 {self.player1} wins!") # Game log (Debug mod)
+            if self.log:
+                self.log_game(f"\nPlayer 1 {self.player1} wins!")
+                self.validate_log_file()
         else:   # Ha egyik jatekosnak sincs 3nal kevesebb (ide mar csak akkor juthatunk el ha nincs tobb valid lepes)
             if self.debug:
                 print("It's a draw.")   # Game log (Debug mod) - Dontetlen
@@ -449,7 +457,7 @@ class Game:
         log_dir = os.path.join(project_root, "log") # Beallitjuk az eleresi utvonalat
         if not os.path.exists(log_dir): # Ha nincs ilyen konyvtar,
             os.makedirs(log_dir)    # letrehozzuk
-        log_file_path = os.path.join(log_dir, f"{self.game_id}.txt") # Osszefuzzuk a (csak az eleresi utat) a gamid-val
+        log_file_path = os.path.join(log_dir, f"{self.mode}_{self.player1.name}_vs_{self.player2.name}_{self.game_id}.txt") # Osszefuzzuk a (csak az eleresi utat) a gamid-val
         if not os.path.exists(log_file_path):   # Ha log fajl nem letezik letrehozzuk,
             with open(log_file_path, mode="w") as f:    # es logoljuk az alapveto informaciokat
                 f.write(f"Game ID: {self.game_id}\n")   # game_id log
@@ -460,6 +468,25 @@ class Game:
             with open(log_file_path, mode="a") as f: #append a log fájl végére
                 f.write(logtext)
         return
+
+    def enforce_tie(self: "Game") -> None: # Dontetlen kikenyszeritese
+        if self.log: # Ha a logolas be van kapcsolva
+            self.log_game("\nReached maximum allowed rounds!\nGame ended in a tie")  # Debug log
+            self.validate_log_file()
+        sys.exit("Reached maximum allowed rounds!\nGame ended with a tie") # Dontetlen kikenyszeritese ha elerjuk a lepeshatart
+
+
+    def validate_log_file(self: "Game") -> None:
+        project_root = os.path.dirname(os.path.abspath(__file__))  # Projekt gyökérkönyvtár
+        log_dir = os.path.join(project_root, "log")  # Log könyvtár
+        log_file_path = os.path.join(log_dir, f"{self.mode}_{self.player1.name}_vs_{self.player2.name}_{self.game_id}.txt") # Az eredeti log fájl elérési útvonala
+        if os.path.exists(log_file_path): # Ellenőrizzük, hogy létezik-e a fájl
+            new_log_file_path = os.path.join(log_dir,f"validated_{self.mode}_{self.player1.name}_vs_{self.player2.name}_{self.game_id}.txt")  # Új fájlnév az átnevezéshez
+            os.rename(log_file_path, new_log_file_path)  # Átnevezzük a fájlt
+        else:
+            print("No log file to be validated.")
+        return
+
 
 if __name__ == '__main__':
     print("This script cannot be run directly.")
