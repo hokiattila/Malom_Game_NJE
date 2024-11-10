@@ -61,8 +61,8 @@ class Game:
     def gui_log_steps(self, log_text):
         self.event_list.append(log_text)
 
-    def start_game_gui(self, mode, difficulty):
-        self.player1, self.player2 = self.initiate_players(mode, difficulty, self.p1_flag, self.p2_flag)
+    def start_game_gui(self, mode, difficulty, p1_flag="greedy", p2_flag="greedy"):
+        self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
 
 
     def initiate_players(self, mode: str, difficulty: Union[None, str] = None, p1_flag: Union[str, None] = None, p2_flag: Union[str, None] = None) -> Union[Tuple[Player, Player], None]:
