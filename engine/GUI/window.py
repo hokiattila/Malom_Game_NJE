@@ -72,7 +72,10 @@ class GUI:
         # Kör alakú képek betöltése
         self.white_circle_img = ImageTk.PhotoImage(Image.open("img/white_circle.png").resize((60, 60)))
         self.black_circle_img = ImageTk.PhotoImage(Image.open("img/black_circle.png").resize((60, 60)))
+        self.white_circle_outlined_img = ImageTk.PhotoImage(Image.open("img/white_circle_outlined.png").resize((60, 60)))
+        self.black_circle_outlined_img = ImageTk.PhotoImage(Image.open("img/black_circle_outlined.png").resize((60, 60)))
         self.empty_circle_img = ImageTk.PhotoImage(Image.open("img/empty_circle.png").resize((60, 60)))
+        self.empty_circle_outlined_img = ImageTk.PhotoImage(Image.open("img/empty_circle_outlined.png").resize((60, 60)))
         self.transparent_bg_img = ImageTk.PhotoImage(Image.open("img/transparent_bg.png"))  # Betöltjük a háttérképet
         self.logo_img = CTkImage(light_image=Image.open("img/malom.png"), size=(200, 200))
 
@@ -304,7 +307,7 @@ class GUI:
 
         self.difficulty_label.pack(pady=5)
         self.difficulty_dropdown.pack(pady=(0, 20))
-        
+
         self.back_button.pack(pady=(30, 10))
         self.start_button.pack(pady=20)
 
@@ -441,7 +444,23 @@ class GUI:
     def update_button(self, index):
         piece_char = self.game_instance.board[index]
         image = self.white_circle_img if piece_char == 'W' else self.black_circle_img if piece_char == 'B' else self.empty_circle_img
+        if index == self.game_instance.kijelolt_babu == index:
+            if piece_char == 'W':
+                image = self.white_circle_outlined_img
+            elif piece_char == 'B':
+                image = self.black_circle_outlined_img
         self.buttons[index].config(image=image)
+        if self.game_instance.GUIRemovePhase:
+            if self.game_instance.GUIRemovePhase == True:
+                for i in self.game_instance.get_removable_pieces():
+                    if self.game_instance.board[i] == 'W':
+                        self.buttons[i].config(image=self.white_circle_outlined_img)
+                    if self.game_instance.board[i] == 'B':
+                        self.buttons[i].config(image=self.black_circle_outlined_img)
+        if self.game_instance.kijelolt_babu is not None:
+            for i in range(24):
+                if (self.game_instance.kijelolt_babu, i) in self.game_instance.generate_valid_moves():
+                    self.buttons[i].config(image=self.empty_circle_outlined_img)
 
     def update_step_list(self):
         for widget in self.step_list.winfo_children():

@@ -39,6 +39,7 @@ class Game:
         self.last_move = None
         self.p1_flag = p1_flag
         self.p2_flag = p2_flag
+        self.removable_pieces = None
         self.GUIRemovePhase = None
         self.event_list = [""]
         self.player1, self.player2 = self.initiate_players(mode, difficulty, p1_flag, p2_flag)
@@ -242,22 +243,28 @@ class Game:
         return False    # Pozicio nem resze malomnak
 
 
+    def get_removable_pieces(self):
+        current_player = self.current_player()  # Meghatarozzuk az aktualis jatekost
+        opponent_color = 'B' if current_player.color == 'W' else 'W'  # Meghatarozzuk az ellenfel szinet
 
+        opponent_pieces_on_board = [i for i, piece in enumerate(self.board) if
+                                    piece == opponent_color]  # Osszegyujtjuk az ellenfel osszes korongjat egy listaban
+        self.removable_pieces = [i for i in opponent_pieces_on_board if not self.part_of_mill(i,
+                                                                                              opponent_color)]  # Leszurjuk azokat a korongokat amik nincsenek malomban
+
+        if not self.removable_pieces:  # Ha az ellenfel osszes korongja malomban van,
+            self.removable_pieces = opponent_pieces_on_board  # akkor tetszoleges elveheto
+
+        return self.removable_pieces
     # Malom eseten a jatekos elvehet egy korongot az ellenfeltol, ezt a logikat valositja meg.
     # Eloszor azokat a korongokat keresi meg,amelyek nincsenek malomban, ha van ilyen.
     # Ha az osszes korong malomban van, akkor barmelyik korong elveheto.
     def remove_opponent_piece(self: "Game", piece_to_remove_GUI = None) -> None:
         current_player = self.current_player()  # Meghatarozzuk az aktualis jatekost
-        opponent_color = 'B' if current_player.color == 'W' else 'W' # Meghatarozzuk az ellenfel szinet
-
-        opponent_pieces_on_board = [i for i, piece in enumerate(self.board) if piece == opponent_color] # Osszegyujtjuk az ellenfel osszes korongjat egy listaban
-        removable_pieces = [i for i in opponent_pieces_on_board if not self.part_of_mill(i, opponent_color)] # Leszurjuk azokat a korongokat amik nincsenek malomban
-
-        if not removable_pieces: # Ha az ellenfel osszes korongja malomban van,
-            removable_pieces = opponent_pieces_on_board # akkor tetszoleges elveheto
+        opponent_color = 'B' if current_player.color == 'W' else 'W'  # Meghatarozzuk az ellenfel szinet
 
         if piece_to_remove_GUI is None:
-            piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,removable_pieces) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
+            piece_to_remove = current_player.choose_opponent_piece_to_remove(self.board,self.get_removable_pieces()) # A jatekos (AI vagy Human) donti el, melyik korongot veszi le
             if self.debug:
                 print(f"{current_player.color} removes opponent's piece at position {piece_to_remove}") # Game log (Debug mod)
             if self.log:
@@ -266,7 +273,7 @@ class Game:
             self.event_list.append(f"White removes piece {piece_to_remove}" if self.turn_player1 else f"Black removes piece {piece_to_remove}")
 
         else:
-            if piece_to_remove_GUI in removable_pieces:
+            if piece_to_remove_GUI in self.get_removable_pieces():
                 self.board[piece_to_remove_GUI] = str(piece_to_remove_GUI)
                 self.GUIRemovePhase = False
                 self.event_list.append(f"White removes piece {piece_to_remove_GUI}" if self.turn_player1 else f"Black removes piece {piece_to_remove_GUI}")
