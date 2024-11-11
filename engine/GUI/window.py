@@ -5,8 +5,10 @@ from PIL import Image, ImageTk  # Szükséges a képek kezeléséhez
 from customtkinter import CTkImage
 
 
+
 class GUI:
     def __init__(self, game_instance, event_queue):
+
 
         self.game_instance = game_instance
 
@@ -14,6 +16,11 @@ class GUI:
         self.selected_button = None
         self.app = customtkinter.CTk()
         self.app.geometry("1280x800")
+        self.screen_width = self.app.winfo_screenwidth()
+        self.screen_height = self.app.winfo_screenheight()
+        self.big_button_width = int(self.screen_width * 0.3)  # 30%-os szélesség
+        self.big_button_height = int(self.screen_height * 0.1)  # 10%-os magasság
+        self.app.bind("<Configure>", self.resize_button())  # Az ablak méretének változásakor újraméretezi a gombot
         self.app.title("Malom - Továbbfejlesztett Verzió")
         self.game_mode = customtkinter.StringVar(value="pvp")
         self.difficulty = customtkinter.StringVar(value="easy")
@@ -23,6 +30,8 @@ class GUI:
         # Beállítások
         self.theme_var = tk.StringVar(value="Alapértelmezett")
         self.appearance_mode = tk.StringVar(value="dark")
+
+
         # color paletta:
 
         self.primary_color = "#635985"
@@ -50,26 +59,32 @@ class GUI:
         self.show_main_menu()
         self.app.mainloop()
 
+    def resize_button(self):
+        # Gomb mérete az ablakhoz viszonyítva (szélesség és magasság százalékban)
+        self.big_button_width = int(self.screen_width * 0.2)  # 30%-os szélesség
+        self.big_button_height = int(self.screen_height * 0.07)  # 10%-os magasság
+
+
     def show_main_menu(self):
         for widget in self.app.winfo_children():
             widget.destroy()
 
-        title_label = customtkinter.CTkLabel(self.app, text="Malom - by FreeKredit", font=("Helvetica", 55, "bold"))
+        title_label = customtkinter.CTkLabel(self.app, text="Malom - by FreeKredit", font=("Helvetica", int(self.screen_width/30), "bold"))
         title_label.pack(pady=30)
         # Kép megjelenítése a főablakban
         logo_label = customtkinter.CTkLabel(self.app, image=self.logo_img,
                                             text="")  # text="" eltünteti a szöveget, ha nincs szükség rá
         logo_label.pack(pady=20)
 
-        start_button = customtkinter.CTkButton(self.app, text="Játék indítása", command=self.show_game_settings_menu, width=300,
-                                               height=60, corner_radius=20, fg_color=self.primary_color, hover_color=self.secondary_color)
+        start_button = customtkinter.CTkButton(self.app, text="Játék indítása", command=self.show_game_settings_menu, width=self.big_button_width,
+                                               height=self.big_button_height, corner_radius=20, fg_color=self.primary_color, hover_color=self.secondary_color)
         start_button.pack(pady=20)
 
-        settings_button = customtkinter.CTkButton(self.app, text="Beállítások", command=self.show_settings_menu, width=300, height=60,
+        settings_button = customtkinter.CTkButton(self.app, text="Beállítások", command=self.show_settings_menu, width=self.big_button_width, height=self.big_button_height,
                                                   corner_radius=20, fg_color=self.primary_color, hover_color=self.secondary_color)
         settings_button.pack(pady=20)
 
-        exit_button = customtkinter.CTkButton(self.app, text="Kilépés", command=lambda: self.sendEvent("exitApp"), width=300, height=60,
+        exit_button = customtkinter.CTkButton(self.app, text="Kilépés", command=lambda: self.sendEvent("exitApp"), width=self.big_button_width, height=self.big_button_height,
                                               corner_radius=20, fg_color=self.primary_color, hover_color=self.secondary_color)
         exit_button.pack(pady=20)
 
@@ -78,7 +93,8 @@ class GUI:
             widget.destroy()
 
         self.menu_fix_header()
-        settings_label = customtkinter.CTkLabel(self.app, text="Beállítások", font=("Helvetica", 24, "bold"))
+
+        settings_label = customtkinter.CTkLabel(self.app, text="Beállítások", font=("Helvetica", int(self.screen_width/55), "bold"))
         settings_label.pack(pady=30)
 
         # Dark/Light mód beállítása
@@ -118,7 +134,7 @@ class GUI:
     
     def menu_fix_header(self):
         ###
-        title_label = customtkinter.CTkLabel(self.app, text="Malom - by FreeKredit", font=("Helvetica", 55, "bold"))
+        title_label = customtkinter.CTkLabel(self.app, text="Malom - by FreeKredit", font=("Helvetica", int(self.screen_width/30), "bold"))
         title_label.pack(pady=30)
         # Kép megjelenítése a főablakban
         logo_label = customtkinter.CTkLabel(self.app, image=self.logo_img,
@@ -162,8 +178,8 @@ class GUI:
         for widget in self.app.winfo_children():
             widget.destroy()
 
-        self.menu_fix_header()
-        settings_label = customtkinter.CTkLabel(self.app, text="Új játék", font=("Helvetica", 24, "bold"))
+        #self.menu_fix_header()
+        settings_label = customtkinter.CTkLabel(self.app, text="Új játék", font=("Helvetica", int(self.screen_width/55), "bold"))
         settings_label.pack(pady=30)
 
         mode_label = customtkinter.CTkLabel(self.app, text="Játékmód kiválasztása:")
@@ -215,7 +231,7 @@ class GUI:
         self.footer.grid(row=1, column=0, padx=(20, 0), pady=10, sticky="ns")
         self.update_footer()
         # Játéktábla nagyobb méretben és középre igazítva
-        canvas_size = 1300  # Növeljük a vászon méretét
+        canvas_size = self.screen_width-300  # Növeljük a vászon méretét
         canvas = tk.Canvas(self.app, width=canvas_size, height=canvas_size, bg="#2B2B2B", highlightthickness=0)
         canvas.grid(row=0, column=1, padx=20, pady=20, rowspan=2, sticky="n")  # Középre helyezve a grid beállításaival
 
@@ -279,7 +295,7 @@ class GUI:
 
         label = tk.Label(self.footer,
                          text=self.game_instance.footer_text,
-                         font=("Helvetica", 30), bg="#2B2B2B", fg=self.PlayerNameColor1)
+                         font=("Helvetica", int(self.screen_width/45)), bg="#2B2B2B", fg=self.PlayerNameColor1)
         label.pack(pady=5, anchor='w')  # Balra igazítás
 
     def update_button(self, index):
@@ -296,7 +312,7 @@ class GUI:
 
         label = tk.Label(self.step_list,
                          text="Legutóbbi lépések",
-                         font=("Helvetica", 35),
+                         font=("Helvetica", int(self.screen_width/40)),
                          bg=self.primary_color,
                          fg="white")
         label.pack(pady=5, anchor='w')  # Balra igazítás
@@ -307,7 +323,7 @@ class GUI:
         for step in last_steps:
             label = tk.Label(self.step_list,
                              text=step,
-                             font=("Helvetica", 30),
+                             font=("Helvetica", int(self.screen_width/45)),
                              bg=self.negyedleges_color,
                              fg="white")
             label.pack(pady=5, anchor='w')  # Balra igazítás
@@ -333,20 +349,24 @@ class GUI:
 
 
         # Számlálók létrehozása
-        white_label = tk.Label(self.piece_frame, text=self.player1_prefix + self.game_instance.player1.name + " - fehér", font=("Helvetica", 30), bg="#3C3C3C", fg=self.PlayerNameColor1)
-        white_label.pack(pady=5, anchor='c')  # Jobbra igazítás
+        white_label = tk.Label(self.piece_frame, text=self.player1_prefix + self.game_instance.player1.name + " - fehér", font=("Helvetica", int(self.screen_width/40)), bg="#3C3C3C", fg=self.PlayerNameColor1)
+        white_label.pack(pady=5, anchor='w')  # Jobbra igazítás
 
         # Fehér korongok hozzáadása
-        for _ in range(9 - self.game_instance.pieces_placed_player1):
-            white_piece = tk.Label(self.piece_frame, text="⚫", font=("Helvetica", 30), bg="#3C3C3C", fg="white")
-            white_piece.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
-        for _ in range(self.game_instance.pieces_placed_player1):
-            white_piece = tk.Label(self.piece_frame, text=" ", font=("Helvetica", 30), bg="#3C3C3C", fg="white")
-            white_piece.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
+        white_piece = tk.Label(self.piece_frame, text="⚫" * (9 - self.game_instance.pieces_placed_player1), font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
+        white_piece.pack(side=tk.TOP, anchor='w', padx=(0, 10))  # Jobbra igazítás
+        white_piece = tk.Label(self.piece_frame, text=" "* (self.game_instance.pieces_placed_player1), font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
+        white_piece.pack(side=tk.TOP, anchor='w', padx=(0, 10))  # Jobbra igazítás
+        #for _ in range(9 - self.game_instance.pieces_placed_player1):
+        #    white_piece = tk.Label(self.piece_frame, text="⚫", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
+        #    white_piece.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
+        #for _ in range(self.game_instance.pieces_placed_player1):
+        #    white_piece = tk.Label(self.piece_frame, text=" ", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
+        #    white_piece.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
 
         for _ in range(2):
-            space = tk.Label(self.piece_frame, text=" ", font=("Helvetica", 30), bg="#3C3C3C", fg="white")
-            space.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
+            space = tk.Label(self.piece_frame, text=" ", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
+            space.pack(side=tk.TOP, anchor='w', padx=(0, 10))  # Jobbra igazítás
         # Vonal létrehozása a canvas segítségével
         canvas = tk.Canvas(self.piece_frame, width=300, height=5, bg="#3C3C3C", highlightthickness=0)
         canvas.pack(pady=10)
@@ -354,21 +374,28 @@ class GUI:
         # Vízszintes vonal rajzolása
         canvas.create_line(0, 2, 300, 2, fill="white", width=3)  # A vonal a canvas magasságának 2 pixeljével van eltolva
         for _ in range(2):
-            space = tk.Label(self.piece_frame, text=" ", font=("Helvetica", 30), bg="#3C3C3C", fg="white")
-            space.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
-        black_label = tk.Label(self.piece_frame, text=self.player2_prefix + self.game_instance.player2.name + " - fekete", font=("Helvetica", 30), bg="#3C3C3C",
+            space = tk.Label(self.piece_frame, text=" ", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
+            space.pack(side=tk.TOP, anchor='w', padx=(0, 10))  # Jobbra igazítás
+        black_label = tk.Label(self.piece_frame, text=self.player2_prefix + self.game_instance.player2.name + " - fekete", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C",
                                fg=self.PlayerNameColor2)
-        black_label.pack(pady=5, anchor='c')  # Jobbra igazítás
+        black_label.pack(pady=5, anchor='w')  # Jobbra igazítás
 
 
+        black_piece = tk.Label(self.piece_frame, text="⚪" * (9 - self.game_instance.pieces_placed_player2), font=("Helvetica", int(self.screen_width / 45)),
+                               bg="#3C3C3C", fg="white")
+        black_piece.pack(side=tk.TOP, anchor='w', padx=(0, 10))  # Jobbra igazítás
+        black_piece = tk.Label(self.piece_frame, text=" " * (self.game_instance.pieces_placed_player2), font=("Helvetica", int(self.screen_width / 45)),
+                                bg="#3C3C3C", fg="white")
+        black_piece.pack(side=tk.TOP, anchor='w', padx=(0, 10))  # Jobbra igazítás
         # Fekete korongok hozzáadása
+        '''
         for _ in range(9 - self.game_instance.pieces_placed_player2):
-            black_piece = tk.Label(self.piece_frame, text="⚪", font=("Helvetica", 30), bg="#3C3C3C", fg="white")
+            black_piece = tk.Label(self.piece_frame, text="⚪", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
             black_piece.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
         for _ in range(self.game_instance.pieces_placed_player2):
-            black_piece = tk.Label(self.piece_frame, text=" ", font=("Helvetica", 30), bg="#3C3C3C", fg="white")
+            black_piece = tk.Label(self.piece_frame, text=" ", font=("Helvetica", int(self.screen_width/45)), bg="#3C3C3C", fg="white")
             black_piece.pack(side=tk.TOP, anchor='c', padx=(0, 10))  # Jobbra igazítás
-
+        '''
 
     def back_to_menu(self):
         self.show_main_menu()
